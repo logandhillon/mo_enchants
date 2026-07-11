@@ -11,7 +11,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.ldm.mo_enchants.MoEnchantsMod;
 
 public class MoEnchantsEnchantments {
-	public static final DeferredRegister<Enchantment> REGISTRY = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, MoEnchantsMod.MODID);
+	public static final DeferredRegister<Enchantment> REGISTRY = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, MoEnchantsMod.MOD_ID);
 	public static final RegistryObject<Enchantment> HARMING_CURSE = REGISTRY.register("harming_curse", CurseOfHarmingEnchantment::new);
 	public static final RegistryObject<Enchantment> ULTIMATE_FINISH = REGISTRY.register("ultimate_finish", UltimateFinishEnchantment::new);
 	public static final RegistryObject<Enchantment> SCORCHING_CURSE = REGISTRY.register("scorching_curse", CurseOfScorchingEnchantment::new);

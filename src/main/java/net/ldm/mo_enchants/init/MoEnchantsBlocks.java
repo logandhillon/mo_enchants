@@ -10,6 +10,6 @@ import net.ldm.mo_enchants.block.LiquefyingMagmaBlock;
 import net.ldm.mo_enchants.MoEnchantsMod;
 
 public class MoEnchantsBlocks {
-	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, MoEnchantsMod.MODID);
+	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, MoEnchantsMod.MOD_ID);
 	public static final RegistryObject<Block> LIQUEFYING_MAGMA_BLOCK = REGISTRY.register("liquefying_magma_block", LiquefyingMagmaBlock::new);
 }
