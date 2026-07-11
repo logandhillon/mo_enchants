@@ -1,0 +1,52 @@
+# (C) 2025-2026 Logan Dhillon (www.logandhillon.com)
+
+name: build Minecraft mod JAR
+
+permissions:
+  contents: write
+  packages: write
+  actions: read
+
+on:
+  release:
+    types: [ published ]
+
+jobs:
+  build:
+    name: build and upload JAR
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: corretto
+          java-version: 17
+          cache: gradle
+
+      - name: build image
+        run: |
+          chmod +x ./gradlew
+          ./gradlew build
+
+      - name: create release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.release.tag_name }}
+          name: ${{ github.event.release.name }}
+          body: ${{ github.event.release.body }}
+          draft: false
+          prerelease: ${{ github.event.release.prerelease }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: upload release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.release.tag_name }}
+          files: build/libs/**/*.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
