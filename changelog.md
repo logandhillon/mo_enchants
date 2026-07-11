@@ -1,6 +1,7 @@
 # Changelog
 
 ### Mo’ Enchants v1.4.2 (1.18.x)
+
 *The first 1.18 release is here! Get ready to play Mo’ Enchants with the new cave generation!*
 
 - Fixed: Revenant would 2-shot The Wither
@@ -9,6 +10,7 @@
 - Fixed: Minor bugs and glitches
 
 ### Mo’ Enchants v1.5 (1.19.2)
+
 *1.19 support is available now!*
 
 - Added: First Strike enchantment; does 25% more damage on the first strike
@@ -30,6 +32,8 @@
 
 ### Mo' Enchants v1.6 (1.19.2)
 
-- Added: Telekinesis enchantment; puts dropped items directly in your inventory, instead of the ground. (Thanks `@GGGamesXDlol#7940` on Discord for this suggestion!)
-- Added: Reeling enchantment; on right-click, reel in the closest mob. (Thanks `@bcat#2616` on Discord for this suggestion!)
+- Added: Telekinesis enchantment; puts dropped items directly in your inventory, instead of the ground. (Thanks
+  `@GGGamesXDlol#7940` on Discord for this suggestion!)
+- Added: Reeling enchantment; on right-click, reel in the closest mob. (Thanks `@bcat#2616` on Discord for this
+  suggestion!)
 - Added: Replenish enchantment; automatically re-plants crops, if you have the seed in your inventory.

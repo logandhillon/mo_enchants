@@ -1,15 +1,14 @@
 # To Do
 
-
-|      | Legend                                 |
-| ---- | -------------------------------------- |
+|     | Legend                                 |
+|-----|----------------------------------------|
 | ✅   | Developed, passed tests.               |
 | ❎   | Developed, failed tests, awaiting fix. |
 | 🛠️ | Partially developed.                   |
-| 🚩   | Developed, not tested.                 |
-| 🚫   | Developed, scrapped, removed.          |
+| 🚩  | Developed, not tested.                 |
+| 🚫  | Developed, scrapped, removed.          |
 | ⛔   | Not developed, scrapped.               |
-| 🔰   | Not developed, not mandatory.          |
+| 🔰  | Not developed, not mandatory.          |
 
 ### v1.5
 
@@ -28,8 +27,10 @@
     1. ✅ Move `Panic` event call to `onEntityAttacked` from `onPlayerTick`
 13. ✅ `Curse of Freezing` and `Curse of Boiling` don't properly check for biomes
 14. ✅ Make `Density` increase gravity
-15. 🚫 Migrate `Density`, `Growth`, `Night Vision`, `Reach`, `Swiftness` and `Weightless` UUID's to `randomUUID()` from hardcoded UUID
-16. ✅ Migrate `✅ Density`, `✅Growth`, `✅ Reach`, `✅ Swiftness` and `✅ Weightless` UUID get to`getId()` from new UUID instance
+15. 🚫 Migrate `Density`, `Growth`, `Night Vision`, `Reach`, `Swiftness` and `Weightless` UUID's to `randomUUID()` from
+    hardcoded UUID
+16. ✅ Migrate `✅ Density`, `✅Growth`, `✅ Reach`, `✅ Swiftness` and `✅ Weightless` UUID get to`getId()` from new UUID
+    instance
 17. ✅ Lower the chances of `Rock Mending` increasing the durability
 
 ### v1.6
