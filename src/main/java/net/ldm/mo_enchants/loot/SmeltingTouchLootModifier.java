@@ -26,7 +26,7 @@ public class SmeltingTouchLootModifier extends LootModifier {
     public static final Codec<SmeltingTouchLootModifier> CODEC = RecordCodecBuilder.create(
             inst -> codecStart(inst).apply(inst, SmeltingTouchLootModifier::new));
 
-    protected SmeltingTouchLootModifier(LootItemCondition[] conditionsIn) {
+    public SmeltingTouchLootModifier(LootItemCondition[] conditionsIn) {
         super(conditionsIn);
     }
 
