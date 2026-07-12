@@ -1,7 +1,9 @@
 package net.ldm.mo_enchants.event;
 
+import net.ldm.mo_enchants.enchantment.UltimateFinishEnchantment;
 import net.ldm.mo_enchants.enchantment.helpers.*;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
@@ -9,6 +11,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.event.level.ExplosionEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -65,8 +68,13 @@ public class EventHandler {
     public static void onEntityDeath( LivingDeathEvent event) {
         if (event != null && event.getEntity() != null) {
             DetonationHelper.execute(event.getEntity().level(), event.getEntity().blockPosition(), event.getSource().getEntity());
-            UltimateFinishHelper.execute(event.getEntity().level(), event.getEntity().blockPosition(), event.getSource().getEntity());
+            UltimateFinishEnchantment.onEntityDeath(event);
         }
+    }
+
+    @SubscribeEvent
+    public static void onExplosionDetonate(ExplosionEvent.Detonate event) {
+        UltimateFinishEnchantment.onExplosionDetonate(event);
     }
 
     @SubscribeEvent
