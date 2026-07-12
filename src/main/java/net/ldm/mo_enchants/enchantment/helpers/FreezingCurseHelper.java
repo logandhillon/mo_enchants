@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.enchantment.helpers;
 
-import net.ldm.mo_enchants.BiomeTags;
+import net.ldm.mo_enchants.init.ModTags;
 import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -16,7 +16,7 @@ public class FreezingCurseHelper {
 		if (entity == null)
 			return;
 		Holder<Biome> biome = world.getBiome(pos);
-		if (biome.is(BiomeTags.IS_FROZEN)
+		if (biome.is(ModTags.IS_FROZEN)
 				&& ((EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.FREEZING_CURSE.get(), entity.getItemBySlot(EquipmentSlot.HEAD)) >= 1)
 				|| (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.FREEZING_CURSE.get(), entity.getItemBySlot(EquipmentSlot.CHEST)) >= 1)
 				|| (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.FREEZING_CURSE.get(), entity.getItemBySlot(EquipmentSlot.LEGS)) >= 1)
