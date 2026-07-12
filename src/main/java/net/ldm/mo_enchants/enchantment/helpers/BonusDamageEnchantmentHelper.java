@@ -38,15 +38,13 @@ public class BonusDamageEnchantmentHelper {
 		if (event.getEntity().getHealth() == event.getEntity().getMaxHealth() && event.getSource().getEntity() != null && event.getSource().getEntity() instanceof LivingEntity attacker) {
 			if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.FIRST_STRIKE.get(), attacker.getMainHandItem()) >= 1) {
 				event.setAmount((float) (event.getAmount() * 1.25));
-				Level level = event.getSource().getEntity().getLevel();
-				float x = (float) event.getSource().getEntity().getX();
-				float y = (float) event.getSource().getEntity().getY();
-				float z = (float) event.getSource().getEntity().getZ();
+				Level level = event.getSource().getEntity().level();
+				BlockPos pos = event.getSource().getEntity().blockPosition();
 				if (!level.isClientSide()) {
-					level.playSound(null, new BlockPos(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.trident.throw")),
-							SoundSource.PLAYERS, 1, 2);
+					level.playSound(null, pos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.trident.throw")),
+                                    SoundSource.PLAYERS, 1, 2);
 				} else {
-					level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.trident.throw")), SoundSource.PLAYERS, 1, 2, false);
+					level.playLocalSound(pos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.trident.throw")), SoundSource.PLAYERS, 1, 2, false);
 				}
 			}
 		}
@@ -55,15 +53,13 @@ public class BonusDamageEnchantmentHelper {
 			if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.DEVASTATION.get(), attacker.getMainHandItem()) >= 1 &&
 					Math.random() >= 0.1* EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.DEVASTATION.get(), attacker.getMainHandItem())) {
 				event.setAmount((float) (event.getAmount() *1.5));
-				Level level = event.getSource().getEntity().getLevel();
-				float x = (float) event.getSource().getEntity().getX();
-				float y = (float) event.getSource().getEntity().getY();
-				float z = (float) event.getSource().getEntity().getZ();
+				Level level = event.getSource().getEntity().level();
+                BlockPos pos = event.getSource().getEntity().blockPosition();
 				if (!level.isClientSide()) {
-					level.playSound(null, new BlockPos(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.trident.throw")),
+					level.playSound(null, pos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.trident.throw")),
 							SoundSource.PLAYERS, 1, 2);
 				} else {
-					level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.trident.throw")), SoundSource.PLAYERS, 1, 2, false);
+					level.playLocalSound(pos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.trident.throw")), SoundSource.PLAYERS, 1, 2, false);
 				}
 			}
 		}

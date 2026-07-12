@@ -3,6 +3,7 @@ package net.ldm.mo_enchants;
 import net.ldm.mo_enchants.init.MoEnchantsBlocks;
 import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
 import net.ldm.mo_enchants.init.MoEnchantsItems;
+import net.ldm.mo_enchants.init.ModLootModifiers;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -11,12 +12,12 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class MoEnchantsMod {
     public static final String MOD_ID = "mo_enchants";
 
-    public MoEnchantsMod() {
+    public MoEnchantsMod(FMLJavaModLoadingContext context) {
+        IEventBus bus = context.getModEventBus();
 
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         MoEnchantsBlocks.REGISTRY.register(bus);
         MoEnchantsItems.REGISTRY.register(bus);
-
         MoEnchantsEnchantments.REGISTRY.register(bus);
+        ModLootModifiers.LOOT_MODIFIERS.register(bus);
     }
 }

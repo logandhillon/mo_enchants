@@ -19,10 +19,10 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class SavingGraceHelper {
-	public static void execute( LevelAccessor world, double x, double y, double z, Entity entity) {
+	public static void execute( LevelAccessor world, BlockPos pos, Entity entity) {
 		if (entity == null)
 			return;
-		if ((entity.level.dimension()) == (Level.OVERWORLD)) {
+		if ((entity.level().dimension()) == (Level.OVERWORLD)) {
 			if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.SAVING_GRACE.get(),
 					(entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.FEET) : ItemStack.EMPTY)) != 0
 					&& entity.getY() < -75) {
@@ -32,10 +32,10 @@ public class SavingGraceHelper {
 							(entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.FEET) : ItemStack.EMPTY));
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
-						_level.playSound(null, new BlockPos(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.totem.use")),
+						_level.playSound(null, pos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.totem.use")),
 								SoundSource.PLAYERS, 100, 1);
 					} else {
-						_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.totem.use")),
+						_level.playLocalSound(pos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.totem.use")),
 								SoundSource.PLAYERS, 100, 1, false);
 					}
 				}
@@ -61,10 +61,10 @@ public class SavingGraceHelper {
 							(entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.FEET) : ItemStack.EMPTY));
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
-						_level.playSound(null, new BlockPos(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.totem.use")),
+						_level.playSound(null, pos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.totem.use")),
 								SoundSource.PLAYERS, 100, 1);
 					} else {
-						_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.totem.use")),
+						_level.playLocalSound(pos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.totem.use")),
 								SoundSource.PLAYERS, 100, 1, false);
 					}
 				}

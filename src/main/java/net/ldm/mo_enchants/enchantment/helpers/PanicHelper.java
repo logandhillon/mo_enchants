@@ -20,9 +20,9 @@ public class PanicHelper {
 		if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.PANIC.get(), (entity.getItemBySlot(EquipmentSlot.FEET))) <= 0 || entity.getHealth() >= 8) return;
 		int enchLevel = EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.PANIC.get(), (entity.getItemBySlot(EquipmentSlot.FEET)));
 
-		if (entity.getLevel().getGameTime() - entity.getPersistentData().getLong("panicEnchantmentTriggerTime")
+		if (entity.level().getGameTime() - entity.getPersistentData().getLong("panicEnchantmentTriggerTime")
 				> 240 / enchLevel) {
-			entity.getPersistentData().putLong("panicEnchantmentTriggerTime", entity.getLevel().getGameTime());
+			entity.getPersistentData().putLong("panicEnchantmentTriggerTime", entity.level().getGameTime());
 
 			entity.setHealth(7);
 			entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, (enchLevel * 40), enchLevel));
@@ -38,7 +38,7 @@ public class PanicHelper {
 				item.setDamageValue(0);
 			}
 		} else {
-			if (entity instanceof Player player && !player.level.isClientSide())
+			if (entity instanceof Player player && !player.level().isClientSide())
 				player.displayClientMessage(Component.translatable("cooldown.input", Component.translatable("enchantment.mo_enchants.panic")), true);
 		}
 	}

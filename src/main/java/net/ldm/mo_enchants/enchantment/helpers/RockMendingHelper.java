@@ -16,7 +16,8 @@ public class RockMendingHelper {
 		int enchLevel = EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.ROCK_MENDING.get(), usedItemStack);
 
 		if (enchLevel < 0) return;
-		if (state.getMaterial() != net.minecraft.world.level.material.Material.STONE) return;
+        // TODO: replace with tag
+//		if (state.getMaterial() != net.minecraft.world.level.material.Material.STONE) return;
 		if (usedItemStack.getDamageValue() > usedItemStack.getMaxDamage()) return;
 
 		double rand = Math.round(Math.random() * 10);

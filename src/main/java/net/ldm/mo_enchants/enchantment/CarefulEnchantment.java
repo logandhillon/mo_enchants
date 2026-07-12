@@ -7,17 +7,12 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 
 public class CarefulEnchantment extends Enchantment {
-    public CarefulEnchantment( EquipmentSlot... slots ) {
+    public CarefulEnchantment(EquipmentSlot... slots) {
         super(Enchantment.Rarity.UNCOMMON, EnchantmentCategory.BREAKABLE, slots);
     }
 
     @Override
-    public int getMaxLevel() {
-        return 1;
-    }
-
-    @Override
-    public boolean canApplyAtEnchantingTable( ItemStack stack) {
+    public boolean canApplyAtEnchantingTable(ItemStack stack) {
         return stack.getItem() instanceof HoeItem;
     }
 }

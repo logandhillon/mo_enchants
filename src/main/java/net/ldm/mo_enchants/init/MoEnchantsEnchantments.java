@@ -1,14 +1,12 @@
 package net.ldm.mo_enchants.init;
 
+import net.ldm.mo_enchants.MoEnchantsMod;
 import net.ldm.mo_enchants.enchantment.*;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraftforge.registries.RegistryObject;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.DeferredRegister;
-
 import net.minecraft.world.item.enchantment.Enchantment;
-
-import net.ldm.mo_enchants.MoEnchantsMod;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class MoEnchantsEnchantments {
 	public static final DeferredRegister<Enchantment> REGISTRY = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, MoEnchantsMod.MOD_ID);
