@@ -16,7 +16,7 @@ public class BoilingCurseHelper {
 		if (entity == null)
 			return;
 		Holder<Biome> biome = world.getBiome(pos);
-		if ((biome.is(BiomeTags.IS_HOT) || entity.level.dimension() == Level.NETHER)
+		if ((biome.is(BiomeTags.IS_HOT) || entity.level().dimension() == Level.NETHER)
 				&& ((EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.BOILING_CURSE.get(), entity.getItemBySlot(EquipmentSlot.HEAD)) >= 1)
 				|| (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.BOILING_CURSE.get(), entity.getItemBySlot(EquipmentSlot.CHEST)) >= 1)
 				|| (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.BOILING_CURSE.get(), entity.getItemBySlot(EquipmentSlot.LEGS)) >= 1)

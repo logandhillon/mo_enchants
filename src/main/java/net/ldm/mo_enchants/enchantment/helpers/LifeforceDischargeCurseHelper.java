@@ -13,29 +13,33 @@ public class LifeforceDischargeCurseHelper {
 			return;
 		if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.LIFEFORCE_DISCHARGE_CURSE.get(),
 				(sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY)) == 1) {
-			if (sourceentity instanceof LivingEntity _entity)
-				_entity.hurt(new DamageSource("curse.lifeforce_discharge").bypassArmor(), 2);
+            // TODO: damage source
+//			if (sourceentity instanceof LivingEntity _entity)
+//				_entity.hurt(new DamageSource("curse.lifeforce_discharge").bypassArmor(), 2);
 			if (entity instanceof LivingEntity _entity) {
 				_entity.setHealth(_entity.getHealth() + 2);
 			}
 		} else if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.LIFEFORCE_DISCHARGE_CURSE.get(),
 				(sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY)) == 2) {
-			if (sourceentity instanceof LivingEntity _entity)
-				_entity.hurt(new DamageSource("curse.lifeforce_discharge").bypassArmor(), 3);
+            // TODO: damage source
+//			if (sourceentity instanceof LivingEntity _entity)
+//				_entity.hurt(new DamageSource("curse.lifeforce_discharge").bypassArmor(), 3);
 			if (entity instanceof LivingEntity _entity) {
 				_entity.setHealth(_entity.getHealth() + 3);
 			}
 		} else if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.LIFEFORCE_DISCHARGE_CURSE.get(),
 				(sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY)) == 3) {
-			if (sourceentity instanceof LivingEntity _entity)
-				_entity.hurt(new DamageSource("curse.lifeforce_discharge").bypassArmor(), 4);
+            // TODO: damage source
+//			if (sourceentity instanceof LivingEntity _entity)
+//				_entity.hurt(new DamageSource("curse.lifeforce_discharge").bypassArmor(), 4);
 			if (entity instanceof LivingEntity _entity) {
 				_entity.setHealth(_entity.getHealth() + 4);
 			}
 		} else if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.LIFEFORCE_DISCHARGE_CURSE.get(),
 				(sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY)) == 4) {
-			if (sourceentity instanceof LivingEntity _entity)
-				_entity.hurt(new DamageSource("curse.lifeforce_discharge").bypassArmor(), 5);
+            // TODO: damage source
+//			if (sourceentity instanceof LivingEntity _entity)
+//				_entity.hurt(new DamageSource("curse.lifeforce_discharge").bypassArmor(), 5);
 			if (entity instanceof LivingEntity _entity) {
 				_entity.setHealth(_entity.getHealth() + 5);
 			}

@@ -13,7 +13,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.phys.Vec3;
 
 public class ConductionHelper {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity sourceEntity) {
+	public static void execute(LevelAccessor world, BlockPos pos, Entity sourceEntity) {
 		if (sourceEntity == null)
 			return;
 		if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.CONDUCTION.get(),
@@ -21,7 +21,7 @@ public class ConductionHelper {
 				&& world.getLevelData().isThundering()) {
 			if (world instanceof ServerLevel _level) {
 				LightningBolt entityToSpawn = EntityType.LIGHTNING_BOLT.create(_level);
-				entityToSpawn.moveTo(Vec3.atBottomCenterOf(new BlockPos(x, y, z)));
+				entityToSpawn.moveTo(Vec3.atBottomCenterOf(pos));
 				entityToSpawn.setVisualOnly(false);
 				_level.addFreshEntity(entityToSpawn);
 			}

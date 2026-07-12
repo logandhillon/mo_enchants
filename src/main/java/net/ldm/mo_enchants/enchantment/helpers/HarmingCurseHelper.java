@@ -13,8 +13,10 @@ public class HarmingCurseHelper {
 			return;
 		if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.HARMING_CURSE.get(),
 				(sourceEntity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY)) > 0) {
-			if (sourceEntity instanceof LivingEntity _entity)
-				_entity.hurt(new DamageSource("curse.harming").bypassArmor(), 6);
+			if (sourceEntity instanceof LivingEntity _entity) {
+                // TODO: damage sources
+//                _entity.hurt(new DamageSource("curse.harming").bypassArmor(), 6);
+            }
 		}
 	}
 }
