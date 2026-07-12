@@ -17,7 +17,7 @@ public class MoEnchantsMod {
 
         MoEnchantsBlocks.REGISTRY.register(bus);
         MoEnchantsItems.REGISTRY.register(bus);
-        MoEnchantsEnchantments.REGISTRY.register(bus);
+        MoEnchantsEnchantments.ENCHANTMENTS.register(bus);
         ModLootModifiers.LOOT_MODIFIERS.register(bus);
     }
 }
