@@ -1,7 +1,6 @@
 package net.ldm.mo_enchants.enchantment.helpers;
 
 import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;

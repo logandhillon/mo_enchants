@@ -3,7 +3,6 @@ package net.ldm.mo_enchants.event;
 import net.ldm.mo_enchants.enchantment.UltimateFinishEnchantment;
 import net.ldm.mo_enchants.enchantment.helpers.*;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;

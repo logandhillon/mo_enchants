@@ -3,7 +3,6 @@ package net.ldm.mo_enchants.enchantment.helpers;
 import net.ldm.mo_enchants.init.MoEnchantsBlocks;
 import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -11,8 +10,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
-
-import static com.ibm.icu.impl.ValidIdentifiers.Datatype.x;
 
 public class MagmaWalkerHelper {
 	public static void execute( LevelAccessor world, BlockPos pos, Entity entity) {
