@@ -23,6 +23,7 @@ public class DataGenerators {
         gen.addProvider(event.includeClient(), new ModBlockStateProvider(pack, event.getExistingFileHelper()));
 
         gen.addProvider(event.includeServer(), new ModEntityTypeTagsProvider(pack, event.getLookupProvider(), event.getExistingFileHelper()));
+        gen.addProvider(event.includeServer(), new ModBlockTagsProvider(pack, event.getLookupProvider(), event.getExistingFileHelper()));
         gen.addProvider(event.includeServer(), new ModLootModifierProvider(pack));
     }
 }
