@@ -7,6 +7,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.Tags.Blocks;
 
 public class RockMendingHelper {
 	public static void execute(Entity entity, BlockState state) {
@@ -16,8 +17,7 @@ public class RockMendingHelper {
 		int enchLevel = EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.ROCK_MENDING.get(), usedItemStack);
 
 		if (enchLevel < 0) return;
-        // TODO: replace with tag
-//		if (state.getMaterial() != net.minecraft.world.level.material.Material.STONE) return;
+		if (state.is(Blocks.STONE)) return;
 		if (usedItemStack.getDamageValue() > usedItemStack.getMaxDamage()) return;
 
 		double rand = Math.round(Math.random() * 10);
