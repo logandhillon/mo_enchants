@@ -19,7 +19,7 @@ public class BadDreamsCurseHelper {
         if (EnchantmentHelper.getTagEnchantmentLevel(
                 MoEnchantsEnchantments.BAD_DREAMS_CURSE.get(),
                 player.getItemBySlot(EquipmentSlot.HEAD)) != 0) {
-            player.hurt(ModDamageSources.badDreams(player), player.getMaxHealth());
+            player.hurt(ModDamageSources.of(ModDamageSources.BAD_DREAMS, player), Float.MAX_VALUE);
         }
     }
 }
