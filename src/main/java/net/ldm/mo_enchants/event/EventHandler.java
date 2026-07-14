@@ -47,11 +47,6 @@ public class EventHandler {
     }
 
     @SubscribeEvent
-    public static void onPlayerInBed( PlayerSleepInBedEvent event) {
-        BadDreamsCurseHelper.execute(event.getEntity());
-    }
-
-    @SubscribeEvent
     public static void onRightClickItem( PlayerInteractEvent.RightClickItem event) {
         if (event.getHand() != event.getEntity().getUsedItemHand()) return;
         BloodthirstHelper.execute(event.getLevel(), event.getPos(), event.getEntity());

@@ -4,6 +4,7 @@ import net.ldm.mo_enchants.init.MoEnchantsBlocks;
 import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
 import net.ldm.mo_enchants.init.MoEnchantsItems;
 import net.ldm.mo_enchants.init.ModLootModifiers;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -19,5 +20,9 @@ public class MoEnchantsMod {
         MoEnchantsItems.REGISTRY.register(bus);
         MoEnchantsEnchantments.ENCHANTMENTS.register(bus);
         ModLootModifiers.LOOT_MODIFIERS.register(bus);
+    }
+
+    public static ResourceLocation modResource(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
 }
