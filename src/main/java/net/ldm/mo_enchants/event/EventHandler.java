@@ -17,26 +17,25 @@ import net.minecraftforge.fml.common.Mod;
 public class EventHandler {
     @SubscribeEvent
     public static void onEntityAttacked(LivingHurtEvent event) {
-        if (event != null && event.getEntity() != null) {
-            AngelsBlessingHelper.onEntityAttacked(event);
-            ConductionHelper.execute(event.getEntity().level(), event.getEntity().blockPosition(), event.getSource().getEntity());
-            FreezingAspectHelper.execute(event.getEntity(), event.getSource().getEntity());
-            FrostHelper.execute(event.getEntity(), event.getSource().getEntity());
-            HarmingCurseHelper.execute(event.getSource().getEntity());
-            LevitatingHelper.execute(event.getEntity(), event.getSource().getEntity());
-            LifeforceDischargeCurseHelper.execute(event.getEntity(), event.getSource().getEntity());
-            LifeStealHelper.execute(event.getSource().getEntity());
-            RevenantHelper.execute(event.getEntity(), event.getSource().getEntity());
-            ScorchingCurseHelper.execute(event.getEntity());
-            ToxicAspectHelper.execute(event.getEntity(), event.getSource().getEntity());
-            PanicHelper.execute(event.getEntity().level(), event.getEntity());
-        }
+        if (event == null || event.getEntity() == null) return;
+
+        AngelsBlessingHelper.onEntityAttacked(event);
+        ConductionHelper.execute(event.getEntity().level(), event.getEntity().blockPosition(), event.getSource().getEntity());
+        FreezingAspectHelper.execute(event.getEntity(), event.getSource().getEntity());
+        FrostHelper.execute(event.getEntity(), event.getSource().getEntity());
+        HarmingCurseHelper.execute(event.getSource().getEntity());
+        LevitatingHelper.execute(event.getEntity(), event.getSource().getEntity());
+        LifeforceDischargeCurseHelper.execute(event.getEntity(), event.getSource().getEntity());
+        LifeStealHelper.execute(event.getSource().getEntity());
+        RevenantHelper.execute(event.getEntity(), event.getSource().getEntity());
+        ScorchingCurseHelper.execute(event.getEntity());
+        ToxicAspectHelper.execute(event.getEntity(), event.getSource().getEntity());
+        PanicHelper.execute(event.getEntity().level(), event.getEntity());
     }
 
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
-        if (event.side.isClient()) return;
-        if (event.phase != TickEvent.Phase.END) return;
+        if (event.side.isClient() || event.phase != TickEvent.Phase.END) return;
 
         AquaphobiaCurseHelper.onPlayerTick(event);
         BoilingCurseHelper.execute(event.player.level(), new BlockPos(event.player.blockPosition()), event.player);
@@ -49,6 +48,7 @@ public class EventHandler {
     @SubscribeEvent
     public static void onRightClickItem( PlayerInteractEvent.RightClickItem event) {
         if (event.getHand() != event.getEntity().getUsedItemHand()) return;
+
         BloodthirstHelper.execute(event.getLevel(), event.getPos(), event.getEntity());
     }
 
@@ -60,10 +60,10 @@ public class EventHandler {
 
     @SubscribeEvent
     public static void onEntityDeath( LivingDeathEvent event) {
-        if (event != null && event.getEntity() != null) {
-            DetonationHelper.execute(event.getEntity().level(), event.getEntity().blockPosition(), event.getSource().getEntity());
-            UltimateFinishEnchantment.onEntityDeath(event);
-        }
+        if (event.getEntity() == null) return;
+
+        DetonationHelper.execute(event.getEntity().level(), event.getEntity().blockPosition(), event.getSource().getEntity());
+        UltimateFinishEnchantment.onEntityDeath(event);
     }
 
     @SubscribeEvent
