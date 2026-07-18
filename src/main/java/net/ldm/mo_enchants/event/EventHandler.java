@@ -54,8 +54,6 @@ public class EventHandler {
     public static void onEntityDeath(LivingDeathEvent event) {
         if (event.getEntity() == null) return;
 
-        DetonationHelper.onEntityDeath(
-                event.getEntity().level(), event.getEntity().blockPosition(), event.getSource().getEntity());
         UltimateFinishEnchantment.onEntityDeath(event);
     }
 
