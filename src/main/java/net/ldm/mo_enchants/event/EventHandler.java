@@ -19,7 +19,7 @@ public class EventHandler {
 
         AngelsBlessingHelper.onEntityAttacked(event);
         ConductionHelper.onEntityAttacked(event);
-        FreezingAspectHelper.onEntityAttacked(event.getEntity(), event.getSource().getEntity());
+        FreezingAspectHelper.onEntityAttacked(event);
         FrostHelper.onEntityAttacked(event.getEntity(), event.getSource().getEntity());
         HarmingCurseHelper.onEntityAttacked(event.getSource().getEntity());
         LevitatingHelper.onEntityAttacked(event.getEntity(), event.getSource().getEntity());

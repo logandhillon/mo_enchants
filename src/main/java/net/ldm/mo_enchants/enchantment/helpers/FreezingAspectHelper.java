@@ -3,27 +3,21 @@ package net.ldm.mo_enchants.enchantment.helpers;
 import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 public class FreezingAspectHelper {
-	public static void onEntityAttacked(Entity entity, Entity sourceEntity) {
-		if (entity == null || sourceEntity == null)
-			return;
-		if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.FREEZING_ASPECT.get(),
-				(sourceEntity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY)) == 1) {
-			if (entity instanceof LivingEntity _entity)
-				_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 0, (false), (false)));
-		} else if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.FREEZING_ASPECT.get(),
-				(sourceEntity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY)) == 2) {
-			if (entity instanceof LivingEntity _entity)
-				_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 75, 1, (false), (false)));
-		} else if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.FREEZING_ASPECT.get(),
-				(sourceEntity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY)) == 3) {
-			if (entity instanceof LivingEntity _entity)
-				_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 115, 2, (false), (false)));
-		}
-	}
+    public static void onEntityAttacked(LivingHurtEvent event) {
+        if (!(event.getSource().getEntity() instanceof LivingEntity livingEntity)) return;
+
+        int level = livingEntity.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.FREEZING_ASPECT.get());
+        if (level < 1) return;
+
+        event.getEntity().addEffect(new MobEffectInstance(
+                MobEffects.MOVEMENT_SLOWDOWN,
+                40 + (level - 1) * 35,
+                level - 1,
+                false,
+                false));
+    }
 }
