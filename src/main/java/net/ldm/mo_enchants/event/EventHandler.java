@@ -8,7 +8,6 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.level.ExplosionEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -35,15 +34,16 @@ public class EventHandler {
     }
 
     @SubscribeEvent
-    public static void onPlayerTick( TickEvent.PlayerTickEvent event) {
-        if (event.phase == TickEvent.Phase.END) {
-            AquaphobiaCurseHelper.execute(event.player.level(), event.player.blockPosition(), event.player);
-            BoilingCurseHelper.execute(event.player.level(), new BlockPos(event.player.blockPosition()), event.player);
-            FireCoatingHelper.execute(event.player);
-            FreezingCurseHelper.execute(event.player.level(), new BlockPos(event.player.blockPosition()), event.player);
-            MagmaWalkerHelper.execute(event.player.level(), event.player.getOnPos(), event.player);
-            SavingGraceHelper.execute(event.player.level(), event.player.blockPosition(), event.player);
-        }
+    public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
+        if (event.side.isClient()) return;
+        if (event.phase != TickEvent.Phase.END) return;
+
+        AquaphobiaCurseHelper.onPlayerTick(event);
+        BoilingCurseHelper.execute(event.player.level(), new BlockPos(event.player.blockPosition()), event.player);
+        FireCoatingHelper.execute(event.player);
+        FreezingCurseHelper.execute(event.player.level(), new BlockPos(event.player.blockPosition()), event.player);
+        MagmaWalkerHelper.execute(event.player.level(), event.player.getOnPos(), event.player);
+        SavingGraceHelper.execute(event.player.level(), event.player.blockPosition(), event.player);
     }
 
     @SubscribeEvent

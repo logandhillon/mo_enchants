@@ -1,43 +1,34 @@
 package net.ldm.mo_enchants.enchantment.helpers;
 
 import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.Entity;
+import net.ldm.mo_enchants.init.ModDamageSources;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraftforge.event.TickEvent.PlayerTickEvent;
 
 public class AquaphobiaCurseHelper {
-	public static void execute( LevelAccessor world, BlockPos pos, Entity entity) {
-		if (entity == null) return;
-		if (((world.getBlockState(pos)).getBlock() instanceof LiquidBlock _liquid
-				? new ItemStack(_liquid.getFluid().getBucket())
-				: ItemStack.EMPTY).getItem() == Items.WATER_BUCKET
-				&& (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.AQUAPHOBIA_CURSE.get(),
-				(entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.HEAD) : ItemStack.EMPTY)) != 0
-						|| EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.AQUAPHOBIA_CURSE.get(),
-				(entity instanceof LivingEntity _entGetArmor
-						? _entGetArmor.getItemBySlot(EquipmentSlot.CHEST)
-						: ItemStack.EMPTY)) != 0
-						|| EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.AQUAPHOBIA_CURSE.get(),
-				(entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.LEGS) : ItemStack.EMPTY)) != 0
-						|| EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.AQUAPHOBIA_CURSE.get(),
-				(entity instanceof LivingEntity _entGetArmor
-						? _entGetArmor.getItemBySlot(EquipmentSlot.FEET)
-						: ItemStack.EMPTY)) != 0)) {
+    public static void onPlayerTick(PlayerTickEvent event) {
+        if (event.player == null || !event.player.isInWater() || !hasAquaphobia(event.player)) return;
 
-			if (entity.level().getGameTime() - entity.getPersistentData().getLong("aquaphobiaDamageTriggerTime")
-					> 10) {
-				entity.getPersistentData().putLong("aquaphobiaDamageTriggerTime", entity.level().getGameTime());
-				if (entity instanceof LivingEntity _entity) {
-                    // TODO: damage sources
-//                    _entity.hurt(new DamageSource("curse.aquaphobia").bypassArmor(), 1);
-                }
-			}
-		}
-	}
+        if (event.player.tickCount % 10 == 0) {
+            event.player.hurt(ModDamageSources.of(ModDamageSources.AQUAPHOBIA, event.player), 1);
+        }
+    }
+
+    private static boolean hasAquaphobia(LivingEntity entity) {
+        for (EquipmentSlot slot: new EquipmentSlot[]{
+                EquipmentSlot.HEAD,
+                EquipmentSlot.CHEST,
+                EquipmentSlot.LEGS,
+                EquipmentSlot.FEET
+        }) {
+            if (EnchantmentHelper.getTagEnchantmentLevel(
+                    MoEnchantsEnchantments.AQUAPHOBIA_CURSE.get(),
+                    entity.getItemBySlot(slot)) > 0) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
