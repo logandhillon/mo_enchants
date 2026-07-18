@@ -46,13 +46,6 @@ public class EventHandler {
     }
 
     @SubscribeEvent
-    public static void onRightClickItem( PlayerInteractEvent.RightClickItem event) {
-        if (event.getHand() != event.getEntity().getUsedItemHand()) return;
-
-        BloodthirstHelper.execute(event.getLevel(), event.getPos(), event.getEntity());
-    }
-
-    @SubscribeEvent
     public static void onBlockBreak( BlockEvent.BreakEvent event) {
         CarefulEnchantmentHelper.execute(event);
         RockMendingHelper.execute(event.getPlayer(), event.getState());
