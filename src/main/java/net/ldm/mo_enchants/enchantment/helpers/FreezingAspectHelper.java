@@ -10,7 +10,9 @@ public class FreezingAspectHelper {
     public static void onEntityAttacked(LivingHurtEvent event) {
         if (!(event.getSource().getEntity() instanceof LivingEntity livingEntity)) return;
 
-        int level = livingEntity.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.FREEZING_ASPECT.get());
+        int level = Math.max(
+                livingEntity.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.FREEZING_ASPECT.get()),
+                livingEntity.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.FROST.get()));
         if (level < 1) return;
 
         event.getEntity().addEffect(new MobEffectInstance(

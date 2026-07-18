@@ -2,7 +2,6 @@ package net.ldm.mo_enchants.event;
 
 import net.ldm.mo_enchants.enchantment.UltimateFinishEnchantment;
 import net.ldm.mo_enchants.enchantment.helpers.*;
-import net.minecraft.core.BlockPos;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -15,12 +14,11 @@ import net.minecraftforge.fml.common.Mod;
 public class EventHandler {
     @SubscribeEvent
     public static void onEntityAttacked(LivingHurtEvent event) {
-        if (event == null || event.getEntity() == null) return;
+        if (event.getEntity() == null) return;
 
         AngelsBlessingHelper.onEntityAttacked(event);
         ConductionHelper.onEntityAttacked(event);
         FreezingAspectHelper.onEntityAttacked(event);
-        FrostHelper.onEntityAttacked(event.getEntity(), event.getSource().getEntity());
         HarmingCurseHelper.onEntityAttacked(event.getSource().getEntity());
         LevitatingHelper.onEntityAttacked(event.getEntity(), event.getSource().getEntity());
         LifeforceDischargeCurseHelper.onEntityAttacked(event.getEntity(), event.getSource().getEntity());
