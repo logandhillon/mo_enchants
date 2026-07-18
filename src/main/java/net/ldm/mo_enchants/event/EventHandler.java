@@ -16,9 +16,9 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber
 public class EventHandler {
     @SubscribeEvent
-    public static void onEntityAttacked( LivingHurtEvent event) {
+    public static void onEntityAttacked(LivingHurtEvent event) {
         if (event != null && event.getEntity() != null) {
-            AngelsBlessingHelper.execute(event.getEntity(), event.getAmount());
+            AngelsBlessingHelper.onEntityAttacked(event);
             ConductionHelper.execute(event.getEntity().level(), event.getEntity().blockPosition(), event.getSource().getEntity());
             FreezingAspectHelper.execute(event.getEntity(), event.getSource().getEntity());
             FrostHelper.execute(event.getEntity(), event.getSource().getEntity());
