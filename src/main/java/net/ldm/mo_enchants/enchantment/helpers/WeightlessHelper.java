@@ -13,7 +13,7 @@ import java.util.UUID;
 public class WeightlessHelper {
     private static final UUID WEIGHTLESS_UUID = UUID.fromString("2af7cbaa-5fbe-4e0b-99e0-b73c60da33d7");
 
-    public static void execute(LivingEquipmentChangeEvent event) {
+    public static void onEquipmentChange(LivingEquipmentChangeEvent event) {
         if (!event.getSlot().equals(EquipmentSlot.LEGS)) return;
 
         AttributeInstance gravity = event.getEntity().getAttributes().getInstance(ForgeMod.ENTITY_GRAVITY.get());

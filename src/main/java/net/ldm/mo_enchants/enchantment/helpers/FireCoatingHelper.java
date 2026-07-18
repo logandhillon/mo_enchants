@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber
 public class FireCoatingHelper {
 
-	public static void execute( Entity entity ) {
+	public static void onPlayerTick(Entity entity ) {
 		if (entity == null)
 			return;
 		if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.FIRE_COATING.get(),

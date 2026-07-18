@@ -13,7 +13,7 @@ public class ReachHelper {
 	private static final AttributeModifier reachEnchantmentLv2 = new AttributeModifier(UUID.fromString("3b027877-2a5d-4ca2-bbbc-1dfff5386c12"), "reachEnchantmentLv2", 2, AttributeModifier.Operation.ADDITION);
 	private static final AttributeModifier reachEnchantmentLv3 = new AttributeModifier(UUID.fromString("cc16cf93-9913-4026-8722-d5232c27bdee"), "reachEnchantmentLv3", 3, AttributeModifier.Operation.ADDITION);
 
-	public static void execute(LivingEquipmentChangeEvent event) {
+	public static void onEquipmentChange(LivingEquipmentChangeEvent event) {
 		if (event.getSlot().equals(EquipmentSlot.MAINHAND)) {
 			final AttributeInstance attributeInstance = event.getEntity().getAttributes().getInstance(ForgeMod.BLOCK_REACH.get());
 

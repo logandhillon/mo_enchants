@@ -9,7 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 
 public class FreezingAspectHelper {
-	public static void execute(Entity entity, Entity sourceEntity) {
+	public static void onEntityAttacked(Entity entity, Entity sourceEntity) {
 		if (entity == null || sourceEntity == null)
 			return;
 		if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.FREEZING_ASPECT.get(),

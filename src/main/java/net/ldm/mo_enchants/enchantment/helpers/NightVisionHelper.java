@@ -9,7 +9,7 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 
 public class NightVisionHelper {
-	public static void execute(LivingEquipmentChangeEvent event) {
+	public static void onEquipmentChange(LivingEquipmentChangeEvent event) {
 		if (event.getSlot().equals(EquipmentSlot.HEAD) && event.getEntity() instanceof Player) {
 			if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.NIGHT_VISION.get(), event.getTo()) >= 1) {
 				event.getEntity().addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 2147483647, 0, false, false, false));

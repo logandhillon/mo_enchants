@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 
 public class ScorchingCurseHelper {
-	public static void execute( Entity entity) {
+	public static void onEntityAttacked(Entity entity) {
 		if (entity == null)
 			return;
 		if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.SCORCHING_CURSE.get(),

@@ -20,16 +20,16 @@ public class EventHandler {
 
         AngelsBlessingHelper.onEntityAttacked(event);
         ConductionHelper.onEntityAttacked(event);
-        FreezingAspectHelper.execute(event.getEntity(), event.getSource().getEntity());
-        FrostHelper.execute(event.getEntity(), event.getSource().getEntity());
-        HarmingCurseHelper.execute(event.getSource().getEntity());
-        LevitatingHelper.execute(event.getEntity(), event.getSource().getEntity());
-        LifeforceDischargeCurseHelper.execute(event.getEntity(), event.getSource().getEntity());
-        LifeStealHelper.execute(event.getSource().getEntity());
-        RevenantHelper.execute(event.getEntity(), event.getSource().getEntity());
-        ScorchingCurseHelper.execute(event.getEntity());
-        ToxicAspectHelper.execute(event.getEntity(), event.getSource().getEntity());
-        PanicHelper.execute(event.getEntity().level(), event.getEntity());
+        FreezingAspectHelper.onEntityAttacked(event.getEntity(), event.getSource().getEntity());
+        FrostHelper.onEntityAttacked(event.getEntity(), event.getSource().getEntity());
+        HarmingCurseHelper.onEntityAttacked(event.getSource().getEntity());
+        LevitatingHelper.onEntityAttacked(event.getEntity(), event.getSource().getEntity());
+        LifeforceDischargeCurseHelper.onEntityAttacked(event.getEntity(), event.getSource().getEntity());
+        LifeStealHelper.onEntityAttacked(event.getSource().getEntity());
+        RevenantHelper.onEntityAttacked(event.getEntity(), event.getSource().getEntity());
+        ScorchingCurseHelper.onEntityAttacked(event.getEntity());
+        ToxicAspectHelper.onEntityAttacked(event.getEntity(), event.getSource().getEntity());
+        PanicHelper.onEntityAttacked(event.getEntity().level(), event.getEntity());
     }
 
     @SubscribeEvent
@@ -38,22 +38,24 @@ public class EventHandler {
 
         AquaphobiaCurseHelper.onPlayerTick(event);
         BoilingCurseHelper.onPlayerTick(event);
-        FireCoatingHelper.execute(event.player);
-        FreezingCurseHelper.execute(event.player.level(), new BlockPos(event.player.blockPosition()), event.player);
-        MagmaWalkerHelper.execute(event.player.level(), event.player.getOnPos(), event.player);
-        SavingGraceHelper.execute(event.player.level(), event.player.blockPosition(), event.player);
+        FireCoatingHelper.onPlayerTick(event.player);
+        FreezingCurseHelper.onPlayerTick(
+                event.player.level(), new BlockPos(event.player.blockPosition()), event.player);
+        MagmaWalkerHelper.onPlayerTick(event.player.level(), event.player.getOnPos(), event.player);
+        SavingGraceHelper.onPlayerTick(event.player.level(), event.player.blockPosition(), event.player);
     }
 
     @SubscribeEvent
-    public static void onBlockBreak( BlockEvent.BreakEvent event) {
-        RockMendingHelper.execute(event.getPlayer(), event.getState());
+    public static void onBlockBreak(BlockEvent.BreakEvent event) {
+        RockMendingHelper.onBlockBreak(event.getPlayer(), event.getState());
     }
 
     @SubscribeEvent
-    public static void onEntityDeath( LivingDeathEvent event) {
+    public static void onEntityDeath(LivingDeathEvent event) {
         if (event.getEntity() == null) return;
 
-        DetonationHelper.execute(event.getEntity().level(), event.getEntity().blockPosition(), event.getSource().getEntity());
+        DetonationHelper.onEntityDeath(
+                event.getEntity().level(), event.getEntity().blockPosition(), event.getSource().getEntity());
         UltimateFinishEnchantment.onEntityDeath(event);
     }
 
@@ -64,11 +66,10 @@ public class EventHandler {
 
     @SubscribeEvent
     public static void onEquipmentChange(LivingEquipmentChangeEvent event) {
-        DensityCurseHelper.execute(event);
-        GrowthHelper.execute(event);
-        NightVisionHelper.execute(event);
-        ReachHelper.execute(event);
-        SwiftnessHelper.execute(event);
-        WeightlessHelper.execute(event);
+        GrowthHelper.onEquipmentChange(event);
+        NightVisionHelper.onEquipmentChange(event);
+        ReachHelper.onEquipmentChange(event);
+        SwiftnessHelper.onEquipmentChange(event);
+        WeightlessHelper.onEquipmentChange(event);
     }
 }

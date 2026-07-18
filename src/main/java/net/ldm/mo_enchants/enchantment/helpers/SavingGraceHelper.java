@@ -19,7 +19,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class SavingGraceHelper {
-	public static void execute( LevelAccessor world, BlockPos pos, Entity entity) {
+	public static void onPlayerTick(LevelAccessor world, BlockPos pos, Entity entity) {
 		if (entity == null)
 			return;
 		if ((entity.level().dimension()) == (Level.OVERWORLD)) {

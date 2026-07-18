@@ -9,7 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 
 public class LevitatingHelper {
-	public static void execute(Entity entity, Entity sourceentity) {
+	public static void onEntityAttacked(Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
 		if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.LEVITATING.get(),

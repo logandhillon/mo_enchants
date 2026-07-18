@@ -7,7 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 
 public class LifeforceDischargeCurseHelper {
-	public static void execute(Entity entity, Entity sourceentity) {
+	public static void onEntityAttacked(Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
 		if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.LIFEFORCE_DISCHARGE_CURSE.get(),

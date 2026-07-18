@@ -11,7 +11,7 @@ import net.minecraft.world.level.Level.ExplosionInteraction;
 import net.minecraft.world.level.LevelAccessor;
 
 public class DetonationHelper {
-	public static void execute(LevelAccessor world, BlockPos pos, Entity sourceEntity ) {
+	public static void onEntityDeath(LevelAccessor world, BlockPos pos, Entity sourceEntity ) {
 		if (sourceEntity == null)
 			return;
 		if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.DETONATION.get(),

@@ -7,7 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 
 public class HarmingCurseHelper {
-	public static void execute( Entity sourceEntity) {
+	public static void onEntityAttacked(Entity sourceEntity) {
 		if (sourceEntity == null)
 			return;
 		if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.HARMING_CURSE.get(),

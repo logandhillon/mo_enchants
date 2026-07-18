@@ -13,7 +13,7 @@ public class SwiftnessHelper {
 	private static final AttributeModifier swiftnessEnchantmentLv2 = new AttributeModifier(UUID.fromString("430f19d0-3003-462d-a368-a7657ce2e34a"), "swiftnessEnchantmentLv2", 0.02, AttributeModifier.Operation.ADDITION);
 	private static final AttributeModifier swiftnessEnchantmentLv3 = new AttributeModifier(UUID.fromString("af804924-997d-42df-b85b-aa58553fb127"), "swiftnessEnchantmentLv3", 0.03, AttributeModifier.Operation.ADDITION);
 
-	public static void execute(LivingEquipmentChangeEvent event) {
+	public static void onEquipmentChange(LivingEquipmentChangeEvent event) {
 		if (event.getSlot().equals(EquipmentSlot.FEET)) {
 			final AttributeInstance attributeInstance = event.getEntity().getAttributes().getInstance(Attributes.MOVEMENT_SPEED);
 

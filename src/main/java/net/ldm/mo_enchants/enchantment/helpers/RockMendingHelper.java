@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.Tags.Blocks;
 
 public class RockMendingHelper {
-	public static void execute(Entity entity, BlockState state) {
+	public static void onBlockBreak(Entity entity, BlockState state) {
 		if (!(entity instanceof LivingEntity livingEntity)) return;
 
 		ItemStack usedItemStack = livingEntity.getMainHandItem();

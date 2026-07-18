@@ -13,7 +13,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.Tags;
 
 public class FreezingCurseHelper {
-	public static void execute(LevelAccessor world, BlockPos pos, Player entity) {
+	public static void onPlayerTick(LevelAccessor world, BlockPos pos, Player entity) {
 		if (entity == null)
 			return;
 		Holder<Biome> biome = world.getBiome(pos);

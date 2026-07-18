@@ -11,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 
 public class RevenantHelper {
-	public static void execute(Entity victim, Entity attacker) {
+	public static void onEntityAttacked(Entity victim, Entity attacker) {
 		if (victim == null || attacker == null)
 			return;
 

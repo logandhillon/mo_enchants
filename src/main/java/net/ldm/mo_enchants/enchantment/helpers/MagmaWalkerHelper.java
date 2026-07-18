@@ -12,7 +12,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 
 public class MagmaWalkerHelper {
-	public static void execute( LevelAccessor world, BlockPos pos, Entity entity) {
+	public static void onPlayerTick(LevelAccessor world, BlockPos pos, Entity entity) {
 		if (entity == null)
 			return;
 		if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.MAGMA_WALKER.get(),
