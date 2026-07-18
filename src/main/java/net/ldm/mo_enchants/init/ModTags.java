@@ -10,6 +10,7 @@ import net.minecraft.world.entity.EntityType;
 
 public class ModTags {
     public static final TagKey<EntityType<?>> BOSSES = tag(Registries.ENTITY_TYPE, "bosses");
+    public static final TagKey<EntityType<?>> WATER_WEAK_MOBS = tag(Registries.ENTITY_TYPE, "water_weak_mobs");
 
     private static <T> TagKey<T> tag(ResourceKey<? extends Registry<T>> type, String id) {
         return TagKey.create(type, ResourceLocation.fromNamespaceAndPath(MoEnchantsMod.MOD_ID, id));

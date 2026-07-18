@@ -1,67 +1,75 @@
 package net.ldm.mo_enchants.enchantment.helpers;
 
 import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
-import net.minecraft.core.BlockPos;
+import net.ldm.mo_enchants.init.ModTags;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.monster.Blaze;
-import net.minecraft.world.entity.monster.EnderMan;
-import net.minecraft.world.entity.monster.MagmaCube;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.level.Level;
-import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.Objects;
+
 @Mod.EventBusSubscriber
 public class BonusDamageEnchantmentHelper {
-	@SubscribeEvent
-	public static void onLivingDamage( LivingDamageEvent event ) {
-		if (event.getEntity() instanceof Animal && event.getSource().getEntity() != null && event.getSource().getEntity() instanceof LivingEntity attacker) {
-			if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.HUNTER.get(), attacker.getMainHandItem()) >= 1) {
-				event.setAmount((float) (event.getAmount() + EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.HUNTER.get(), attacker.getMainHandItem()) * 1.5));
-			}
-			return;
-		}
 
-		if (event.getEntity() instanceof EnderMan || event.getEntity() instanceof Blaze || event.getEntity() instanceof MagmaCube
-				&& event.getSource().getEntity() != null && event.getSource().getEntity() instanceof LivingEntity) {
-			LivingEntity attacker = (LivingEntity) event.getSource().getEntity();
-			if (attacker != null && EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.AQUA_SLASH.get(), attacker.getMainHandItem()) >= 1) {
-				event.setAmount((float) (event.getAmount() + EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.AQUA_SLASH.get(), attacker.getMainHandItem()) * 1.5));
-			}
-		}
+    @SubscribeEvent
+    public static void onEntityHurt(LivingHurtEvent event) {
+        if (!(event.getSource().getEntity() instanceof LivingEntity attacker)) return;
+        LivingEntity victim = event.getEntity();
 
-		if (event.getEntity().getHealth() == event.getEntity().getMaxHealth() && event.getSource().getEntity() != null && event.getSource().getEntity() instanceof LivingEntity attacker) {
-			if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.FIRST_STRIKE.get(), attacker.getMainHandItem()) >= 1) {
-				event.setAmount((float) (event.getAmount() * 1.25));
-				Level level = event.getSource().getEntity().level();
-				BlockPos pos = event.getSource().getEntity().blockPosition();
-				if (!level.isClientSide()) {
-					level.playSound(null, pos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.trident.throw")),
-                                    SoundSource.PLAYERS, 1, 2);
-				} else {
-					level.playLocalSound(pos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.trident.throw")), SoundSource.PLAYERS, 1, 2, false);
-				}
-			}
-		}
+        if (victim instanceof Animal) {
+            int level = attacker.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.HUNTER.get());
+            if (level >= 1) {
+                event.setAmount(event.getAmount() + (level * 1.5f));
+            }
+            return;
+        }
 
-		if (event.getSource().getEntity() != null && event.getSource().getEntity() instanceof LivingEntity attacker) {
-			if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.DEVASTATION.get(), attacker.getMainHandItem()) >= 1 &&
-					Math.random() >= 0.1* EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.DEVASTATION.get(), attacker.getMainHandItem())) {
-				event.setAmount((float) (event.getAmount() *1.5));
-				Level level = event.getSource().getEntity().level();
-                BlockPos pos = event.getSource().getEntity().blockPosition();
-				if (!level.isClientSide()) {
-					level.playSound(null, pos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.trident.throw")),
-							SoundSource.PLAYERS, 1, 2);
-				} else {
-					level.playLocalSound(pos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.trident.throw")), SoundSource.PLAYERS, 1, 2, false);
-				}
-			}
-		}
-	}
+        if (victim.getType().is(ModTags.WATER_WEAK_MOBS)) {
+            int level = attacker.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.AQUA_SLASH.get());
+            if (level >= 1) {
+                event.setAmount(event.getAmount() + (level * 1.5f));
+            }
+            return;
+        }
+
+        if (victim.getHealth() == victim.getMaxHealth()) {
+            int level = attacker.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.FIRST_STRIKE.get());
+
+            if (level >= 1) {
+                event.setAmount(event.getAmount() * 1.25f);
+                playBonusDamageSound(attacker);
+            }
+            return;
+        }
+
+        int level = attacker.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.DEVASTATION.get());
+        if (level > 0 && Math.random() >= 0.1 * level) {
+            event.setAmount(event.getAmount() * 1.5f);
+            playBonusDamageSound(attacker);
+        }
+    }
+
+    /**
+     * Plays a pitched-up trident throw sound effect on the server side.
+     *
+     * @param attacker source of sound effect; the attacker
+     */
+    private static void playBonusDamageSound(LivingEntity attacker) {
+        if (!attacker.level().isClientSide) {
+            attacker.level().playSound(
+                    attacker,
+                    attacker.blockPosition(),
+                    Objects.requireNonNull(
+                            ForgeRegistries.SOUND_EVENTS.getValue(
+                                    ResourceLocation.withDefaultNamespace("item.trident.throw"))),
+                    SoundSource.PLAYERS,
+                    1,
+                    2);
+        }
+    }
 }
