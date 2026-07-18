@@ -7,7 +7,6 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.level.ExplosionEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -38,7 +37,7 @@ public class EventHandler {
         if (event.side.isClient() || event.phase != TickEvent.Phase.END) return;
 
         AquaphobiaCurseHelper.onPlayerTick(event);
-        BoilingCurseHelper.execute(event.player.level(), new BlockPos(event.player.blockPosition()), event.player);
+        BoilingCurseHelper.onPlayerTick(event);
         FireCoatingHelper.execute(event.player);
         FreezingCurseHelper.execute(event.player.level(), new BlockPos(event.player.blockPosition()), event.player);
         MagmaWalkerHelper.execute(event.player.level(), event.player.getOnPos(), event.player);
