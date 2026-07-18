@@ -46,7 +46,6 @@ public class EventHandler {
 
     @SubscribeEvent
     public static void onBlockBreak( BlockEvent.BreakEvent event) {
-        CarefulEnchantmentHelper.execute(event);
         RockMendingHelper.execute(event.getPlayer(), event.getState());
     }
 

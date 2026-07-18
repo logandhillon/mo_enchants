@@ -1,20 +1,20 @@
 package net.ldm.mo_enchants.enchantment.helpers;
 
 import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.block.CropBlock;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
-import javax.annotation.Nullable;
-
+@EventBusSubscriber
 public class CarefulEnchantmentHelper {
-    public static void execute(@Nullable BlockEvent.BreakEvent event) {
-        if (event != null && EnchantmentHelper.getEnchantmentLevel(MoEnchantsEnchantments.CAREFUL.get(), event.getPlayer()) >= 1 &&
-            event.getState().is(BlockTags.CROPS) &&
-            event.getState().getBlock() instanceof CropBlock && event.getState().getValue(CropBlock.AGE) <= 6) {
+    @SubscribeEvent
+    public static void onBlockBreak(BlockEvent.BreakEvent event) {
+        if (event.getPlayer().getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.CAREFUL.get()) > 0
+            && event.getState().is(BlockTags.CROPS)
+            && event.getState().getValue(CropBlock.AGE) <= 6
+        ) {
             event.setCanceled(true);
         }
     }
