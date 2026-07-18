@@ -38,8 +38,7 @@ public class EventHandler {
         AquaphobiaCurseHelper.onPlayerTick(event);
         BoilingCurseHelper.onPlayerTick(event);
         FireCoatingHelper.onPlayerTick(event);
-        FreezingCurseHelper.onPlayerTick(
-                event.player.level(), new BlockPos(event.player.blockPosition()), event.player);
+        FreezingCurseHelper.onPlayerTick(event);
         MagmaWalkerHelper.onPlayerTick(event.player.level(), event.player.getOnPos(), event.player);
         SavingGraceHelper.onPlayerTick(event.player.level(), event.player.blockPosition(), event.player);
     }
