@@ -4,7 +4,6 @@ import net.ldm.mo_enchants.enchantment.UltimateFinishEnchantment;
 import net.ldm.mo_enchants.enchantment.helpers.*;
 import net.minecraft.core.BlockPos;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.level.BlockEvent;
@@ -48,13 +47,6 @@ public class EventHandler {
     @SubscribeEvent
     public static void onBlockBreak(BlockEvent.BreakEvent event) {
         RockMendingHelper.onBlockBreak(event.getPlayer(), event.getState());
-    }
-
-    @SubscribeEvent
-    public static void onEntityDeath(LivingDeathEvent event) {
-        if (event.getEntity() == null) return;
-
-        UltimateFinishEnchantment.onEntityDeath(event);
     }
 
     @SubscribeEvent
