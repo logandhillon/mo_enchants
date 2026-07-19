@@ -47,11 +47,6 @@ public class EventHandler {
     }
 
     @SubscribeEvent
-    public static void onBlockBreak(BlockEvent.BreakEvent event) {
-        RockMendingHelper.onBlockBreak(event.getPlayer(), event.getState());
-    }
-
-    @SubscribeEvent
     public static void onEquipmentChange(LivingEquipmentChangeEvent event) {
         GrowthHelper.onEquipmentChange(event);
         NightVisionHelper.onEquipmentChange(event);

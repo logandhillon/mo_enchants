@@ -2,31 +2,28 @@ package net.ldm.mo_enchants.enchantment.helpers;
 
 import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.Tags.Blocks;
+import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
+@EventBusSubscriber
 public class RockMendingHelper {
-	public static void onBlockBreak(Entity entity, BlockState state) {
-		if (!(entity instanceof LivingEntity livingEntity)) return;
+    @SubscribeEvent
+    public static void onBlockBreak(BlockEvent.BreakEvent event) {
+        ItemStack stack = event.getPlayer().getMainHandItem();
+        int level = stack.getEnchantmentLevel(MoEnchantsEnchantments.ROCK_MENDING.get());
+        BlockState state = event.getState();
 
-		ItemStack usedItemStack = livingEntity.getMainHandItem();
-		int enchLevel = EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.ROCK_MENDING.get(), usedItemStack);
+        if (level < 1 || state.is(Blocks.STONE) || stack.getDamageValue() >= stack.getMaxDamage()) return;
 
-		if (enchLevel < 0) return;
-		if (state.is(Blocks.STONE)) return;
-		if (usedItemStack.getDamageValue() > usedItemStack.getMaxDamage()) return;
+        if (!(Math.random() * 10 < level * 2)) return;
 
-		double rand = Math.round(Math.random() * 10);
-
-		if (rand < (enchLevel*2)) {
-			if (usedItemStack.hurt(-1, RandomSource.create(), null)) {
-				usedItemStack.shrink(1);
-				usedItemStack.setDamageValue(0);
-			}
-		}
-	}
+        if (stack.hurt(-1, RandomSource.create(), null)) {
+            stack.shrink(1);
+            stack.setDamageValue(0);
+        }
+    }
 }
