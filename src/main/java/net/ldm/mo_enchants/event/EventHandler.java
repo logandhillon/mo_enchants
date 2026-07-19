@@ -20,7 +20,7 @@ public class EventHandler {
         AngelsBlessingHelper.onEntityAttacked(event);
         ConductionHelper.onEntityAttacked(event, attacker);
         FreezingAspectHelper.onEntityAttacked(event, attacker);
-        HarmingCurseHelper.onEntityAttacked(event, attacker);
+        HarmingCurseEnchantment.onEntityAttacked(event, attacker);
         LevitatingEnchantment.onEntityAttacked(event, attacker);
         LifeforceDischargeCurseEnchantment.onEntityAttacked(attacker);
         LifeStealEnchantment.onEntityAttacked(attacker);
@@ -51,11 +51,6 @@ public class EventHandler {
 
     @SubscribeEvent
     public static void onEquipmentChange(LivingEquipmentChangeEvent event) {
-        GrowthHelper.onEquipmentChange(event);
         NightVisionEnchantment.onEquipmentChange(event);
-        ReachHelper.onEquipmentChange(event);
-        SwiftnessHelper.onEquipmentChange(event);
-        WeightlessHelper.onEquipmentChange(event);
-        DensityCurseHelper.onEquipmentChange(event);
     }
 }

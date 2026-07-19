@@ -3,12 +3,18 @@ package net.ldm.mo_enchants.init;
 import net.ldm.mo_enchants.MoEnchantsMod;
 import net.ldm.mo_enchants.enchantment.*;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantment.Rarity;
+import net.minecraft.world.item.enchantment.EnchantmentCategory;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;
+import java.util.UUID;
 import java.util.function.Supplier;
 
 public class MoEnchantsEnchantments {
@@ -19,7 +25,7 @@ public class MoEnchantsEnchantments {
 
     public static final RegistryObject<Enchantment> HARMING_CURSE = register(
             "harming_curse",
-            CurseOfHarmingEnchantment::new,
+            HarmingCurseEnchantment::new,
             "Curse of Harming",
             "Damages you when you damage any other mob.");
 
@@ -103,7 +109,17 @@ public class MoEnchantsEnchantments {
 
     public static final RegistryObject<Enchantment> SWIFTNESS = register(
             "swiftness",
-            SwiftnessEnchantment::new,
+            () -> new AttributeModifierEnchantment(
+                    Rarity.RARE,
+                    EnchantmentCategory.ARMOR_FEET,
+                    new EquipmentSlot[]{ EquipmentSlot.FEET },
+                    UUID.fromString("1f13db16-606d-4ae9-97e0-aa856ae1ecb1"),
+                    Attributes.MOVEMENT_SPEED,
+                    "swiftness",
+                    0.01f,
+                    3,
+                    new Enchantment[]{ Enchantments.SOUL_SPEED, PANIC.get() },
+                    false, false, true),
             "Swiftness",
             "Makes you run 20% faster, per level.");
 
@@ -163,19 +179,50 @@ public class MoEnchantsEnchantments {
 
     public static final RegistryObject<Enchantment> WEIGHTLESS = register(
             "weightless",
-            WeightlessEnchantment::new,
+            () -> new AttributeModifierEnchantment(
+                    Rarity.RARE,
+                    EnchantmentCategory.ARMOR_LEGS,
+                    new EquipmentSlot[]{ EquipmentSlot.LEGS },
+                    UUID.fromString("fe970a21-ad3e-4a00-886d-6119b8c5653a"),
+                    ForgeMod.ENTITY_GRAVITY.get(),
+                    "weightless",
+                    -0.01f,
+                    2,
+                    new Enchantment[]{ Enchantments.THORNS },
+                    false, false, true),
             "Weightless",
             "Allows you to jump higher, the level of the enchantment determines how high you jump.");
 
     public static final RegistryObject<Enchantment> DENSITY_CURSE = register(
             "density_curse",
-            DensityCurseEnchantment::new,
+            () -> new AttributeModifierEnchantment(
+                    Rarity.VERY_RARE,
+                    EnchantmentCategory.ARMOR,
+                    new EquipmentSlot[]{ EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS,
+                                         EquipmentSlot.FEET },
+                    UUID.fromString("3d4c9250-3ffd-48d8-92e8-6589ddf69a26"),
+                    ForgeMod.ENTITY_GRAVITY.get(),
+                    "density_curse",
+                    0.025f,
+                    1,
+                    new Enchantment[]{},
+                    true, true, false),
             "Curse of Density",
             "Makes you move 15% slower.");
 
     public static final RegistryObject<Enchantment> REACH = register(
             "reach",
-            ReachEnchantment::new,
+            () -> new AttributeModifierEnchantment(
+                    Rarity.RARE,
+                    EnchantmentCategory.DIGGER,
+                    new EquipmentSlot[]{ EquipmentSlot.MAINHAND },
+                    UUID.fromString("5c4c7797-5f49-4560-9035-8a2bf8836616"),
+                    ForgeMod.BLOCK_REACH.get(),
+                    "reach",
+                    1f,
+                    3,
+                    new Enchantment[]{ Enchantments.SILK_TOUCH, Enchantments.BLOCK_FORTUNE, SMELTING_TOUCH.get() },
+                    false, false, true),
             "Reach",
             "Gives you +1 block of mining reach per level.");
 
@@ -206,7 +253,20 @@ public class MoEnchantsEnchantments {
 
     public static final RegistryObject<Enchantment> GROWTH = register(
             "growth",
-            GrowthEnchantment::new,
+            () -> new AttributeModifierEnchantment(
+                    Rarity.RARE,
+                    EnchantmentCategory.ARMOR,
+                    new EquipmentSlot[]{ EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS,
+                                         EquipmentSlot.FEET },
+                    UUID.fromString("1e2860e7-95fb-4b49-b617-ddd1da80c3d2"),
+                    ForgeMod.BLOCK_REACH.get(),
+                    "growth",
+                    1f,
+                    4,
+                    new Enchantment[]{ Enchantments.ALL_DAMAGE_PROTECTION, Enchantments.PROJECTILE_PROTECTION,
+                                       Enchantments.BLAST_PROTECTION, Enchantments.FALL_PROTECTION,
+                                       Enchantments.FIRE_PROTECTION },
+                    false, false, true),
             "Growth",
             "Adds half a heart to your max health for every level, up to IV.");
 
