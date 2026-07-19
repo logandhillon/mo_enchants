@@ -1,7 +1,7 @@
 # ![Banner for Mo' Enchants: Adds more enchantments and curses!](https://i.imgur.com/GAFP3Vc.png)
 
 > [!NOTE]
-> Mo' Potions is a **Forge** mod. There are no plans to support other mod loaders.
+> Mo' Enchants is a **Forge** mod. There are no plans to support other mod loaders.
 
 Mo' Enchants is a load of enchantments and curses, added into Minecraft while still keeping a somewhat vanilla feel.
 
