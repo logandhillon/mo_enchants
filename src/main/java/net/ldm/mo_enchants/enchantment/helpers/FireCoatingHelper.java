@@ -11,6 +11,8 @@ import net.minecraftforge.fml.common.Mod;
 public class FireCoatingHelper {
 
     public static void onPlayerTick(PlayerTickEvent event) {
+        if (event.side.isClient()) return;
+
         if (event.player.getItemBySlot(EquipmentSlot.CHEST).getEnchantmentLevel(
                 MoEnchantsEnchantments.FIRE_COATING.get()) > 0) {
             event.player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 2, 0, false, false));

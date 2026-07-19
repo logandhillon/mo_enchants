@@ -10,6 +10,7 @@ import net.minecraftforge.event.TickEvent.PlayerTickEvent;
 
 public class BoilingCurseHelper {
     public static void onPlayerTick(PlayerTickEvent event) {
+        if (event.side.isClient()) return;
         Holder<Biome> biome = event.player.level().getBiome(event.player.blockPosition());
 
         if ((biome.is(Tags.Biomes.IS_HOT) || event.player.level().dimension() == Level.NETHER)

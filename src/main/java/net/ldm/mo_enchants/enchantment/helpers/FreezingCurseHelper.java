@@ -11,6 +11,8 @@ import net.minecraftforge.event.TickEvent.PlayerTickEvent;
 
 public class FreezingCurseHelper {
     public static void onPlayerTick(PlayerTickEvent event) {
+        if (event.side.isClient()) return;
+
         Holder<Biome> biome = event.player.level().getBiome(event.player.blockPosition());
 
         if ((biome.is(Tags.Biomes.IS_COLD))

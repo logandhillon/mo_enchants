@@ -31,13 +31,13 @@ public class EventHandler {
 
     @SubscribeEvent
     public static void onPlayerTick(PlayerTickEvent event) {
-        if (event.side.isClient() || event.phase != TickEvent.Phase.END) return;
+        if (event.phase != TickEvent.Phase.END) return;
 
         AquaphobiaCurseHelper.onPlayerTick(event);
         BoilingCurseHelper.onPlayerTick(event);
         FireCoatingHelper.onPlayerTick(event);
         FreezingCurseHelper.onPlayerTick(event);
-        SavingGraceHelper.onPlayerTick(event.player.level(), event.player.blockPosition(), event.player);
+        SavingGraceHelper.onPlayerTick(event);
     }
 
     @SubscribeEvent

@@ -7,8 +7,9 @@ import net.minecraftforge.event.TickEvent.PlayerTickEvent;
 
 public class AquaphobiaCurseHelper {
     public static void onPlayerTick(PlayerTickEvent event) {
-        if (event.player == null || !event.player.isInWater() || !EnchantmentUtils.hasArmorEnchantment(
-                event.player, MoEnchantsEnchantments.AQUAPHOBIA_CURSE.get())) {
+        if (event.side.isClient() || event.player == null || !event.player.isInWater() ||
+            !EnchantmentUtils.hasArmorEnchantment(
+                    event.player, MoEnchantsEnchantments.AQUAPHOBIA_CURSE.get())) {
             return;
         }
 
