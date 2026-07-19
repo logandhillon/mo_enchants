@@ -5,17 +5,23 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 
 public class NightVisionHelper {
-	public static void onEquipmentChange(LivingEquipmentChangeEvent event) {
-		if (event.getSlot().equals(EquipmentSlot.HEAD) && event.getEntity() instanceof Player) {
-			if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.NIGHT_VISION.get(), event.getTo()) >= 1) {
-				event.getEntity().addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 2147483647, 0, false, false, false));
-			} else if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.NIGHT_VISION.get(), event.getFrom()) >= 1) {
-				event.getEntity().removeEffect(MobEffects.NIGHT_VISION);
-			}
-		}
-	}
+    public static void onEquipmentChange(LivingEquipmentChangeEvent event) {
+        if (event.getSlot() != EquipmentSlot.HEAD || !(event.getEntity() instanceof Player player)) return;
+
+        boolean hadNightVision = event.getFrom().getEnchantmentLevel(MoEnchantsEnchantments.NIGHT_VISION.get()) > 0;
+        boolean hasNightVision = event.getTo().getEnchantmentLevel(MoEnchantsEnchantments.NIGHT_VISION.get()) > 0;
+
+        if (hasNightVision == hadNightVision) {
+            return;
+        }
+
+        if (hasNightVision) {
+            player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, Integer.MAX_VALUE, 0, false, false, false));
+        } else {
+            player.removeEffect(MobEffects.NIGHT_VISION);
+        }
+    }
 }
