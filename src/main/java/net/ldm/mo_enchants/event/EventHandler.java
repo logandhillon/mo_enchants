@@ -27,7 +27,7 @@ public class EventHandler {
         RevenantHelper.onEntityAttacked(event.getEntity(), event.getSource().getEntity());
         ScorchingCurseHelper.onEntityAttacked(event.getEntity());
         ToxicAspectHelper.onEntityAttacked(event.getEntity(), event.getSource().getEntity());
-        PanicHelper.onEntityAttacked(event.getEntity().level(), event.getEntity());
+        PanicHelper.onEntityAttacked(event);
     }
 
     @SubscribeEvent
