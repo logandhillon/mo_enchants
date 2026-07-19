@@ -3,7 +3,9 @@ package net.ldm.mo_enchants.event;
 import net.ldm.mo_enchants.enchantment.helpers.*;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.TickEvent.PlayerTickEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingTickEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -29,15 +31,19 @@ public class EventHandler {
     }
 
     @SubscribeEvent
-    public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
+    public static void onPlayerTick(PlayerTickEvent event) {
         if (event.side.isClient() || event.phase != TickEvent.Phase.END) return;
 
         AquaphobiaCurseHelper.onPlayerTick(event);
         BoilingCurseHelper.onPlayerTick(event);
         FireCoatingHelper.onPlayerTick(event);
         FreezingCurseHelper.onPlayerTick(event);
-        MagmaWalkerHelper.onPlayerTick(event.player.level(), event.player.getOnPos(), event.player);
         SavingGraceHelper.onPlayerTick(event.player.level(), event.player.blockPosition(), event.player);
+    }
+
+    @SubscribeEvent
+    public static void onLivingTick(LivingTickEvent event) {
+        MagmaWalkerHelper.onLivingTick(event);
     }
 
     @SubscribeEvent

@@ -3,28 +3,43 @@ package net.ldm.mo_enchants.enchantment.helpers;
 import net.ldm.mo_enchants.init.MoEnchantsBlocks;
 import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingTickEvent;
 
 public class MagmaWalkerHelper {
-	public static void onPlayerTick(LevelAccessor world, BlockPos pos, Entity entity) {
-		if (entity == null)
-			return;
-		if (EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.MAGMA_WALKER.get(),
-				(entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.FEET) : ItemStack.EMPTY)) != 0) {
-			if ((world.getBlockState(pos).getBlock() == Blocks.LAVA)) {
-				world.setBlock(pos, MoEnchantsBlocks.LIQUEFYING_MAGMA_BLOCK.get().defaultBlockState(), 3);
-			} else if ((world.getBlockState(pos)).getBlock() == Blocks.LAVA) {
-				world.setBlock(pos, MoEnchantsBlocks.LIQUEFYING_MAGMA_BLOCK.get().defaultBlockState(), 3);
-//                entity.teleportTo(x, (y + 1), z);
-//                if (entity instanceof ServerPlayer _serverPlayer)
-//                    _serverPlayer.connection.teleport(x, (y + 1), z, entity.getYRot(), entity.getXRot());
-			}
-		}
-	}
+    public static void onLivingTick(LivingTickEvent event) {
+        LivingEntity entity = event.getEntity();
+        if (!entity.onGround()) return;
+
+        int enchLevel = entity.getItemBySlot(EquipmentSlot.FEET).getEnchantmentLevel(
+                MoEnchantsEnchantments.MAGMA_WALKER.get());
+        if (enchLevel < 1) return;
+
+        BlockPos entityPos = entity.blockPosition();
+        Level level = entity.level();
+
+        BlockState magma = MoEnchantsBlocks.LIQUEFYING_MAGMA_BLOCK.get().defaultBlockState();
+        int i = Math.min(16, 2 + enchLevel);
+        MutableBlockPos checkedPos = new MutableBlockPos();
+
+        for (BlockPos pos: BlockPos.betweenClosed(entityPos.offset(-i, -1, -i), entityPos.offset(i, -1, i))) {
+            if (pos.closerToCenterThan(entity.position(), i)) {
+                checkedPos.set(pos.getX(), pos.getY() + 1, pos.getZ());
+
+                if (!level.getBlockState(checkedPos).isAir()) continue;
+
+                BlockState block = level.getBlockState(pos);
+                if (block.is(Blocks.LAVA) && magma.canSurvive(level, pos) &&
+                    level.isUnobstructed(magma, pos, CollisionContext.empty())) {
+                    level.setBlockAndUpdate(pos, magma);
+                }
+            }
+        }
+    }
 }
