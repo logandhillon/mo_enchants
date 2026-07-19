@@ -1,4 +1,4 @@
-package net.ldm.mo_enchants.datagen;
+package net.ldm.mo_enchants.datagen.tag;
 
 import net.ldm.mo_enchants.MoEnchants;
 import net.ldm.mo_enchants.init.ModTags;

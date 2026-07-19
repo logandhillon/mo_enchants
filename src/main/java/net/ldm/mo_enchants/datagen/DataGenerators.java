@@ -1,7 +1,9 @@
 package net.ldm.mo_enchants.datagen;
 
 import net.ldm.mo_enchants.MoEnchants;
+import net.ldm.mo_enchants.datagen.tag.ModBlockTagsProvider;
 import net.ldm.mo_enchants.datagen.tag.ModDamageTypeTagsProvider;
+import net.ldm.mo_enchants.datagen.tag.ModEntityTypeTagsProvider;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
