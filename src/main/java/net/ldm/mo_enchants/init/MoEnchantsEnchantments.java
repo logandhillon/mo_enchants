@@ -31,7 +31,7 @@ public class MoEnchantsEnchantments {
 
     public static final RegistryObject<Enchantment> SCORCHING_CURSE = register(
             "scorching_curse",
-            CurseOfScorchingEnchantment::new,
+            ScorchingCurseEnchantment::new,
             "Curse of Scorching",
             "When you get hit, you get ignited on fire.");
 

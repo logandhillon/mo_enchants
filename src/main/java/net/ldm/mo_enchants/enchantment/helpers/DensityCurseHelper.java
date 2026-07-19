@@ -7,16 +7,12 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 import java.util.UUID;
 
-@EventBusSubscriber
 public class DensityCurseHelper {
     private static final UUID DENSITY_UUID = UUID.fromString("703bede5-84db-4991-bbe9-3ac943c68fff");
 
-    @SubscribeEvent
     public static void onEquipmentChange(LivingEquipmentChangeEvent event) {
         if (!(event.getSlot().equals(EquipmentSlot.HEAD) || event.getSlot().equals(EquipmentSlot.CHEST) ||
               event.getSlot().equals(EquipmentSlot.LEGS) || event.getSlot().equals(EquipmentSlot.FEET))) return;

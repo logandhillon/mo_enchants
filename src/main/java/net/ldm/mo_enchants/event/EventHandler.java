@@ -1,5 +1,6 @@
 package net.ldm.mo_enchants.event;
 
+import net.ldm.mo_enchants.enchantment.*;
 import net.ldm.mo_enchants.enchantment.helpers.*;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.TickEvent;
@@ -20,12 +21,12 @@ public class EventHandler {
         ConductionHelper.onEntityAttacked(event, attacker);
         FreezingAspectHelper.onEntityAttacked(event, attacker);
         HarmingCurseHelper.onEntityAttacked(event, attacker);
-        LevitatingHelper.onEntityAttacked(event, attacker);
-        LifeforceDischargeCurseHelper.onEntityAttacked(attacker);
-        LifeStealHelper.onEntityAttacked(attacker);
-        RevenantHelper.onEntityAttacked(event.getEntity(), attacker);
-        ScorchingCurseHelper.onEntityAttacked(event);
-        ToxicAspectHelper.onEntityAttacked(event.getEntity(), attacker);
+        LevitatingEnchantment.onEntityAttacked(event, attacker);
+        LifeforceDischargeCurseEnchantment.onEntityAttacked(attacker);
+        LifeStealEnchantment.onEntityAttacked(attacker);
+        RevenantEnchantment.onEntityAttacked(event.getEntity(), attacker);
+        ScorchingCurseEnchantment.onEntityAttacked(event);
+        ToxicAspectEnchantment.onEntityAttacked(event.getEntity(), attacker);
         PanicHelper.onEntityAttacked(event);
     }
 
@@ -33,24 +34,28 @@ public class EventHandler {
     public static void onPlayerTick(PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.END) return;
 
-        AquaphobiaCurseHelper.onPlayerTick(event);
-        BoilingCurseHelper.onPlayerTick(event);
-        FireCoatingHelper.onPlayerTick(event);
-        FreezingCurseHelper.onPlayerTick(event);
+        if (event.side.isClient()) {
+            AquaphobiaCurseEnchantment.onPlayerTickClient(event);
+            BoilingCurseEnchantment.onPlayerTickClient(event);
+            FireCoatingEnchantment.onPlayerTickClient(event);
+            FreezingCurseEnchantment.onPlayerTickClient(event);
+        }
+
         SavingGraceHelper.onPlayerTick(event);
     }
 
     @SubscribeEvent
     public static void onLivingTick(LivingTickEvent event) {
-        MagmaWalkerHelper.onLivingTick(event);
+        MagmaWalkerEnchantment.onLivingTick(event);
     }
 
     @SubscribeEvent
     public static void onEquipmentChange(LivingEquipmentChangeEvent event) {
         GrowthHelper.onEquipmentChange(event);
-        NightVisionHelper.onEquipmentChange(event);
+        NightVisionEnchantment.onEquipmentChange(event);
         ReachHelper.onEquipmentChange(event);
         SwiftnessHelper.onEquipmentChange(event);
         WeightlessHelper.onEquipmentChange(event);
+        DensityCurseHelper.onEquipmentChange(event);
     }
 }
