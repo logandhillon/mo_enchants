@@ -1,12 +1,11 @@
 package net.ldm.mo_enchants.event;
 
-import net.ldm.mo_enchants.enchantment.UltimateFinishEnchantment;
 import net.ldm.mo_enchants.enchantment.helpers.*;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.level.BlockEvent;
-import net.minecraftforge.event.level.ExplosionEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -14,11 +13,11 @@ import net.minecraftforge.fml.common.Mod;
 public class EventHandler {
     @SubscribeEvent
     public static void onEntityAttacked(LivingHurtEvent event) {
-        if (event.getEntity() == null) return;
+        if (event.getEntity() == null || !(event.getSource().getEntity() instanceof LivingEntity attacker)) return;
 
         AngelsBlessingHelper.onEntityAttacked(event);
-        ConductionHelper.onEntityAttacked(event);
-        FreezingAspectHelper.onEntityAttacked(event);
+        ConductionHelper.onEntityAttacked(event, attacker);
+        FreezingAspectHelper.onEntityAttacked(event, attacker);
         HarmingCurseHelper.onEntityAttacked(event.getSource().getEntity());
         LevitatingHelper.onEntityAttacked(event.getEntity(), event.getSource().getEntity());
         LifeforceDischargeCurseHelper.onEntityAttacked(event.getEntity(), event.getSource().getEntity());
@@ -44,11 +43,6 @@ public class EventHandler {
     @SubscribeEvent
     public static void onBlockBreak(BlockEvent.BreakEvent event) {
         RockMendingHelper.onBlockBreak(event.getPlayer(), event.getState());
-    }
-
-    @SubscribeEvent
-    public static void onExplosionDetonate(ExplosionEvent.Detonate event) {
-        UltimateFinishEnchantment.onExplosionDetonate(event);
     }
 
     @SubscribeEvent

@@ -8,10 +8,8 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 public class ConductionHelper {
-    public static void onEntityAttacked(LivingHurtEvent event) {
-        if (!(event.getSource().getEntity() instanceof LivingEntity attacker)) return;
+    public static void onEntityAttacked(LivingHurtEvent event, LivingEntity attacker) {
         Level level;
-
         if (attacker.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.CONDUCTION.get()) > 0
             && (level = event.getEntity().level()).isThundering()
             && !level.isClientSide

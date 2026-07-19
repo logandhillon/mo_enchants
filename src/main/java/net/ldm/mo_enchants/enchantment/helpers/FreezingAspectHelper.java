@@ -7,12 +7,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 public class FreezingAspectHelper {
-    public static void onEntityAttacked(LivingHurtEvent event) {
-        if (!(event.getSource().getEntity() instanceof LivingEntity livingEntity)) return;
-
+    public static void onEntityAttacked(LivingHurtEvent event, LivingEntity attacker) {
         int level = Math.max(
-                livingEntity.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.FREEZING_ASPECT.get()),
-                livingEntity.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.FROST.get()));
+                attacker.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.FREEZING_ASPECT.get()),
+                attacker.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.FROST.get()));
         if (level < 1) return;
 
         event.getEntity().addEffect(new MobEffectInstance(
