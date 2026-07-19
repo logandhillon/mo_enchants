@@ -1,8 +1,15 @@
 package net.ldm.mo_enchants.enchantment;
 
+import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.util.EnchantmentUtils;
+import net.minecraft.core.Holder;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraftforge.common.Tags;
+import net.minecraftforge.event.TickEvent.PlayerTickEvent;
 
 public class BoilingCurseEnchantment extends Enchantment {
     public BoilingCurseEnchantment(EquipmentSlot... slots) {
@@ -22,5 +29,14 @@ public class BoilingCurseEnchantment extends Enchantment {
     @Override
     public boolean isTradeable() {
         return false;
+    }
+
+    public static void onPlayerTickClient(PlayerTickEvent event) {
+        Holder<Biome> biome = event.player.level().getBiome(event.player.blockPosition());
+
+        if ((biome.is(Tags.Biomes.IS_HOT) || event.player.level().dimension() == Level.NETHER)
+            && EnchantmentUtils.hasArmorEnchantment(event.player, MoEnchantsEnchantments.BOILING_CURSE.get())) {
+            event.player.setSecondsOnFire(3);
+        }
     }
 }

@@ -1,11 +1,17 @@
 package net.ldm.mo_enchants.datagen;
 
 import net.ldm.mo_enchants.MoEnchantsMod;
+import net.ldm.mo_enchants.datagen.tag.ModDamageTypeTagsProvider;
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+
+import java.util.Set;
 
 /**
  * Handles the data generation step in the mods bundle packaging
@@ -18,12 +24,32 @@ public class DataGenerators {
     public static void gatherData(GatherDataEvent event) {
         DataGenerator gen = event.getGenerator();
         PackOutput pack = gen.getPackOutput();
+        var lookup = event.getLookupProvider();
+        var existingFiles = event.getExistingFileHelper();
 
+        // client side data
         gen.addProvider(event.includeClient(), new LangProvider(pack));
-        gen.addProvider(event.includeClient(), new ModBlockStateProvider(pack, event.getExistingFileHelper()));
+        gen.addProvider(event.includeClient(), new ModBlockStateProvider(pack, existingFiles));
 
-        gen.addProvider(event.includeServer(), new ModEntityTypeTagsProvider(pack, event.getLookupProvider(), event.getExistingFileHelper()));
-        gen.addProvider(event.includeServer(), new ModBlockTagsProvider(pack, event.getLookupProvider(), event.getExistingFileHelper()));
+        // server side data
         gen.addProvider(event.includeServer(), new ModLootModifierProvider(pack));
+        gen.addProvider(
+                event.includeServer(), new DatapackBuiltinEntriesProvider(
+                        pack, lookup,
+                        new RegistrySetBuilder()
+                                .add(Registries.DAMAGE_TYPE, ModDamageTypeProvider::bootstrap),
+                        Set.of(MoEnchantsMod.MOD_ID)
+                ));
+
+        // tags
+        gen.addProvider(
+                event.includeServer(),
+                new ModEntityTypeTagsProvider(pack, lookup, existingFiles));
+        gen.addProvider(
+                event.includeServer(),
+                new ModBlockTagsProvider(pack, lookup, existingFiles));
+        gen.addProvider(
+                event.includeServer(),
+                new ModDamageTypeTagsProvider(pack, lookup, existingFiles));
     }
 }

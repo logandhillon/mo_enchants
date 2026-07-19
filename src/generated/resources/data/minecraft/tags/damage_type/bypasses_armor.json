@@ -1,0 +1,32 @@
+{
+  "values": [
+    {
+      "id": "mo_enchants:aquaphobia",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:bad_dreams",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:bloodthirst",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:freezing",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:generic_curse",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:harming_curse",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:lifeforce_discharge",
+      "required": false
+    }
+  ]
+}

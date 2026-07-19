@@ -28,5 +28,14 @@ public class ModEntityTypeTagsProvider extends EntityTypeTagsProvider {
                 .add(EntityType.WITHER)
                 .add(EntityType.ELDER_GUARDIAN)
                 .add(EntityType.GIANT);
+
+        tag(ModTags.WATER_WEAK_MOBS)
+                .add(EntityType.BLAZE)
+                .add(EntityType.ENDER_DRAGON)
+                .add(EntityType.ENDERMAN)
+                .add(EntityType.ENDERMITE)
+                .add(EntityType.MAGMA_CUBE)
+                .add(EntityType.GHAST)
+                .add(EntityType.STRIDER);
     }
 }

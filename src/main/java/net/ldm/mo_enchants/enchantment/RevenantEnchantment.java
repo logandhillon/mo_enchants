@@ -1,7 +1,10 @@
 package net.ldm.mo_enchants.enchantment;
 
 import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.init.ModTags;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MobType;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 
@@ -17,8 +20,20 @@ public class RevenantEnchantment extends Enchantment {
 
     @Override
     protected boolean checkCompatibility(Enchantment ench) {
-        if (ench == MoEnchantsEnchantments.BLOODTHIRST.get())
-            return false;
-        return ench != MoEnchantsEnchantments.ULTIMATE_FINISH.get();
+        return ench != MoEnchantsEnchantments.BLOODTHIRST.get() && ench != MoEnchantsEnchantments.ULTIMATE_FINISH.get();
+    }
+
+    public static void onEntityAttacked(LivingEntity victim, LivingEntity attacker) {
+        int level = attacker.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.REVENANT.get());
+
+        if (level < 1
+            || victim.getMobType() != MobType.UNDEAD
+            || victim.getType().is(ModTags.BOSSES)) {
+            return;
+        }
+
+        if (Math.random() * 100 < level + 1) {
+            victim.hurt(victim.damageSources().mobAttack(attacker), Float.MAX_VALUE);
+        }
     }
 }
