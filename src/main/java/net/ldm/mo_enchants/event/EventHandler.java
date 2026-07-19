@@ -7,7 +7,6 @@ import net.minecraftforge.event.TickEvent.PlayerTickEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingTickEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -24,7 +23,7 @@ public class EventHandler {
         LevitatingHelper.onEntityAttacked(event, attacker);
         LifeforceDischargeCurseHelper.onEntityAttacked(attacker);
         LifeStealHelper.onEntityAttacked(attacker);
-        RevenantHelper.onEntityAttacked(event.getEntity(), event.getSource().getEntity());
+        RevenantHelper.onEntityAttacked(event.getEntity(), attacker);
         ScorchingCurseHelper.onEntityAttacked(event.getEntity());
         ToxicAspectHelper.onEntityAttacked(event.getEntity(), event.getSource().getEntity());
         PanicHelper.onEntityAttacked(event);
