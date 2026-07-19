@@ -1,7 +1,7 @@
 package net.ldm.mo_enchants.init;
 
 import net.ldm.mo_enchants.MoEnchants;
-import net.ldm.mo_enchants.datagen.LangProvider.Translation;
+import net.ldm.mo_enchants.datagen.ModLangProvider.Translation;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.damagesource.DamageSource;

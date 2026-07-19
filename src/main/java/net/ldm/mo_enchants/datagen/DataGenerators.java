@@ -30,7 +30,7 @@ public class DataGenerators {
         var existingFiles = event.getExistingFileHelper();
 
         // client side data
-        gen.addProvider(event.includeClient(), new LangProvider(pack));
+        gen.addProvider(event.includeClient(), new ModLangProvider(pack));
         gen.addProvider(event.includeClient(), new ModBlockStateProvider(pack, existingFiles));
 
         // server side data

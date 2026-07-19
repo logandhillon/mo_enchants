@@ -10,8 +10,8 @@ import net.minecraftforge.common.data.LanguageProvider;
 /**
  * @author Logan Dhillon
  */
-public class LangProvider extends LanguageProvider {
-    public LangProvider(PackOutput pack) {
+public class ModLangProvider extends LanguageProvider {
+    public ModLangProvider(PackOutput pack) {
         super(pack, MoEnchants.MOD_ID, "en_us");
     }
 
