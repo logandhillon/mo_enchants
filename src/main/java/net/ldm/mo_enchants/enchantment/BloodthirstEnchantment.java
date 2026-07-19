@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.enchantment;
 
-import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
@@ -17,6 +17,6 @@ public class BloodthirstEnchantment extends Enchantment {
 
     @Override
     protected boolean checkCompatibility(Enchantment ench) {
-        return ench != MoEnchantsEnchantments.REVENANT.get();
+        return ench != ModEnchantments.REVENANT.get();
     }
 }

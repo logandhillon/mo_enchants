@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.enchantment;
 
-import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -19,13 +19,13 @@ public class LifeStealEnchantment extends Enchantment {
 
     @Override
     protected boolean checkCompatibility(Enchantment ench) {
-        if (ench == MoEnchantsEnchantments.FREEZING_ASPECT.get())
+        if (ench == ModEnchantments.FREEZING_ASPECT.get())
             return false;
         if (ench == Enchantments.FIRE_ASPECT)
             return false;
-        if (ench == MoEnchantsEnchantments.VENOMFANG.get())
+        if (ench == ModEnchantments.VENOMFANG.get())
             return false;
-        return ench != MoEnchantsEnchantments.ULTIMATE_FINISH.get();
+        return ench != ModEnchantments.ULTIMATE_FINISH.get();
     }
 
     @Override
@@ -39,7 +39,7 @@ public class LifeStealEnchantment extends Enchantment {
     }
 
     public static void onEntityAttacked(LivingEntity attacker) {
-        int level = attacker.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.LIFE_STEAL.get());
+        int level = attacker.getMainHandItem().getEnchantmentLevel(ModEnchantments.LIFE_STEAL.get());
         if (level < 1 || Math.random() < level / 10f) return;
 
         attacker.setHealth(attacker.getHealth() + 1 + level);

@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.enchantment;
 
-import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
@@ -15,6 +15,6 @@ public class SmeltingTouchEnchantment extends Enchantment {
     protected boolean checkCompatibility(Enchantment ench) {
         if (ench == Enchantments.SILK_TOUCH)
             return false;
-        return ench != MoEnchantsEnchantments.REACH.get();
+        return ench != ModEnchantments.REACH.get();
     }
 }

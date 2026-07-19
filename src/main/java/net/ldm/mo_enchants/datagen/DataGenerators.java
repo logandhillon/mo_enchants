@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.datagen;
 
-import net.ldm.mo_enchants.MoEnchantsMod;
+import net.ldm.mo_enchants.MoEnchants;
 import net.ldm.mo_enchants.datagen.tag.ModDamageTypeTagsProvider;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
@@ -18,7 +18,7 @@ import java.util.Set;
  *
  * @author Logan Dhillon
  */
-@Mod.EventBusSubscriber(modid = MoEnchantsMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = MoEnchants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
@@ -38,7 +38,7 @@ public class DataGenerators {
                         pack, lookup,
                         new RegistrySetBuilder()
                                 .add(Registries.DAMAGE_TYPE, ModDamageTypeProvider::bootstrap),
-                        Set.of(MoEnchantsMod.MOD_ID)
+                        Set.of(MoEnchants.MOD_ID)
                 ));
 
         // tags

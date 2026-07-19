@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.enchantment.helper;
 
-import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.ldm.mo_enchants.init.ModTags;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
@@ -22,7 +22,7 @@ public class BonusDamageEnchantmentHelper {
         LivingEntity victim = event.getEntity();
 
         if (victim instanceof Animal) {
-            int level = attacker.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.HUNTER.get());
+            int level = attacker.getMainHandItem().getEnchantmentLevel(ModEnchantments.HUNTER.get());
             if (level >= 1) {
                 event.setAmount(event.getAmount() + (level * 1.5f));
             }
@@ -30,7 +30,7 @@ public class BonusDamageEnchantmentHelper {
         }
 
         if (victim.getType().is(ModTags.WATER_WEAK_MOBS)) {
-            int level = attacker.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.AQUA_SLASH.get());
+            int level = attacker.getMainHandItem().getEnchantmentLevel(ModEnchantments.AQUA_SLASH.get());
             if (level >= 1) {
                 event.setAmount(event.getAmount() + (level * 1.5f));
             }
@@ -38,7 +38,7 @@ public class BonusDamageEnchantmentHelper {
         }
 
         if (victim.getHealth() == victim.getMaxHealth()) {
-            int level = attacker.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.FIRST_STRIKE.get());
+            int level = attacker.getMainHandItem().getEnchantmentLevel(ModEnchantments.FIRST_STRIKE.get());
 
             if (level >= 1) {
                 event.setAmount(event.getAmount() * 1.25f);
@@ -47,7 +47,7 @@ public class BonusDamageEnchantmentHelper {
             return;
         }
 
-        int level = attacker.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.DEVASTATION.get());
+        int level = attacker.getMainHandItem().getEnchantmentLevel(ModEnchantments.DEVASTATION.get());
         if (level > 0 && Math.random() >= 0.1 * level) {
             event.setAmount(event.getAmount() * 1.5f);
             playBonusDamageSound(attacker);

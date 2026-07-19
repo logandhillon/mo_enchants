@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.enchantment;
 
-import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -26,11 +26,11 @@ public class LevitatingEnchantment extends Enchantment {
     protected boolean checkCompatibility(Enchantment ench) {
         if (ench == Enchantments.FLAMING_ARROWS)
             return false;
-        if (ench == MoEnchantsEnchantments.FROST.get())
+        if (ench == ModEnchantments.FROST.get())
             return false;
-        if (ench == MoEnchantsEnchantments.CONDUCTION.get())
+        if (ench == ModEnchantments.CONDUCTION.get())
             return false;
-        return ench != MoEnchantsEnchantments.DETONATION.get();
+        return ench != ModEnchantments.DETONATION.get();
     }
 
     @Override
@@ -41,7 +41,7 @@ public class LevitatingEnchantment extends Enchantment {
     }
 
     public static void onEntityAttacked(LivingHurtEvent event, LivingEntity attacker) {
-        int level = attacker.getMainHandItem().getEnchantmentLevel(MoEnchantsEnchantments.LEVITATING.get());
+        int level = attacker.getMainHandItem().getEnchantmentLevel(ModEnchantments.LEVITATING.get());
         if (level < 1) return;
 
         event.getEntity().addEffect(new MobEffectInstance(MobEffects.LEVITATION, level * 10, 0));

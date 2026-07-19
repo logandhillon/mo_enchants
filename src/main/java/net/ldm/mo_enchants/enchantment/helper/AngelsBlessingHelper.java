@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.enchantment.helper;
 
-import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
@@ -24,11 +24,11 @@ public class AngelsBlessingHelper {
 
         if (entity.getMainHandItem().is(Items.TOTEM_OF_UNDYING)
             && EnchantmentHelper.getTagEnchantmentLevel(
-                MoEnchantsEnchantments.ANGELS_BLESSING.get(), entity.getMainHandItem()) > 0) {
+                ModEnchantments.ANGELS_BLESSING.get(), entity.getMainHandItem()) > 0) {
             stack = entity.getMainHandItem();
         } else if (entity.getOffhandItem().is(Items.TOTEM_OF_UNDYING)
                    && EnchantmentHelper.getTagEnchantmentLevel(
-                MoEnchantsEnchantments.ANGELS_BLESSING.get(), entity.getOffhandItem()) > 0) {
+                ModEnchantments.ANGELS_BLESSING.get(), entity.getOffhandItem()) > 0) {
             stack = entity.getOffhandItem();
         }
 
@@ -53,16 +53,16 @@ public class AngelsBlessingHelper {
     }
 
     private static void decrementLevel(ItemStack stack) {
-        int level = EnchantmentHelper.getTagEnchantmentLevel(MoEnchantsEnchantments.ANGELS_BLESSING.get(), stack);
+        int level = EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.ANGELS_BLESSING.get(), stack);
 
         // remove enchantment
         Map<Enchantment, Integer> enchantments = EnchantmentHelper.getEnchantments(stack);
-        enchantments.remove(MoEnchantsEnchantments.ANGELS_BLESSING.get());
+        enchantments.remove(ModEnchantments.ANGELS_BLESSING.get());
         EnchantmentHelper.setEnchantments(enchantments, stack);
 
         // then add it back with 1 less level
         if (level > 1) {
-            stack.enchant(MoEnchantsEnchantments.ANGELS_BLESSING.get(), level - 1);
+            stack.enchant(ModEnchantments.ANGELS_BLESSING.get(), level - 1);
         }
     }
 }

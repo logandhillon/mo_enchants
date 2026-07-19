@@ -1,7 +1,7 @@
 package net.ldm.mo_enchants.enchantment;
 
-import net.ldm.mo_enchants.init.MoEnchantsBlocks;
-import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.init.ModBlocks;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -35,13 +35,13 @@ public class MagmaWalkerEnchantment extends Enchantment {
         if (!entity.onGround()) return;
 
         int enchLevel = entity.getItemBySlot(EquipmentSlot.FEET).getEnchantmentLevel(
-                MoEnchantsEnchantments.MAGMA_WALKER.get());
+                ModEnchantments.MAGMA_WALKER.get());
         if (enchLevel < 1) return;
 
         BlockPos entityPos = entity.blockPosition();
         Level level = entity.level();
 
-        BlockState magma = MoEnchantsBlocks.LIQUEFYING_MAGMA_BLOCK.get().defaultBlockState();
+        BlockState magma = ModBlocks.LIQUEFYING_MAGMA_BLOCK.get().defaultBlockState();
         int i = Math.min(16, 2 + enchLevel);
         MutableBlockPos checkedPos = new MutableBlockPos();
 

@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.enchantment;
 
-import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.ldm.mo_enchants.util.EnchantmentUtils;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -28,7 +28,7 @@ public class ScorchingCurseEnchantment extends Enchantment {
     }
 
     public static void onEntityAttacked(LivingHurtEvent event) {
-        if (EnchantmentUtils.hasArmorEnchantment(event.getEntity(), MoEnchantsEnchantments.SCORCHING_CURSE.get())) {
+        if (EnchantmentUtils.hasArmorEnchantment(event.getEntity(), ModEnchantments.SCORCHING_CURSE.get())) {
             event.getEntity().setSecondsOnFire(5);
         }
     }

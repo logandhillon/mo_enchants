@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.enchantment.helper;
 
-import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.ldm.mo_enchants.init.ModDamageSources;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -28,7 +28,7 @@ public class BloodthirstHelper {
         Level level = player.level();
 
         int enchLevel = EnchantmentHelper.getTagEnchantmentLevel(
-                MoEnchantsEnchantments.BLOODTHIRST.get(), event.getItemStack());
+                ModEnchantments.BLOODTHIRST.get(), event.getItemStack());
         if (enchLevel < 1) return;
 
         if (player.getCooldowns().isOnCooldown(stack.getItem())) {

@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.enchantment.helper;
 
-import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -20,7 +20,7 @@ public class PanicHelper {
     public static void onEntityAttacked(LivingHurtEvent event) {
         LivingEntity entity = event.getEntity();
 
-        int level = entity.getItemBySlot(EquipmentSlot.FEET).getEnchantmentLevel(MoEnchantsEnchantments.PANIC.get());
+        int level = entity.getItemBySlot(EquipmentSlot.FEET).getEnchantmentLevel(ModEnchantments.PANIC.get());
 
         if (level < 1 || entity.getHealth() >= (4 * level)) return;
 

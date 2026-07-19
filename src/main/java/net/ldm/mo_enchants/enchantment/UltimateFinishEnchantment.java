@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.enchantment;
 
-import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
@@ -12,9 +12,9 @@ public class UltimateFinishEnchantment extends Enchantment {
 
     @Override
     protected boolean checkCompatibility(Enchantment ench) {
-        if (ench == MoEnchantsEnchantments.LIFE_STEAL.get())
+        if (ench == ModEnchantments.LIFE_STEAL.get())
             return false;
-        return ench != MoEnchantsEnchantments.REVENANT.get();
+        return ench != ModEnchantments.REVENANT.get();
     }
 
     @Override

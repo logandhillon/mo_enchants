@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.enchantment.helper;
 
-import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
@@ -14,7 +14,7 @@ public class RockMendingHelper {
     @SubscribeEvent
     public static void onBlockBreak(BlockEvent.BreakEvent event) {
         ItemStack stack = event.getPlayer().getMainHandItem();
-        int level = stack.getEnchantmentLevel(MoEnchantsEnchantments.ROCK_MENDING.get());
+        int level = stack.getEnchantmentLevel(ModEnchantments.ROCK_MENDING.get());
         BlockState state = event.getState();
 
         if (level < 1 || state.is(Blocks.STONE) || stack.getDamageValue() >= stack.getMaxDamage()) return;

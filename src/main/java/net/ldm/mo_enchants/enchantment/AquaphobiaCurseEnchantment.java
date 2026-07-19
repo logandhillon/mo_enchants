@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.enchantment;
 
-import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.ldm.mo_enchants.init.ModDamageSources;
 import net.ldm.mo_enchants.util.EnchantmentUtils;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -32,7 +32,7 @@ public class AquaphobiaCurseEnchantment extends Enchantment {
         if (event.player == null
             || !event.player.isInWater()
             || !EnchantmentUtils.hasArmorEnchantment(
-                event.player, MoEnchantsEnchantments.AQUAPHOBIA_CURSE.get())) {
+                event.player, ModEnchantments.AQUAPHOBIA_CURSE.get())) {
             return;
         }
 
