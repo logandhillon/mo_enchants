@@ -1,7 +1,7 @@
 package net.ldm.mo_enchants.datagen;
 
-import net.ldm.mo_enchants.MoEnchantsMod;
-import net.ldm.mo_enchants.init.MoEnchantsBlocks;
+import net.ldm.mo_enchants.MoEnchants;
+import net.ldm.mo_enchants.init.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -11,11 +11,11 @@ import net.minecraftforge.common.data.ExistingFileHelper;
  */
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
-        super(output, MoEnchantsMod.MOD_ID, existingFileHelper);
+        super(output, MoEnchants.MOD_ID, existingFileHelper);
     }
 
     @Override
     protected void registerStatesAndModels() {
-        simpleBlockWithItem(MoEnchantsBlocks.LIQUEFYING_MAGMA_BLOCK.get(), cubeAll(MoEnchantsBlocks.LIQUEFYING_MAGMA_BLOCK.get()));
+        simpleBlockWithItem(ModBlocks.LIQUEFYING_MAGMA_BLOCK.get(), cubeAll(ModBlocks.LIQUEFYING_MAGMA_BLOCK.get()));
     }
 }

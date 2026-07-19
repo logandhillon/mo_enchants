@@ -1,6 +1,6 @@
-package net.ldm.mo_enchants.datagen;
+package net.ldm.mo_enchants.datagen.tag;
 
-import net.ldm.mo_enchants.MoEnchantsMod;
+import net.ldm.mo_enchants.MoEnchants;
 import net.ldm.mo_enchants.init.ModTags;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
@@ -18,7 +18,7 @@ public class ModEntityTypeTagsProvider extends EntityTypeTagsProvider {
     public ModEntityTypeTagsProvider(PackOutput pOutput,
                                      CompletableFuture<Provider> pProvider,
                                      @Nullable ExistingFileHelper existingFileHelper) {
-        super(pOutput, pProvider, MoEnchantsMod.MOD_ID, existingFileHelper);
+        super(pOutput, pProvider, MoEnchants.MOD_ID, existingFileHelper);
     }
 
     @Override

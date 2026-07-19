@@ -1,7 +1,7 @@
 package net.ldm.mo_enchants.init;
 
-import net.ldm.mo_enchants.MoEnchantsMod;
-import net.ldm.mo_enchants.datagen.LangProvider.Translation;
+import net.ldm.mo_enchants.MoEnchants;
+import net.ldm.mo_enchants.datagen.ModLangProvider.Translation;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.damagesource.DamageSource;
@@ -48,7 +48,7 @@ public class ModDamageSources {
     private static ResourceKey<DamageType> create(String name, String deathMsg, String playerDeathMsg) {
         TRANSLATIONS.add(new Translation<>("death.attack.mo_enchants." + name, deathMsg));
         TRANSLATIONS.add(new Translation<>("death.attack.mo_enchants." + name + ".player", playerDeathMsg));
-        return ResourceKey.create(Registries.DAMAGE_TYPE, MoEnchantsMod.modResource(name));
+        return ResourceKey.create(Registries.DAMAGE_TYPE, MoEnchants.modResource(name));
     }
 
     public static DamageSource of(ResourceKey<DamageType> type, LivingEntity victim) {

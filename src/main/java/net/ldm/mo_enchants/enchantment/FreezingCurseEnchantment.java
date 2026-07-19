@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.enchantment;
 
-import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.ldm.mo_enchants.util.EnchantmentUtils;
 import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -36,7 +36,7 @@ public class FreezingCurseEnchantment extends Enchantment {
         Holder<Biome> biome = event.player.level().getBiome(event.player.blockPosition());
 
         if ((biome.is(Tags.Biomes.IS_COLD))
-            && EnchantmentUtils.hasArmorEnchantment(event.player, MoEnchantsEnchantments.FREEZING_CURSE.get())) {
+            && EnchantmentUtils.hasArmorEnchantment(event.player, ModEnchantments.FREEZING_CURSE.get())) {
             event.player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 140, 1, false, false));
         }
     }

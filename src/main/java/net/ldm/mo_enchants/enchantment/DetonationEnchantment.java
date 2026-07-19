@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.enchantment;
 
-import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -17,11 +17,11 @@ public class DetonationEnchantment extends Enchantment {
     protected boolean checkCompatibility(Enchantment ench) {
         if (ench == Enchantments.FLAMING_ARROWS)
             return false;
-        if (ench == MoEnchantsEnchantments.FROST.get())
+        if (ench == ModEnchantments.FROST.get())
             return false;
-        if (ench == MoEnchantsEnchantments.LEVITATING.get())
+        if (ench == ModEnchantments.LEVITATING.get())
             return false;
-        return ench != MoEnchantsEnchantments.CONDUCTION.get();
+        return ench != ModEnchantments.CONDUCTION.get();
     }
 
     @Override

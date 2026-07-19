@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.enchantment.helper;
 
-import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level.ExplosionInteraction;
@@ -27,8 +27,8 @@ public class ExplosiveExecutionHelper {
         LivingEntity victim = event.getEntity();
         ItemStack weapon = attacker.getMainHandItem();
 
-        if (weapon.getEnchantmentLevel(MoEnchantsEnchantments.ULTIMATE_FINISH.get()) > 0
-            || weapon.getEnchantmentLevel(MoEnchantsEnchantments.DETONATION.get()) > 0) {
+        if (weapon.getEnchantmentLevel(ModEnchantments.ULTIMATE_FINISH.get()) > 0
+            || weapon.getEnchantmentLevel(ModEnchantments.DETONATION.get()) > 0) {
             ATTACKERS.add(attacker.getUUID());
 
             if (!victim.level().isClientSide()) {

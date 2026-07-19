@@ -1,8 +1,8 @@
 package net.ldm.mo_enchants.datagen;
 
-import net.ldm.mo_enchants.MoEnchantsMod;
-import net.ldm.mo_enchants.init.MoEnchantsBlocks;
-import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.MoEnchants;
+import net.ldm.mo_enchants.init.ModBlocks;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.ldm.mo_enchants.init.ModDamageSources;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
@@ -10,22 +10,22 @@ import net.minecraftforge.common.data.LanguageProvider;
 /**
  * @author Logan Dhillon
  */
-public class LangProvider extends LanguageProvider {
-    public LangProvider(PackOutput pack) {
-        super(pack, MoEnchantsMod.MOD_ID, "en_us");
+public class ModLangProvider extends LanguageProvider {
+    public ModLangProvider(PackOutput pack) {
+        super(pack, MoEnchants.MOD_ID, "en_us");
     }
 
     @Override
     protected void addTranslations() {
         // blocks and items
-        add(MoEnchantsBlocks.LIQUEFYING_MAGMA_BLOCK.get(), "Liquefying Magma Block");
+        add(ModBlocks.LIQUEFYING_MAGMA_BLOCK.get(), "Liquefying Magma Block");
 
         // misc.
         add("key.category.enchantments", "Enchantments");
         add("cooldown.generic", "§cThis ability is on cooldown!");
         add("cooldown.input", "§c%1$s is on cooldown!");
 
-        for (var translation: MoEnchantsEnchantments.TRANSLATIONS) {
+        for (var translation: ModEnchantments.TRANSLATIONS) {
             add("enchantment.mo_enchants." + translation.id(), translation.name());
             add("enchantment.mo_enchants." + translation.id() + ".desc", translation.description());
         }

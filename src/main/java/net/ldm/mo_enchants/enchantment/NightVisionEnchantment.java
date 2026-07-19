@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.enchantment;
 
-import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -23,8 +23,8 @@ public class NightVisionEnchantment extends Enchantment {
     public static void onEquipmentChange(LivingEquipmentChangeEvent event) {
         if (event.getSlot() != EquipmentSlot.HEAD || !(event.getEntity() instanceof Player player)) return;
 
-        boolean hadNightVision = event.getFrom().getEnchantmentLevel(MoEnchantsEnchantments.NIGHT_VISION.get()) > 0;
-        boolean hasNightVision = event.getTo().getEnchantmentLevel(MoEnchantsEnchantments.NIGHT_VISION.get()) > 0;
+        boolean hadNightVision = event.getFrom().getEnchantmentLevel(ModEnchantments.NIGHT_VISION.get()) > 0;
+        boolean hasNightVision = event.getTo().getEnchantmentLevel(ModEnchantments.NIGHT_VISION.get()) > 0;
 
         if (hasNightVision == hadNightVision) {
             return;

@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.datagen.tag;
 
-import net.ldm.mo_enchants.MoEnchantsMod;
+import net.ldm.mo_enchants.MoEnchants;
 import net.ldm.mo_enchants.init.ModDamageSources;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
@@ -17,7 +17,7 @@ import java.util.concurrent.CompletableFuture;
 public class ModDamageTypeTagsProvider extends DamageTypeTagsProvider {
     public ModDamageTypeTagsProvider(PackOutput pOutput, CompletableFuture<Provider> pLookupProvider,
                                      @Nullable ExistingFileHelper existingFileHelper) {
-        super(pOutput, pLookupProvider, MoEnchantsMod.MOD_ID, existingFileHelper);
+        super(pOutput, pLookupProvider, MoEnchants.MOD_ID, existingFileHelper);
     }
 
     @Override

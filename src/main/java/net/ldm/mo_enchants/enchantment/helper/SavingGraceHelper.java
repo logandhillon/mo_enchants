@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.enchantment.helper;
 
-import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.minecraft.client.Minecraft;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -17,7 +17,7 @@ public class SavingGraceHelper {
         var player = event.player;
         Level level = player.level();
         ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
-        int enchLevel = boots.getEnchantmentLevel(MoEnchantsEnchantments.SAVING_GRACE.get());
+        int enchLevel = boots.getEnchantmentLevel(ModEnchantments.SAVING_GRACE.get());
         int voidThreshold = level.dimension() == Level.OVERWORLD ? -74 : -10; // 10 blocks below void
 
         if (enchLevel < 1 || player.getY() > voidThreshold || player.getDeltaMovement().y > 0) return;

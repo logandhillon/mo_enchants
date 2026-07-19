@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.datagen;
 
-import net.ldm.mo_enchants.MoEnchantsMod;
+import net.ldm.mo_enchants.MoEnchants;
 import net.ldm.mo_enchants.init.ModLootModifiers;
 import net.ldm.mo_enchants.loot.SmeltingTouchLootModifier;
 import net.minecraft.data.PackOutput;
@@ -12,7 +12,7 @@ import net.minecraftforge.common.data.GlobalLootModifierProvider;
  */
 public class ModLootModifierProvider extends GlobalLootModifierProvider {
     public ModLootModifierProvider(PackOutput output) {
-        super(output, MoEnchantsMod.MOD_ID);
+        super(output, MoEnchants.MOD_ID);
     }
 
     @Override

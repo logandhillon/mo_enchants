@@ -1,6 +1,6 @@
 package net.ldm.mo_enchants.init;
 
-import net.ldm.mo_enchants.MoEnchantsMod;
+import net.ldm.mo_enchants.MoEnchants;
 import net.ldm.mo_enchants.enchantment.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -17,9 +17,9 @@ import java.util.ArrayList;
 import java.util.UUID;
 import java.util.function.Supplier;
 
-public class MoEnchantsEnchantments {
+public class ModEnchantments {
     public static final DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(
-            ForgeRegistries.ENCHANTMENTS, MoEnchantsMod.MOD_ID);
+            ForgeRegistries.ENCHANTMENTS, MoEnchants.MOD_ID);
 
     public static final ArrayList<Translation> TRANSLATIONS = new ArrayList<>();
 
