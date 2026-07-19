@@ -1,4 +1,4 @@
-package net.ldm.mo_enchants.enchantment.helpers;
+package net.ldm.mo_enchants.enchantment.helper;
 
 import net.ldm.mo_enchants.init.MoEnchantsEnchantments;
 import net.minecraft.world.entity.EntityType;

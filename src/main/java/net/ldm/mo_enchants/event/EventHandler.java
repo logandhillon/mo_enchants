@@ -1,7 +1,7 @@
 package net.ldm.mo_enchants.event;
 
 import net.ldm.mo_enchants.enchantment.*;
-import net.ldm.mo_enchants.enchantment.helpers.*;
+import net.ldm.mo_enchants.enchantment.helper.*;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.TickEvent.PlayerTickEvent;
