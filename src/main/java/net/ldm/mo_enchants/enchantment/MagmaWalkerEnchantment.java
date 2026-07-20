@@ -22,7 +22,7 @@ public class MagmaWalkerEnchantment extends Enchantment {
 
     @Override
     protected boolean checkCompatibility(Enchantment ench) {
-        return ench != Enchantments.FROST_WALKER;
+        return super.checkCompatibility(ench) && ench != Enchantments.FROST_WALKER;
     }
 
     @Override

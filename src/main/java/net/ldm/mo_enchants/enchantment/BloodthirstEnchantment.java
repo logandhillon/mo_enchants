@@ -17,6 +17,6 @@ public class BloodthirstEnchantment extends Enchantment {
 
     @Override
     protected boolean checkCompatibility(Enchantment ench) {
-        return ench != ModEnchantments.REVENANT.get();
+        return super.checkCompatibility(ench) && ench != ModEnchantments.REVENANT.get();
     }
 }

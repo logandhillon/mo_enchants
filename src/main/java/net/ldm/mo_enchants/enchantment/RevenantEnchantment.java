@@ -20,7 +20,9 @@ public class RevenantEnchantment extends Enchantment {
 
     @Override
     protected boolean checkCompatibility(Enchantment ench) {
-        return ench != ModEnchantments.BLOODTHIRST.get() && ench != ModEnchantments.ULTIMATE_FINISH.get();
+        return super.checkCompatibility(ench)
+               && ench != ModEnchantments.BLOODTHIRST.get()
+               && ench != ModEnchantments.ULTIMATE_FINISH.get();
     }
 
     public static void onEntityAttacked(LivingEntity victim, LivingEntity attacker) {

@@ -20,19 +20,15 @@ public class FrostEnchantment extends Enchantment {
 
     @Override
     protected boolean checkCompatibility(Enchantment ench) {
-        if (ench == Enchantments.FLAMING_ARROWS)
-            return false;
-        if (ench == ModEnchantments.CONDUCTION.get())
-            return false;
-        if (ench == ModEnchantments.LEVITATING.get())
-            return false;
-        return ench != ModEnchantments.DETONATION.get();
+        return super.checkCompatibility(ench)
+               && ench != ModEnchantments.DETONATION.get()
+               && ench != Enchantments.FLAMING_ARROWS
+               && ench != ModEnchantments.CONDUCTION.get()
+               && ench != ModEnchantments.LEVITATING.get();
     }
 
     @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack) {
-        if (stack.getItem() == Items.BOW)
-            return true;
-        return stack.getItem() == Items.CROSSBOW;
+        return stack.is(Items.CROSSBOW) || stack.is(Items.BOW);
     }
 }

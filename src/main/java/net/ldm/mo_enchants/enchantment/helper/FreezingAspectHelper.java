@@ -9,7 +9,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 public class FreezingAspectHelper {
     public static void onEntityAttacked(LivingHurtEvent event, LivingEntity attacker) {
         int level = Math.max(
-                attacker.getMainHandItem().getEnchantmentLevel(ModEnchantments.FREEZING_ASPECT.get()),
+                attacker.getMainHandItem().getEnchantmentLevel(ModEnchantments.ICE_ASPECT.get()),
                 attacker.getMainHandItem().getEnchantmentLevel(ModEnchantments.FROST.get()));
         if (level < 1) return;
 

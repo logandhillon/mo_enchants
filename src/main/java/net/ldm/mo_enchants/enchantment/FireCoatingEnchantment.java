@@ -16,9 +16,9 @@ public class FireCoatingEnchantment extends Enchantment {
 
     @Override
     protected boolean checkCompatibility(Enchantment ench) {
-        if (ench == Enchantments.FIRE_PROTECTION)
-            return false;
-        return ench != Enchantments.THORNS;
+        return super.checkCompatibility(ench)
+               && ench != Enchantments.THORNS
+               && ench != Enchantments.FIRE_PROTECTION;
     }
 
     public static void onPlayerTickClient(PlayerTickEvent event) {

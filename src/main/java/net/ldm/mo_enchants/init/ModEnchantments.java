@@ -59,7 +59,7 @@ public class ModEnchantments {
             "Lifesteal",
             "Gives you a chance to steal attacked enemies health.");
 
-    public static final RegistryObject<Enchantment> FREEZING_ASPECT = register(
+    public static final RegistryObject<Enchantment> ICE_ASPECT = register(
             "freezing_aspect",
             FreezingAspectEnchantment::new,
             "Ice Aspect",

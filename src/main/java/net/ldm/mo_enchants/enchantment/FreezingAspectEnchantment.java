@@ -18,11 +18,10 @@ public class FreezingAspectEnchantment extends Enchantment {
 
     @Override
     protected boolean checkCompatibility(Enchantment ench) {
-        if (ench == Enchantments.FIRE_ASPECT)
-            return false;
-        if (ench == ModEnchantments.VENOMFANG.get())
-            return false;
-        return ench != ModEnchantments.LIFESTEAL.get();
+        return super.checkCompatibility(ench)
+               && ench != ModEnchantments.LIFESTEAL.get()
+               && ench != Enchantments.FIRE_ASPECT
+               && ench != ModEnchantments.VENOMFANG.get();
     }
 
     @Override

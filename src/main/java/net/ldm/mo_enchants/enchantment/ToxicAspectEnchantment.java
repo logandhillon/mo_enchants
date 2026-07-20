@@ -21,11 +21,10 @@ public class ToxicAspectEnchantment extends Enchantment {
 
     @Override
     protected boolean checkCompatibility(Enchantment ench) {
-        if (ench == ModEnchantments.FREEZING_ASPECT.get())
-            return false;
-        if (ench == Enchantments.FIRE_ASPECT)
-            return false;
-        return ench != ModEnchantments.LIFESTEAL.get();
+        return super.checkCompatibility(ench)
+               && ench != ModEnchantments.LIFESTEAL.get()
+               && ench != ModEnchantments.ICE_ASPECT.get()
+               && ench != Enchantments.FIRE_ASPECT;
     }
 
     public static void onEntityAttacked(LivingEntity victim, LivingEntity attacker) {
