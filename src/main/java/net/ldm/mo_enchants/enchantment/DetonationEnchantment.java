@@ -15,13 +15,11 @@ public class DetonationEnchantment extends Enchantment {
 
     @Override
     protected boolean checkCompatibility(Enchantment ench) {
-        if (ench == Enchantments.FLAMING_ARROWS)
-            return false;
-        if (ench == ModEnchantments.FROST.get())
-            return false;
-        if (ench == ModEnchantments.LEVITATING.get())
-            return false;
-        return ench != ModEnchantments.CONDUCTION.get();
+        return super.checkCompatibility(ench)
+               && ench != ModEnchantments.CONDUCTION.get()
+               && ench != Enchantments.FLAMING_ARROWS
+               && ench != ModEnchantments.FROST.get()
+               && ench != ModEnchantments.LEVITATING.get();
     }
 
     @Override

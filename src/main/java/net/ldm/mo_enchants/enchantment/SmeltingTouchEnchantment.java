@@ -12,9 +12,10 @@ public class SmeltingTouchEnchantment extends Enchantment {
     }
 
     @Override
-    protected boolean checkCompatibility(Enchantment ench) {
-        if (ench == Enchantments.SILK_TOUCH)
-            return false;
-        return ench != ModEnchantments.REACH.get();
+    protected boolean checkCompatibility(Enchantment other) {
+        return super.checkCompatibility(other)
+               && other != ModEnchantments.REACH.get()
+               && other != Enchantments.SILK_TOUCH
+               && other != Enchantments.BLOCK_FORTUNE;
     }
 }

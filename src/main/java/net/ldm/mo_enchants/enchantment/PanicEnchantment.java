@@ -17,9 +17,9 @@ public class PanicEnchantment extends Enchantment {
     }
 
     @Override
-    protected boolean checkCompatibility(Enchantment ench) {
-        if (ench == ModEnchantments.SWIFTNESS.get())
-            return false;
-        return ench != Enchantments.SOUL_SPEED;
+    protected boolean checkCompatibility(Enchantment other) {
+        return super.checkCompatibility(other)
+               && other != Enchantments.SOUL_SPEED
+               && other != ModEnchantments.SWIFTNESS.get();
     }
 }

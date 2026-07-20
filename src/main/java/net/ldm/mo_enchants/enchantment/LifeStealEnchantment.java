@@ -18,14 +18,12 @@ public class LifeStealEnchantment extends Enchantment {
     }
 
     @Override
-    protected boolean checkCompatibility(Enchantment ench) {
-        if (ench == ModEnchantments.FREEZING_ASPECT.get())
-            return false;
-        if (ench == Enchantments.FIRE_ASPECT)
-            return false;
-        if (ench == ModEnchantments.VENOMFANG.get())
-            return false;
-        return ench != ModEnchantments.ULTIMATE_FINISH.get();
+    protected boolean checkCompatibility(Enchantment other) {
+        return super.checkCompatibility(other)
+               && other != ModEnchantments.ULTIMATE_FINISH.get()
+               && other != ModEnchantments.ICE_ASPECT.get()
+               && other != Enchantments.FIRE_ASPECT
+               && other != ModEnchantments.VENOMFANG.get();
     }
 
     @Override

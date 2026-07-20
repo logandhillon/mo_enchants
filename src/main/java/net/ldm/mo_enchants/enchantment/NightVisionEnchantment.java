@@ -17,7 +17,7 @@ public class NightVisionEnchantment extends Enchantment {
 
     @Override
     protected boolean checkCompatibility(Enchantment ench) {
-        return ench != Enchantments.AQUA_AFFINITY;
+        return super.checkCompatibility(ench) && ench != Enchantments.AQUA_AFFINITY;
     }
 
     public static void onEquipmentChange(LivingEquipmentChangeEvent event) {

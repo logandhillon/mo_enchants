@@ -17,6 +17,6 @@ public class RockMendingEnchantment extends Enchantment {
 
     @Override
     protected boolean checkCompatibility(Enchantment ench) {
-        return !ench.equals(Enchantments.MENDING);
+        return super.checkCompatibility(ench) && ench != Enchantments.MENDING;
     }
 }

@@ -24,13 +24,11 @@ public class LevitatingEnchantment extends Enchantment {
 
     @Override
     protected boolean checkCompatibility(Enchantment ench) {
-        if (ench == Enchantments.FLAMING_ARROWS)
-            return false;
-        if (ench == ModEnchantments.FROST.get())
-            return false;
-        if (ench == ModEnchantments.CONDUCTION.get())
-            return false;
-        return ench != ModEnchantments.DETONATION.get();
+        return super.checkCompatibility(ench)
+               && ench != ModEnchantments.DETONATION.get()
+               && ench != Enchantments.FLAMING_ARROWS
+               && ench != ModEnchantments.FROST.get()
+               && ench != ModEnchantments.CONDUCTION.get();
     }
 
     @Override

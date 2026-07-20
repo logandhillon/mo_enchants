@@ -18,7 +18,7 @@ public class CriticalHitEnchantment extends Enchantment {
     }
 
     @Override
-    public boolean checkCompatibility(Enchantment ench) {
-        return !(ench instanceof CriticalHitEnchantment);
+    public boolean checkCompatibility(Enchantment other) {
+        return !(other instanceof CriticalHitEnchantment);
     }
 }
