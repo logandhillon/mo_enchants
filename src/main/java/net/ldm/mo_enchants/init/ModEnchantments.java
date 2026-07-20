@@ -27,25 +27,25 @@ public class ModEnchantments {
             "harming_curse",
             HarmingCurseEnchantment::new,
             "Curse of Harming",
-            "Damages you when you damage any other mob.");
+            "Take damage when you damage any other mob.");
 
     public static final RegistryObject<Enchantment> ULTIMATE_FINISH = register(
             "ultimate_finish",
             UltimateFinishEnchantment::new,
             "Ultimate Finish",
-            "When you kill a mob, create an explosion that damages everything around you except blocks and you.");
+            "Enemies slain with this enchantment explode into pieces.");
 
     public static final RegistryObject<Enchantment> SCORCHING_CURSE = register(
             "scorching_curse",
             ScorchingCurseEnchantment::new,
             "Curse of Scorching",
-            "When you get hit, you get ignited on fire.");
+            "Get ignited on fire when you're hurt.");
 
     public static final RegistryObject<Enchantment> VENOMFANG = register(
             "venomfang",
             ToxicAspectEnchantment::new,
             "Venomfang",
-            "Gives Poison I for 5 seconds (Venomfang I) or Poison II for 7.5 seconds (Venomfang II).");
+            "Poisons attacked enemies.");
 
     public static final RegistryObject<Enchantment> SMELTING_TOUCH = register(
             "smelting_touch",
@@ -56,32 +56,32 @@ public class ModEnchantments {
     public static final RegistryObject<Enchantment> LIFE_STEAL = register(
             "life_steal",
             LifeStealEnchantment::new,
-            "Life Steal",
-            "Has a 10% chance of healing you, the chance of healing goes up as the enchantment level gets higher.");
+            "Lifesteal",
+            "Gives you a chance to steal attacked enemies health.");
 
     public static final RegistryObject<Enchantment> FREEZING_ASPECT = register(
             "freezing_aspect",
             FreezingAspectEnchantment::new,
-            "Freezing Aspect",
-            "Freezes mobs, which slows the mob by 15% * level.");
+            "Ice Aspect",
+            "Freezes attacked enemies.");
 
     public static final RegistryObject<Enchantment> LIFEFORCE_DISCHARGE_CURSE = register(
             "lifeforce_discharge_curse",
             LifeforceDischargeCurseEnchantment::new,
-            "Lifeforce Discharge",
-            "When you attack a mob, it drains some of your lifeforce, and gives it to the attacked mob.");
+            "Curse of Sacrifice",
+            "Heal enemies you attack with your health.");
 
     public static final RegistryObject<Enchantment> PANIC = register(
             "panic",
             PanicEnchantment::new,
             "Panic",
-            "When your health drops below 2 hearts, get regeneration and speed.");
+            "Get regeneration and speed when your health is critically low.");
 
     public static final RegistryObject<Enchantment> CONDUCTION = register(
             "conduction",
             ConductionEnchantment::new,
             "Conduction",
-            "If a lightning storm is happening when you shoot a mob, the mob gets struck with lightning.");
+            "Conducts lightning to attacked enemies during storms.");
 
     public static final RegistryObject<Enchantment> SAVING_GRACE = register(
             "saving_grace",
@@ -93,13 +93,13 @@ public class ModEnchantments {
             "frost",
             FrostEnchantment::new,
             "Frost",
-            "Freezes mobs, which slows the mob by 15% * level.");
+            "Freezes attacked enemies.");
 
     public static final RegistryObject<Enchantment> AQUA_SLASH = register(
             "aqua_slash",
             BonusDamageEnchantment::new,
             "Aqua Slash",
-            "Does more damage to mobs with a water weakness (Blazes, Endermen, Magma Cubes)");
+            "Does more damage to aquaphobic mobs.");
 
     public static final RegistryObject<Enchantment> HUNTER = register(
             "hunter",
@@ -121,25 +121,25 @@ public class ModEnchantments {
                     new Enchantment[]{ Enchantments.SOUL_SPEED, PANIC.get() },
                     false, false, true),
             "Swiftness",
-            "Makes you run 20% faster, per level.");
+            "Increases movement speed.");
 
     public static final RegistryObject<Enchantment> BOILING_CURSE = register(
             "boiling_curse",
             BoilingCurseEnchantment::new,
             "Curse of Boiling",
-            "When you are in a hot/dry biome or in the nether, you get set on fire.");
+            "Ignites you in hot or dry biomes.");
 
     public static final RegistryObject<Enchantment> FREEZING_CURSE = register(
             "freezing_curse",
             FreezingCurseEnchantment::new,
-            "Curse of Freezing",
-            "When you are in a freezing biome, your speed is lowered by 30%.");
+            "Curse of Frostbite",
+            "Freezes you in cold biomes.");
 
     public static final RegistryObject<Enchantment> BAD_DREAMS_CURSE = register(
             "bad_dreams_curse",
             BadDreamsCurseEnchantment::new,
-            "Curse of Bad Dreams",
-            "Die of a bad dream, whenever you try to sleep.");
+            "Curse of Insomnia",
+            "Become unable to sleep due to nightmares.");
 
     public static final RegistryObject<Enchantment> ANGELS_BLESSING = register(
             "angels_blessing",
@@ -151,19 +151,19 @@ public class ModEnchantments {
             "rock_mending",
             RockMendingEnchantment::new,
             "Rock Mending",
-            "Has a chance (30%, 60%, 80%) of not damaging the tool when mining any sort of rock.");
+            "Has a chance of not damaging the tool when mining rocks.");
 
     public static final RegistryObject<Enchantment> LEVITATING = register(
             "levitating",
             LevitatingEnchantment::new,
             "Levitating",
-            "Shooting mobs with this enchantment makes them fly.");
+            "Shooting mobs will make them fly.");
 
     public static final RegistryObject<Enchantment> DETONATION = register(
             "detonation",
             DetonationEnchantment::new,
             "Detonation",
-            "When you kill a mob, create an explosion that damages everything around the killed mob except blocks.");
+            "Enemies shot with this weapon explode into pieces.");
 
     public static final RegistryObject<Enchantment> NIGHT_VISION = register(
             "night_vision",
@@ -175,7 +175,7 @@ public class ModEnchantments {
             "aquaphobia_curse",
             AquaphobiaCurseEnchantment::new,
             "Curse of Aquaphobia",
-            "Makes you take half a heart of damage every half-second while submerged.");
+            "Become afraid of water, taking damage while submerged.");
 
     public static final RegistryObject<Enchantment> WEIGHTLESS = register(
             "weightless",
@@ -191,7 +191,7 @@ public class ModEnchantments {
                     new Enchantment[]{ Enchantments.THORNS },
                     false, false, true),
             "Weightless",
-            "Allows you to jump higher, the level of the enchantment determines how high you jump.");
+            "Decreases your gravity, allowing you to jump higher and fall slower.");
 
     public static final RegistryObject<Enchantment> DENSITY_CURSE = register(
             "density_curse",
@@ -208,7 +208,7 @@ public class ModEnchantments {
                     new Enchantment[]{},
                     true, true, false),
             "Curse of Density",
-            "Makes you move 15% slower.");
+            "Increases your gravity, causing you to jump lower and fall faster.");
 
     public static final RegistryObject<Enchantment> REACH = register(
             "reach",
@@ -230,26 +230,25 @@ public class ModEnchantments {
             "bloodthirst",
             BloodthirstEnchantment::new,
             "Bloodthirst",
-            "When right-clicked with this enchantment, take 2.5 hearts in exchange for Strength and Speed for 12 " +
-            "seconds.");
+            "Right-click this weapon to gain a temporary damage buff, in exchange for some health.");
 
     public static final RegistryObject<Enchantment> REVENANT = register(
             "revenant",
             RevenantEnchantment::new,
             "Revenant",
-            "Has a chance (1%, 2%) to instantly kill any undead mob.");
+            "Has a chance to instantly kill any undead mob.");
 
     public static final RegistryObject<Enchantment> MAGMA_WALKER = register(
             "magma_walker",
             MagmaWalkerEnchantment::new,
             "Magma Walker",
-            "Allows you to walk on lava, simular to Frost Walker.");
+            "Creates a path while walking on lava.");
 
     public static final RegistryObject<Enchantment> FIRE_COATING = register(
             "fire_coating",
             FireCoatingEnchantment::new,
-            "Fire Coating",
-            "Wearing a chestplate with this enchantment makes you immune to fire and lava.");
+            "Fireproofing",
+            "Makes you immune to fire and lava.");
 
     public static final RegistryObject<Enchantment> GROWTH = register(
             "growth",
@@ -259,7 +258,7 @@ public class ModEnchantments {
                     new EquipmentSlot[]{ EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS,
                                          EquipmentSlot.FEET },
                     UUID.fromString("1e2860e7-95fb-4b49-b617-ddd1da80c3d2"),
-                    ForgeMod.BLOCK_REACH.get(),
+                    Attributes.MAX_HEALTH,
                     "growth",
                     1f,
                     4,
@@ -267,26 +266,26 @@ public class ModEnchantments {
                                        Enchantments.BLAST_PROTECTION, Enchantments.FALL_PROTECTION,
                                        Enchantments.FIRE_PROTECTION },
                     false, false, true),
-            "Growth",
-            "Adds half a heart to your max health for every level, up to IV.");
+            "Vitality",
+            "Adds half a heart to your max health for each level.");
 
     public static final RegistryObject<Enchantment> DEVASTATION = register(
             "devastation",
             () -> new CriticalHitEnchantment(3),
-            "Devastation",
-            "Allows for the chance (10% x level) of critical hits, which do 150% damage.");
+            "Critical Blow",
+            "Allows for the chance of critical hits, which do 150% damage.");
 
     public static final RegistryObject<Enchantment> FIRST_STRIKE = register(
             "first_strike",
             () -> new CriticalHitEnchantment(1),
             "First Strike",
-            "Does 25% more damage if the hit is the first strike.");
+            "Does 25% more damage on first strikes.");
 
     public static final RegistryObject<Enchantment> CAREFUL = register(
             "careful",
             () -> new CarefulEnchantment(EquipmentSlot.MAINHAND),
-            "Careful",
-            "Prevents you from mining crops that aren't fully grown, and stems.");
+            "Green Thumb",
+            "Prevents you from mining ungrown crops & stems.");
 
     private static RegistryObject<Enchantment> register(
             String id, Supplier<Enchantment> enchantment, String name, String description
