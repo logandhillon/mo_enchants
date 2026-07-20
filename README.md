@@ -9,43 +9,43 @@ Mo' Enchants is a load of enchantments and curses, added into Minecraft while st
 
 ### Enchantments & Curses
 
-| Enchantment/Curse Name | Max Level | Tool(s)          | Incompatibilities                                        | Description                                                                                                  |
-|------------------------|-----------|------------------|----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| Angel's Blessing       | III       | Totem of Undying | None                                                     | Gives your Totem of Undying extra uses, +1 use per every level.                                              |
-| Aqua Slash             | IV        | Weapons          | Sharpness, Bane of Arthropods, Smite, Hunter             | Does more damage to mobs with a water weakness (Blazes, Endermen, Magma Cubes)                               |
-| Bloodthirst            | II        | Weapons          | Revenant                                                 | When right-clicked with this enchantment, take 2.5 hearts in exchange for Strength and Speed for 12 seconds. |
-| Careful                | I         | Hoes             | None                                                     | Prevents you from mining crops that aren't fully grown, and stems.                                           |
-| Conduction             | I         | Bows             | Flame, Frost, Levitating, Detonation                     | If a lightning storm is happening when you shoot a mob, the mob gets struck with lightning.                  |
-| Curse of Aquaphobia    | I         | Armor            | None                                                     | Makes you take half a heart of damage every half-second.                                                     |
-| Curse of Bad Dreams    | I         | Helmets          | None                                                     | Die of a bad dream, whenever you try to sleep.                                                               |
-| Curse of Boiling       | I         | Armor            | None                                                     | When you are in a hot/dry biome or in the nether, you get set on fire.                                       |
-| Curse of Density       | I         | Armor            | Weightless                                               | Makes you move 15% slower.                                                                                   |
-| Curse of Freezing      | I         | Armor            | None                                                     | When you are in a freezing biome, your speed is lowered by 30%.                                              |
-| Curse of Harming       | I         | Weapons          | None                                                     | Damages you when you damage any other mob.                                                                   |
-| Curse of Scorching     | I         | Armor            | None                                                     | When you get hit, you get ignited on fire.                                                                   |
-| Detonation             | I         | Bows             | Flame, Frost, Levitation, Conduction                     | When you kill a mob, create an explosion that damages everything around the killed mob except blocks.        |
-| Devastation            | III       | Weapons          | First Strike                                             | Allows for the chance (10% x level) of critical hits, which do 150% damage.                                  |
-| Fire Coating           | I         | Chestplates      | Thorns, Fire Protection                                  | Wearing a chestplate with this enchantment makes you immune to fire and lava.                                |
-| First Strike           | I         | Weapons          | Devastation                                              | Does 25% more damage if the hit is the first strike.                                                         |
-| Freezing Aspect        | III       | Weapons          | Fire Aspect, Venomfang, Life Steal                       | Freezes mobs, which slows the mob by 15% \* level.                                                           |
-| Frost                  | III       | Bows             | Flame, Conduction, Levitating, Detonation                | Freezes mobs, which slows the mob by 15% \* level.                                                           |
-| Growth                 | IV        | Armor            | None                                                     | Adds half a heart to your max health for every level, up to IV.                                              |
-| Hunter                 | IV        | Weapons          | Sharpness, Bane of Arthropods, Smite, Aqua Slash         | Does more damage to animals.                                                                                 |
-| Levitating             | III       | Bows             | Flame, Frost, Conduction, Detonation                     | Shooting mobs with this enchantment makes them fly.                                                          |
-| Life Steal             | III       | Weapons          | Freezing Aspect, Fire Aspect, Venomfang, Ultimate Finish | Has a 10% chance of healing you, the chance of healing goes up as the enchantment level gets higher.         |
-| Lifeforce Discharge    | IV        | Weapons          | None                                                     | When you attack a mob, it drains some of your lifeforce, and gives it to the attacked mob.                   |
-| Magma Walker           | I         | Boots            | Frost Walker                                             | Allows you to walk on lava, simular to Frost Walker.                                                         |
-| Night Vision           | I         | Helmets          | Aqua Affinity                                            | Gives you night vision when equipped.                                                                        |
-| Panic                  | II        | Boots            | Swiftness, Soul Speed                                    | When your health drops below 2 hearts, get regeneration and speed.                                           |
-| Reach                  | III       | Tools            | Fortune, Silk Touch, Smelting Touch                      | Gives you +1 block of mining reach per level.                                                                |
-| Revenant               | II        | Weapons          | Bloodthirst, Ultimate Finish                             | Has a chance (1%, 2%) to instantly kill any undead mob.                                                      |
-| Rock Mending           | III       | Tools            | Mending                                                  | Has a chance (30%, 60%, 80%) of not damaging the tool when mining any sort of rock.                          |
-| Saving Grace           | I         | Boots            | None                                                     | When you fall into the void, get launched back up.                                                           |
-| Smelting Touch         | I         | Tools            | Silk Touch, Reach                                        | Automatically smelts any block you mine.                                                                     |
-| Swiftness              | III       | Boots            | Panic, Soul Speed                                        | Makes you able to run 20% faster, per level.                                                                 |
-| Ultimate Finish        | I         | Weapons          | Life Steal, Revenant                                     | When you kill a mob, create an explosion that damages everything around you except blocks and you.           |
-| Venomfang              | II        | Weapons          | Freezing Aspect, Fire Aspect, Life Steal                 | Gives Poison I for 5 seconds (Venomfang I) or Poison II for 7.5 seconds (Venomfang II).                      |
-| Weightless             | II        | Leggings         | Thorns, Curse of Density                                 | Allows you to jump higher, the level of the enchantment determines how high you jump.                        |
+| Enchantment/Curse Name | Max Level | Tool(s)          | Description                                                                           |
+|------------------------|-----------|------------------|---------------------------------------------------------------------------------------|
+| Angel's Blessing       | III       | Totem of Undying | Gives your Totem of Undying extra uses, +1 use per level.                             |
+| Aqua Slash             | IV        | Weapons          | Deals more damage to mobs with a weakness to water.                                   |
+| Bloodthirst            | II        | Weapons          | Right-click to gain a temporary damage buff in exchange for some health.              |
+| Conduction             | I         | Bows             | During thunderstorms, arrows strike targets with lightning.                           |
+| Critical Blow          | III       | Weapons          | Gives a chance (10% × level) to deal critical hits that do 150% damage.               |
+| Curse of Aquaphobia    | I         | Armor            | Causes damage while submerged in water.                                               |
+| Curse of Boiling       | I         | Armor            | Ignites you in hot or dry biomes and the Nether.                                      |
+| Curse of Density       | I         | Armor            | Increases gravity, making you fall faster and jump lower.                             |
+| Curse of Frostbite     | I         | Armor            | Freezes you in cold biomes.                                                           |
+| Curse of Harming       | I         | Weapons          | Damages you when you damage another mob.                                              |
+| Curse of Insomnia      | I         | Helmets          | Prevents sleeping by causing nightmares.                                              |
+| Curse of Sacrifice     | IV        | Weapons          | Drains your lifeforce when attacking and transfers it to the enemy.                   |
+| Curse of Scorching     | I         | Armor            | Ignites you when you take damage.                                                     |
+| Detonation             | I         | Bows             | Killed enemies explode, damaging nearby entities without breaking blocks.             |
+| Fireproofing           | I         | Chestplates      | Makes you immune to fire and lava.                                                    |
+| First Strike           | I         | Weapons          | Deals 25% more damage on first strikes.                                               |
+| Frost                  | III       | Bows             | Freezes enemies, slowing them by 15% × level.                                         |
+| Green Thumb            | I         | Hoes             | Prevents mining crops and stems before they are fully grown.                          |
+| Hunter                 | IV        | Weapons          | Deals more damage to animals.                                                         |
+| Ice Aspect             | III       | Weapons          | Freezes enemies, slowing them by 15% × level.                                         |
+| Levitating             | III       | Bows             | Makes shot enemies levitate.                                                          |
+| Lifesteal              | III       | Weapons          | Has a chance to heal you when attacking enemies.                                      |
+| Magma Walker           | I         | Boots            | Creates a path while walking on lava.                                                 |
+| Night Vision           | I         | Helmets          | Grants night vision while equipped.                                                   |
+| Panic                  | II        | Boots            | Grants regeneration and speed when your health is critically low.                     |
+| Reach                  | III       | Tools            | Increases mining reach by +1 block per level.                                         |
+| Revenant               | II        | Weapons          | Has a chance to instantly kill undead mobs.                                           |
+| Rock Mending           | III       | Tools            | Gives a chance to avoid tool damage when mining rocks.                                |
+| Saving Grace           | I         | Boots            | Launches you upward if you fall into the void.                                        |
+| Smelting Touch         | I         | Tools            | Automatically smelts mined blocks.                                                    |
+| Swiftness              | III       | Boots            | Increases movement speed.                                                             |
+| Ultimate Finish        | I         | Weapons          | Killed enemies explode, damaging nearby entities without damaging blocks or the user. |
+| Venomfang              | II        | Weapons          | Poisons attacked enemies.                                                             |
+| Vitality               | IV        | Armor            | Increases maximum health by half a heart per level.                                   |
+| Weightless             | II        | Leggings         | Reduces gravity, allowing higher jumps and slower falls.                              |
 
 ### Questions? Suggestions? Just want to chat? Join the [Discord](https://discord.gg/GsUqxzj)!
 

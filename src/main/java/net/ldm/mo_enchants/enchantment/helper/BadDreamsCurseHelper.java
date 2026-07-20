@@ -17,7 +17,7 @@ public class BadDreamsCurseHelper {
         Player player = event.getEntity();
 
         if (EnchantmentHelper.getTagEnchantmentLevel(
-                ModEnchantments.BAD_DREAMS_CURSE.get(),
+                ModEnchantments.INSOMNIA_CURSE.get(),
                 player.getItemBySlot(EquipmentSlot.HEAD)) != 0) {
             player.hurt(ModDamageSources.of(ModDamageSources.BAD_DREAMS, player), Float.MAX_VALUE);
         }

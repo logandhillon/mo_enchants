@@ -39,7 +39,7 @@ public class LifeStealEnchantment extends Enchantment {
     }
 
     public static void onEntityAttacked(LivingEntity attacker) {
-        int level = attacker.getMainHandItem().getEnchantmentLevel(ModEnchantments.LIFE_STEAL.get());
+        int level = attacker.getMainHandItem().getEnchantmentLevel(ModEnchantments.LIFESTEAL.get());
         if (level < 1 || Math.random() < level / 10f) return;
 
         attacker.setHealth(attacker.getHealth() + 1 + level);

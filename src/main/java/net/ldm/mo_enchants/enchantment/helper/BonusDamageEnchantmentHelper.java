@@ -47,7 +47,7 @@ public class BonusDamageEnchantmentHelper {
             return;
         }
 
-        int level = attacker.getMainHandItem().getEnchantmentLevel(ModEnchantments.DEVASTATION.get());
+        int level = attacker.getMainHandItem().getEnchantmentLevel(ModEnchantments.CRITICAL_BLOW.get());
         if (level > 0 && Math.random() >= 0.1 * level) {
             event.setAmount(event.getAmount() * 1.5f);
             playBonusDamageSound(attacker);

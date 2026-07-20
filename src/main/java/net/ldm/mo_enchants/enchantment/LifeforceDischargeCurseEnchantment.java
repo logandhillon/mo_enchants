@@ -34,7 +34,7 @@ public class LifeforceDischargeCurseEnchantment extends Enchantment {
 
     public static void onEntityAttacked(LivingEntity attacker) {
         int level = attacker.getMainHandItem().getEnchantmentLevel(
-                ModEnchantments.LIFEFORCE_DISCHARGE_CURSE.get());
+                ModEnchantments.SACRIFICE_CURSE.get());
         if (level < 1) return;
 
         attacker.hurt(ModDamageSources.of(ModDamageSources.LIFEFORCE_DISCHARGE, attacker), 1 + level);

@@ -25,7 +25,7 @@ public class ToxicAspectEnchantment extends Enchantment {
             return false;
         if (ench == Enchantments.FIRE_ASPECT)
             return false;
-        return ench != ModEnchantments.LIFE_STEAL.get();
+        return ench != ModEnchantments.LIFESTEAL.get();
     }
 
     public static void onEntityAttacked(LivingEntity victim, LivingEntity attacker) {
