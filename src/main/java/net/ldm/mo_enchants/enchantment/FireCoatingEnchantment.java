@@ -23,7 +23,7 @@ public class FireCoatingEnchantment extends Enchantment {
 
     public static void onPlayerTickClient(PlayerTickEvent event) {
         if (event.player.getItemBySlot(EquipmentSlot.CHEST).getEnchantmentLevel(
-                ModEnchantments.FIRE_COATING.get()) > 0) {
+                ModEnchantments.FIREPROOFING.get()) > 0) {
             event.player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 2, 0, false, false));
         }
     }

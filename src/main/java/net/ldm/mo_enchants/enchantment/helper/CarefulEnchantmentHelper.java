@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 public class CarefulEnchantmentHelper {
     @SubscribeEvent
     public static void onBlockBreak(BlockEvent.BreakEvent event) {
-        if (event.getPlayer().getMainHandItem().getEnchantmentLevel(ModEnchantments.CAREFUL.get()) > 0
+        if (event.getPlayer().getMainHandItem().getEnchantmentLevel(ModEnchantments.GREEN_THUMB.get()) > 0
             && event.getState().is(BlockTags.CROPS)
             && event.getState().getValue(CropBlock.AGE) <= 6
         ) {

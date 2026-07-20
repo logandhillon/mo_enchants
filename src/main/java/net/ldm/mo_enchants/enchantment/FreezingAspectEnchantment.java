@@ -22,7 +22,7 @@ public class FreezingAspectEnchantment extends Enchantment {
             return false;
         if (ench == ModEnchantments.VENOMFANG.get())
             return false;
-        return ench != ModEnchantments.LIFE_STEAL.get();
+        return ench != ModEnchantments.LIFESTEAL.get();
     }
 
     @Override

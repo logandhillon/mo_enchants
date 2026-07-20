@@ -12,7 +12,7 @@ public class UltimateFinishEnchantment extends Enchantment {
 
     @Override
     protected boolean checkCompatibility(Enchantment ench) {
-        if (ench == ModEnchantments.LIFE_STEAL.get())
+        if (ench == ModEnchantments.LIFESTEAL.get())
             return false;
         return ench != ModEnchantments.REVENANT.get();
     }

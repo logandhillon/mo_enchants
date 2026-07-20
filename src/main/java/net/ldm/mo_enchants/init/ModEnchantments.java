@@ -53,7 +53,7 @@ public class ModEnchantments {
             "Smelting Touch",
             "Automatically smelts any block you mine.");
 
-    public static final RegistryObject<Enchantment> LIFE_STEAL = register(
+    public static final RegistryObject<Enchantment> LIFESTEAL = register(
             "life_steal",
             LifeStealEnchantment::new,
             "Lifesteal",
@@ -65,7 +65,7 @@ public class ModEnchantments {
             "Ice Aspect",
             "Freezes attacked enemies.");
 
-    public static final RegistryObject<Enchantment> LIFEFORCE_DISCHARGE_CURSE = register(
+    public static final RegistryObject<Enchantment> SACRIFICE_CURSE = register(
             "lifeforce_discharge_curse",
             LifeforceDischargeCurseEnchantment::new,
             "Curse of Sacrifice",
@@ -135,7 +135,7 @@ public class ModEnchantments {
             "Curse of Frostbite",
             "Freezes you in cold biomes.");
 
-    public static final RegistryObject<Enchantment> BAD_DREAMS_CURSE = register(
+    public static final RegistryObject<Enchantment> INSOMNIA_CURSE = register(
             "bad_dreams_curse",
             BadDreamsCurseEnchantment::new,
             "Curse of Insomnia",
@@ -244,13 +244,13 @@ public class ModEnchantments {
             "Magma Walker",
             "Creates a path while walking on lava.");
 
-    public static final RegistryObject<Enchantment> FIRE_COATING = register(
+    public static final RegistryObject<Enchantment> FIREPROOFING = register(
             "fire_coating",
             FireCoatingEnchantment::new,
             "Fireproofing",
             "Makes you immune to fire and lava.");
 
-    public static final RegistryObject<Enchantment> GROWTH = register(
+    public static final RegistryObject<Enchantment> VITALITY = register(
             "growth",
             () -> new AttributeModifierEnchantment(
                     Rarity.RARE,
@@ -269,7 +269,7 @@ public class ModEnchantments {
             "Vitality",
             "Adds half a heart to your max health for each level.");
 
-    public static final RegistryObject<Enchantment> DEVASTATION = register(
+    public static final RegistryObject<Enchantment> CRITICAL_BLOW = register(
             "devastation",
             () -> new CriticalHitEnchantment(3),
             "Critical Blow",
@@ -281,7 +281,7 @@ public class ModEnchantments {
             "First Strike",
             "Does 25% more damage on first strikes.");
 
-    public static final RegistryObject<Enchantment> CAREFUL = register(
+    public static final RegistryObject<Enchantment> GREEN_THUMB = register(
             "careful",
             () -> new CarefulEnchantment(EquipmentSlot.MAINHAND),
             "Green Thumb",
