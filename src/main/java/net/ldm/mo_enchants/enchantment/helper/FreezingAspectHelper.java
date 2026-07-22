@@ -5,9 +5,10 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 public class FreezingAspectHelper {
-    public static void onEntityAttacked(LivingHurtEvent event, LivingEntity attacker) {
+    public static void onEntityAttacked(LivingIncomingDamageEvent event, LivingEntity attacker) {
         int level = Math.max(
                 attacker.getMainHandItem().getEnchantmentLevel(ModEnchantments.ICE_ASPECT.get()),
                 attacker.getMainHandItem().getEnchantmentLevel(ModEnchantments.FROST.get()));

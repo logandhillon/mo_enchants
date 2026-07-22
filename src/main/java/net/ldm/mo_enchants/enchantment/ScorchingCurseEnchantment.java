@@ -6,6 +6,8 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
+import org.jetbrains.annotations.UnknownNullability;
 
 public class ScorchingCurseEnchantment extends Enchantment {
     public ScorchingCurseEnchantment(EquipmentSlot... slots) {
@@ -27,7 +29,7 @@ public class ScorchingCurseEnchantment extends Enchantment {
         return false;
     }
 
-    public static void onEntityAttacked(LivingHurtEvent event) {
+    public static void onEntityAttacked(@UnknownNullability LivingIncomingDamageEvent event) {
         if (EnchantmentUtils.hasArmorEnchantment(event.getEntity(), ModEnchantments.SCORCHING_CURSE.get())) {
             event.getEntity().setSecondsOnFire(5);
         }

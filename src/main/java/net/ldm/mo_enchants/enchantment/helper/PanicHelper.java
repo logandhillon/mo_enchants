@@ -9,6 +9,8 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
+import org.jetbrains.annotations.UnknownNullability;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +19,7 @@ import java.util.UUID;
 public class PanicHelper {
     private static final Map<UUID, Long> COOLDOWNS = new HashMap<>();
 
-    public static void onEntityAttacked(LivingHurtEvent event) {
+    public static void onEntityAttacked(@UnknownNullability LivingIncomingDamageEvent event) {
         LivingEntity entity = event.getEntity();
 
         int level = entity.getItemBySlot(EquipmentSlot.FEET).getEnchantmentLevel(ModEnchantments.PANIC.get());

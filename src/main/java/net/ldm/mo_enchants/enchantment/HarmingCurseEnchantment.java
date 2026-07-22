@@ -7,6 +7,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 public class HarmingCurseEnchantment extends Enchantment {
     public HarmingCurseEnchantment(EquipmentSlot... slots) {
@@ -28,7 +29,7 @@ public class HarmingCurseEnchantment extends Enchantment {
         return false;
     }
 
-    public static void onEntityAttacked(LivingHurtEvent event, LivingEntity attacker) {
+    public static void onEntityAttacked(LivingIncomingDamageEvent event, LivingEntity attacker) {
         if (attacker.getMainHandItem().getEnchantmentLevel(ModEnchantments.HARMING_CURSE.get()) > 0) {
             attacker.hurt(ModDamageSources.of(ModDamageSources.HARMING_CURSE, attacker), event.getAmount() / 2f);
         }

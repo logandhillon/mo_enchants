@@ -6,9 +6,10 @@ import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 public class ConductionHelper {
-    public static void onEntityAttacked(LivingHurtEvent event, LivingEntity attacker) {
+    public static void onEntityAttacked(LivingIncomingDamageEvent event, LivingEntity attacker) {
         Level level;
         if (attacker.getMainHandItem().getEnchantmentLevel(ModEnchantments.CONDUCTION.get()) > 0
             && (level = event.getEntity().level()).isThundering()

@@ -11,6 +11,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 public class LevitatingEnchantment extends Enchantment {
     public LevitatingEnchantment(EquipmentSlot... slots) {
@@ -38,7 +39,7 @@ public class LevitatingEnchantment extends Enchantment {
         return stack.getItem() == Items.CROSSBOW;
     }
 
-    public static void onEntityAttacked(LivingHurtEvent event, LivingEntity attacker) {
+    public static void onEntityAttacked(LivingIncomingDamageEvent event, LivingEntity attacker) {
         int level = attacker.getMainHandItem().getEnchantmentLevel(ModEnchantments.LEVITATING.get());
         if (level < 1) return;
 

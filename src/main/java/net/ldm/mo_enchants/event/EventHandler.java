@@ -3,19 +3,17 @@ package net.ldm.mo_enchants.event;
 import net.ldm.mo_enchants.enchantment.*;
 import net.ldm.mo_enchants.enchantment.helper.*;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.TickEvent.PlayerTickEvent;
-import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingTickEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.living.LivingEquipmentChangeEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber
 public class EventHandler {
     @SubscribeEvent
-    public static void onEntityAttacked(LivingHurtEvent event) {
-        if (event.getEntity() == null || !(event.getSource().getEntity() instanceof LivingEntity attacker)) return;
+    public static void onEntityAttacked(LivingIncomingDamageEvent event) {
+        if (!(event.getSource().getEntity() instanceof LivingEntity attacker)) return;
 
         AngelsBlessingHelper.onEntityAttacked(event);
         ConductionHelper.onEntityAttacked(event, attacker);
@@ -32,9 +30,7 @@ public class EventHandler {
 
     @SubscribeEvent
     public static void onPlayerTick(PlayerTickEvent event) {
-        if (event.phase != TickEvent.Phase.END) return;
-
-        if (event.side.isClient()) {
+        if (event.getEntity().level().isClientSide) {
             AquaphobiaCurseEnchantment.onPlayerTickClient(event);
             BoilingCurseEnchantment.onPlayerTickClient(event);
             FireCoatingEnchantment.onPlayerTickClient(event);
@@ -42,10 +38,6 @@ public class EventHandler {
         }
 
         SavingGraceHelper.onPlayerTick(event);
-    }
-
-    @SubscribeEvent
-    public static void onLivingTick(LivingTickEvent event) {
         MagmaWalkerEnchantment.onLivingTick(event);
     }
 

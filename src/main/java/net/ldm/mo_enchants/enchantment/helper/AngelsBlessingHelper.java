@@ -12,11 +12,12 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 import java.util.Map;
 
 public class AngelsBlessingHelper {
-    public static void onEntityAttacked(LivingHurtEvent event) {
+    public static void onEntityAttacked(LivingIncomingDamageEvent event) {
         LivingEntity entity = event.getEntity();
         if (entity == null || event.getAmount() < entity.getHealth()) return;
 

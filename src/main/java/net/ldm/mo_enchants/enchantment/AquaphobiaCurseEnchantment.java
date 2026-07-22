@@ -6,7 +6,7 @@ import net.ldm.mo_enchants.util.EnchantmentUtils;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
-import net.minecraftforge.event.TickEvent.PlayerTickEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 public class AquaphobiaCurseEnchantment extends Enchantment {
     public AquaphobiaCurseEnchantment(EquipmentSlot... slots) {

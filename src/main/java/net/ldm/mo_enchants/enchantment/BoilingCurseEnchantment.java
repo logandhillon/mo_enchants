@@ -8,8 +8,8 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.event.TickEvent.PlayerTickEvent;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 public class BoilingCurseEnchantment extends Enchantment {
     public BoilingCurseEnchantment(EquipmentSlot... slots) {

@@ -13,7 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingTickEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 public class MagmaWalkerEnchantment extends Enchantment {
     public MagmaWalkerEnchantment(EquipmentSlot... slots) {
@@ -30,18 +30,17 @@ public class MagmaWalkerEnchantment extends Enchantment {
         return true;
     }
 
-    public static void onLivingTick(LivingTickEvent event) {
+    public static void onLivingTick(PlayerTickEvent event) {
         LivingEntity entity = event.getEntity();
         if (!entity.onGround()) return;
 
-        int enchLevel = entity.getItemBySlot(EquipmentSlot.FEET).getEnchantmentLevel(
-                ModEnchantments.MAGMA_WALKER.get());
+        int enchLevel = entity.getItemBySlot(EquipmentSlot.FEET).getEnchantmentLevel(ModEnchantments.MAGMA_WALKER);
         if (enchLevel < 1) return;
 
         BlockPos entityPos = entity.blockPosition();
         Level level = entity.level();
 
-        BlockState magma = ModBlocks.LIQUEFYING_MAGMA_BLOCK.get().defaultBlockState();
+        BlockState magma = ModBlocks.LIQUEFYING_MAGMA_BLOCK.value().defaultBlockState();
         int i = Math.min(16, 2 + enchLevel);
         MutableBlockPos checkedPos = new MutableBlockPos();
 
