@@ -2,16 +2,15 @@ package net.ldm.mo_enchants.init;
 
 import net.ldm.mo_enchants.MoEnchants;
 import net.ldm.mo_enchants.enchantment.*;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.Enchantment.Rarity;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -19,95 +18,95 @@ import java.util.function.Supplier;
 
 public class ModEnchantments {
     public static final DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(
-            ForgeRegistries.ENCHANTMENTS, MoEnchants.MOD_ID);
+            Registries.ENCHANTMENT, MoEnchants.MOD_ID);
 
     public static final ArrayList<Translation> TRANSLATIONS = new ArrayList<>();
 
-    public static final RegistryObject<Enchantment> HARMING_CURSE = register(
+    public static final Holder<Enchantment> HARMING_CURSE = register(
             "harming_curse",
             HarmingCurseEnchantment::new,
             "Curse of Harming",
             "Take damage when you damage any other mob.");
 
-    public static final RegistryObject<Enchantment> ULTIMATE_FINISH = register(
+    public static final Holder<Enchantment> ULTIMATE_FINISH = register(
             "ultimate_finish",
             UltimateFinishEnchantment::new,
             "Ultimate Finish",
             "Enemies slain with this enchantment explode into pieces.");
 
-    public static final RegistryObject<Enchantment> SCORCHING_CURSE = register(
+    public static final Holder<Enchantment> SCORCHING_CURSE = register(
             "scorching_curse",
             ScorchingCurseEnchantment::new,
             "Curse of Scorching",
             "Get ignited on fire when you're hurt.");
 
-    public static final RegistryObject<Enchantment> VENOMFANG = register(
+    public static final Holder<Enchantment> VENOMFANG = register(
             "venomfang",
             ToxicAspectEnchantment::new,
             "Venomfang",
             "Poisons attacked enemies.");
 
-    public static final RegistryObject<Enchantment> SMELTING_TOUCH = register(
+    public static final Holder<Enchantment> SMELTING_TOUCH = register(
             "smelting_touch",
             SmeltingTouchEnchantment::new,
             "Smelting Touch",
             "Automatically smelts any block you mine.");
 
-    public static final RegistryObject<Enchantment> LIFESTEAL = register(
+    public static final Holder<Enchantment> LIFESTEAL = register(
             "life_steal",
             LifeStealEnchantment::new,
             "Lifesteal",
             "Gives you a chance to steal attacked enemies health.");
 
-    public static final RegistryObject<Enchantment> ICE_ASPECT = register(
+    public static final Holder<Enchantment> ICE_ASPECT = register(
             "freezing_aspect",
             FreezingAspectEnchantment::new,
             "Ice Aspect",
             "Freezes attacked enemies.");
 
-    public static final RegistryObject<Enchantment> SACRIFICE_CURSE = register(
+    public static final Holder<Enchantment> SACRIFICE_CURSE = register(
             "lifeforce_discharge_curse",
             LifeforceDischargeCurseEnchantment::new,
             "Curse of Sacrifice",
             "Heal enemies you attack with your health.");
 
-    public static final RegistryObject<Enchantment> PANIC = register(
+    public static final Holder<Enchantment> PANIC = register(
             "panic",
             PanicEnchantment::new,
             "Panic",
             "Get regeneration and speed when your health is critically low.");
 
-    public static final RegistryObject<Enchantment> CONDUCTION = register(
+    public static final Holder<Enchantment> CONDUCTION = register(
             "conduction",
             ConductionEnchantment::new,
             "Conduction",
             "Conducts lightning to attacked enemies during storms.");
 
-    public static final RegistryObject<Enchantment> SAVING_GRACE = register(
+    public static final Holder<Enchantment> SAVING_GRACE = register(
             "saving_grace",
             SavingGraceEnchantment::new,
             "Saving Grace",
             "When you fall into the void, get launched back up.");
 
-    public static final RegistryObject<Enchantment> FROST = register(
+    public static final Holder<Enchantment> FROST = register(
             "frost",
             FrostEnchantment::new,
             "Frost",
             "Freezes attacked enemies.");
 
-    public static final RegistryObject<Enchantment> AQUA_SLASH = register(
+    public static final Holder<Enchantment> AQUA_SLASH = register(
             "aqua_slash",
             BonusDamageEnchantment::new,
             "Aqua Slash",
             "Does more damage to aquaphobic mobs.");
 
-    public static final RegistryObject<Enchantment> HUNTER = register(
+    public static final Holder<Enchantment> HUNTER = register(
             "hunter",
             BonusDamageEnchantment::new,
             "Hunter",
             "Does more damage to animals.");
 
-    public static final RegistryObject<Enchantment> SWIFTNESS = register(
+    public static final Holder<Enchantment> SWIFTNESS = register(
             "swiftness",
             () -> new AttributeModifierEnchantment(
                     Rarity.RARE,
@@ -123,61 +122,61 @@ public class ModEnchantments {
             "Swiftness",
             "Increases movement speed.");
 
-    public static final RegistryObject<Enchantment> BOILING_CURSE = register(
+    public static final Holder<Enchantment> BOILING_CURSE = register(
             "boiling_curse",
             BoilingCurseEnchantment::new,
             "Curse of Boiling",
             "Ignites you in hot or dry biomes.");
 
-    public static final RegistryObject<Enchantment> FREEZING_CURSE = register(
+    public static final Holder<Enchantment> FREEZING_CURSE = register(
             "freezing_curse",
             FreezingCurseEnchantment::new,
             "Curse of Frostbite",
             "Freezes you in cold biomes.");
 
-    public static final RegistryObject<Enchantment> INSOMNIA_CURSE = register(
+    public static final Holder<Enchantment> INSOMNIA_CURSE = register(
             "bad_dreams_curse",
             BadDreamsCurseEnchantment::new,
             "Curse of Insomnia",
             "Become unable to sleep due to nightmares.");
 
-    public static final RegistryObject<Enchantment> ANGELS_BLESSING = register(
+    public static final Holder<Enchantment> ANGELS_BLESSING = register(
             "angels_blessing",
             AngelsBlessingEnchantment::new,
             "Angel's Blessing",
             "Gives your Totem of Undying extra uses, +1 use per every level.");
 
-    public static final RegistryObject<Enchantment> ROCK_MENDING = register(
+    public static final Holder<Enchantment> ROCK_MENDING = register(
             "rock_mending",
             RockMendingEnchantment::new,
             "Rock Mending",
             "Has a chance of not damaging the tool when mining rocks.");
 
-    public static final RegistryObject<Enchantment> LEVITATING = register(
+    public static final Holder<Enchantment> LEVITATING = register(
             "levitating",
             LevitatingEnchantment::new,
             "Levitating",
             "Shooting mobs will make them fly.");
 
-    public static final RegistryObject<Enchantment> DETONATION = register(
+    public static final Holder<Enchantment> DETONATION = register(
             "detonation",
             DetonationEnchantment::new,
             "Detonation",
             "Enemies shot with this weapon explode into pieces.");
 
-    public static final RegistryObject<Enchantment> NIGHT_VISION = register(
+    public static final Holder<Enchantment> NIGHT_VISION = register(
             "night_vision",
             NightVisionEnchantment::new,
             "Night Vision",
             "Gives you night vision when equipped.");
 
-    public static final RegistryObject<Enchantment> AQUAPHOBIA_CURSE = register(
+    public static final Holder<Enchantment> AQUAPHOBIA_CURSE = register(
             "aquaphobia_curse",
             AquaphobiaCurseEnchantment::new,
             "Curse of Aquaphobia",
             "Become afraid of water, taking damage while submerged.");
 
-    public static final RegistryObject<Enchantment> WEIGHTLESS = register(
+    public static final Holder<Enchantment> WEIGHTLESS = register(
             "weightless",
             () -> new AttributeModifierEnchantment(
                     Rarity.RARE,
@@ -193,7 +192,7 @@ public class ModEnchantments {
             "Weightless",
             "Decreases your gravity, allowing you to jump higher and fall slower.");
 
-    public static final RegistryObject<Enchantment> DENSITY_CURSE = register(
+    public static final Holder<Enchantment> DENSITY_CURSE = register(
             "density_curse",
             () -> new AttributeModifierEnchantment(
                     Rarity.VERY_RARE,
@@ -210,7 +209,7 @@ public class ModEnchantments {
             "Curse of Density",
             "Increases your gravity, causing you to jump lower and fall faster.");
 
-    public static final RegistryObject<Enchantment> REACH = register(
+    public static final Holder<Enchantment> REACH = register(
             "reach",
             () -> new AttributeModifierEnchantment(
                     Rarity.RARE,
@@ -226,31 +225,31 @@ public class ModEnchantments {
             "Reach",
             "Gives you +1 block of mining reach per level.");
 
-    public static final RegistryObject<Enchantment> BLOODTHIRST = register(
+    public static final Holder<Enchantment> BLOODTHIRST = register(
             "bloodthirst",
             BloodthirstEnchantment::new,
             "Bloodthirst",
             "Right-click this weapon to gain a temporary damage buff, in exchange for some health.");
 
-    public static final RegistryObject<Enchantment> REVENANT = register(
+    public static final Holder<Enchantment> REVENANT = register(
             "revenant",
             RevenantEnchantment::new,
             "Revenant",
             "Has a chance to instantly kill any undead mob.");
 
-    public static final RegistryObject<Enchantment> MAGMA_WALKER = register(
+    public static final Holder<Enchantment> MAGMA_WALKER = register(
             "magma_walker",
             MagmaWalkerEnchantment::new,
             "Magma Walker",
             "Creates a path while walking on lava.");
 
-    public static final RegistryObject<Enchantment> FIREPROOFING = register(
+    public static final Holder<Enchantment> FIREPROOFING = register(
             "fire_coating",
             FireCoatingEnchantment::new,
             "Fireproofing",
             "Makes you immune to fire and lava.");
 
-    public static final RegistryObject<Enchantment> VITALITY = register(
+    public static final Holder<Enchantment> VITALITY = register(
             "growth",
             () -> new AttributeModifierEnchantment(
                     Rarity.RARE,
@@ -269,25 +268,25 @@ public class ModEnchantments {
             "Vitality",
             "Adds half a heart to your max health for each level.");
 
-    public static final RegistryObject<Enchantment> CRITICAL_BLOW = register(
+    public static final Holder<Enchantment> CRITICAL_BLOW = register(
             "devastation",
             () -> new CriticalHitEnchantment(3),
             "Critical Blow",
             "Allows for the chance of critical hits, which do 150% damage.");
 
-    public static final RegistryObject<Enchantment> FIRST_STRIKE = register(
+    public static final Holder<Enchantment> FIRST_STRIKE = register(
             "first_strike",
             () -> new CriticalHitEnchantment(1),
             "First Strike",
             "Does 25% more damage on first strikes.");
 
-    public static final RegistryObject<Enchantment> GREEN_THUMB = register(
+    public static final Holder<Enchantment> GREEN_THUMB = register(
             "careful",
             () -> new CarefulEnchantment(EquipmentSlot.MAINHAND),
             "Green Thumb",
             "Prevents you from mining ungrown crops & stems.");
 
-    private static RegistryObject<Enchantment> register(
+    private static Holder<Enchantment> register(
             String id, Supplier<Enchantment> enchantment, String name, String description
     ) {
         TRANSLATIONS.add(new Translation(id, name, description));
