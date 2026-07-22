@@ -8,10 +8,10 @@ import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.Set;
 
@@ -20,7 +20,7 @@ import java.util.Set;
  *
  * @author Logan Dhillon
  */
-@Mod.EventBusSubscriber(modid = MoEnchants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = MoEnchants.MOD_ID)
 public class DataGenerators {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
@@ -34,7 +34,7 @@ public class DataGenerators {
         gen.addProvider(event.includeClient(), new ModBlockStateProvider(pack, existingFiles));
 
         // server side data
-        gen.addProvider(event.includeServer(), new ModLootModifierProvider(pack));
+        gen.addProvider(event.includeServer(), new ModLootModifierProvider(pack, lookup));
         gen.addProvider(
                 event.includeServer(), new DatapackBuiltinEntriesProvider(
                         pack, lookup,

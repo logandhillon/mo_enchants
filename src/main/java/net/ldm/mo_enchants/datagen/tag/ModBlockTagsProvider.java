@@ -5,8 +5,8 @@ import net.ldm.mo_enchants.init.ModBlocks;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
-import net.minecraftforge.common.data.BlockTagsProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -23,6 +23,6 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(Provider provider) {
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.LIQUEFYING_MAGMA_BLOCK.get());
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.LIQUEFYING_MAGMA_BLOCK.value());
     }
 }
