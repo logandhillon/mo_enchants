@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[42,)"
+loaderVersion = "${loader_version_range}"
 license = "(c) 2021-${year} LDM. All rights reserved."
 
 [[mods]]
@@ -13,7 +13,17 @@ description = '''
 Adds more enchantments and curses to Minecraft!
 '''
 
-[[dependencies.mo_enchants]]
+[[accessTransformers]]
+file = "META-INF/accesstransformer.cfg"
+
+[[dependencies.mo_potions]]
+modId = "neoforge"
+type = "required"
+versionRange = "[${neo_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.mo_potions]]
 modId = "minecraft"
 mandatory = true
 versionRange = "[${mc_version}]"
