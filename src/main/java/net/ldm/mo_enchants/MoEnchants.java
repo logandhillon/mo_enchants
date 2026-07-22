@@ -13,8 +13,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class MoEnchants {
     public static final String MOD_ID = "mo_enchants";
 
-    public MoEnchants(FMLJavaModLoadingContext context) {
-        IEventBus bus = context.getModEventBus();
+    public MoEnchants() {
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModBlocks.REGISTRY.register(bus);
         ModItems.REGISTRY.register(bus);
@@ -23,6 +23,6 @@ public class MoEnchants {
     }
 
     public static ResourceLocation modResource(String path) {
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+        return new ResourceLocation(MOD_ID, path);
     }
 }

@@ -13,6 +13,6 @@ public class ModTags {
     public static final TagKey<EntityType<?>> WATER_WEAK_MOBS = tag(Registries.ENTITY_TYPE, "water_weak_mobs");
 
     private static <T> TagKey<T> tag(ResourceKey<? extends Registry<T>> type, String id) {
-        return TagKey.create(type, ResourceLocation.fromNamespaceAndPath(MoEnchants.MOD_ID, id));
+        return TagKey.create(type, MoEnchants.modResource(id));
     }
 }
