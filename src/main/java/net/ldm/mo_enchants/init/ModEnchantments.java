@@ -493,6 +493,17 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                            )
         );
 
+        register(
+                ctx, new Tags(GREEN_THUMB, true, false, false),
+                Enchantment.enchantment(definition(
+                        items.getOrThrow(ItemTags.HOES),
+                        Rarity.UNCOMMON,
+                        1,
+                        EquipmentSlotGroup.MAINHAND
+                ))
+                // effect done in code
+        );
+
         // ======== CURSES ========
         register(
                 ctx, new Tags(AQUAPHOBIA_CURSE, false, true, true),
