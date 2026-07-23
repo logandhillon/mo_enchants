@@ -29,6 +29,14 @@
       "required": false
     },
     {
+      "id": "mo_enchants:saving_grace",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:panic",
+      "required": false
+    },
+    {
       "id": "mo_enchants:aquaphobia_curse",
       "required": false
     },

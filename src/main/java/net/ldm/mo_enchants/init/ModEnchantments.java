@@ -6,16 +6,21 @@ import net.ldm.mo_enchants.enchantment.effect.CriticallyDamageEntity;
 import net.ldm.mo_enchants.enchantment.effect.HealEntity;
 import net.ldm.mo_enchants.loot.condition.EntityIsAnimalCondition;
 import net.ldm.mo_enchants.loot.condition.EntityIsUnharmedCondition;
+import net.ldm.mo_enchants.loot.condition.HealthBelowThresholdCondition;
 import net.ldm.mo_enchants.loot.condition.RandomChanceCondition;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.LocationPredicate;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.util.valueproviders.ConstantFloat;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
@@ -222,6 +227,7 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
         HolderGetter<DamageType> damageTypes = ctx.lookup(Registries.DAMAGE_TYPE);
         HolderGetter<Item> items = ctx.lookup(Registries.ITEM);
         HolderGetter<Biome> biomes = ctx.lookup(Registries.BIOME);
+        HolderGetter<SoundEvent> soundEvents = ctx.lookup(Registries.SOUND_EVENT);
 
         register(
                 ctx, new Tags(ANGELS_BLESSING, false, false, true),
@@ -593,15 +599,39 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
         register(
                 ctx, new Tags(SAVING_GRACE, true, false, true),
                 Enchantment.enchantment(definition(
-                                   items.getOrThrow(ItemTags.FOOT_ARMOR_ENCHANTABLE),
-                                   Rarity.VERY_RARE,
-                                   1,
-                                   EquipmentSlotGroup.FEET
-                           ))
-                // effect code
+                        items.getOrThrow(ItemTags.FOOT_ARMOR_ENCHANTABLE),
+                        Rarity.VERY_RARE,
+                        1,
+                        EquipmentSlotGroup.FEET
+                ))
+                // effect in code
         );
 
-        // ======== CURSES ========
+        register(
+                ctx, new Tags(PANIC, true, false, true),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.FOOT_ARMOR_ENCHANTABLE),
+                                   Rarity.VERY_RARE,
+                                   2,
+                                   EquipmentSlotGroup.FEET
+                           ))
+                           .exclusiveWith(enchantments.getOrThrow(ModTags.FOOT_ARMOR_EXCLUSIVE))
+                           .withEffect(
+                                   EnchantmentEffectComponents.POST_ATTACK,
+                                   EnchantmentTarget.VICTIM,
+                                   EnchantmentTarget.VICTIM,
+                                   AllOf.entityEffects(
+                                           new ApplyMobEffect(
+                                                   HolderSet.direct(MobEffects.REGENERATION, MobEffects.MOVEMENT_SPEED),
+                                                   LevelBasedValue.perLevel(2), LevelBasedValue.perLevel(2),
+                                                   LevelBasedValue.perLevel(1), LevelBasedValue.perLevel(1)),
+                                           new PlaySoundEffect(Holder.direct(SoundEvents.TOTEM_USE), ConstantFloat.of(1), ConstantFloat.of(1))
+                                   ),
+                                   HealthBelowThresholdCondition.of(LevelBasedValue.perLevel(4f))
+                           )
+        );
+
+        // ======================================== CURSES ========================================
         register(
                 ctx, new Tags(AQUAPHOBIA_CURSE, false, true, true),
                 Enchantment.enchantment(definition(

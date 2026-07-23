@@ -21,4 +21,7 @@ public class ModLootItemConditions {
 
     public static final DeferredHolder<LootItemConditionType, LootItemConditionType> ENTITY_IS_UNHARMED =
             REGISTRY.register("entity_is_unharmed", () -> new LootItemConditionType(EntityIsUnharmedCondition.CODEC));
+
+    public static final DeferredHolder<LootItemConditionType, LootItemConditionType> HEALTH_BELOW_THRESHOLD =
+            REGISTRY.register("health_below_threshold", () -> new LootItemConditionType(HealthBelowThresholdCondition.CODEC));
 }
