@@ -1,0 +1,17 @@
+{
+  "values": [
+    {
+      "id": "mo_enchants:life_steal",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:venomfang",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:freezing_aspect",
+      "required": false
+    },
+    "minecraft:fire_aspect"
+  ]
+}

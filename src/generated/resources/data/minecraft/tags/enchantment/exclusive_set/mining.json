@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "mo_enchants:reach",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:smelting_touch",
+      "required": false
+    }
+  ]
+}

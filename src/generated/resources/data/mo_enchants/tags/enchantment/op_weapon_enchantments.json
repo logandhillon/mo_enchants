@@ -11,6 +11,10 @@
     {
       "id": "mo_enchants:bloodthirst",
       "required": false
+    },
+    {
+      "id": "mo_enchants:life_steal",
+      "required": false
     }
   ]
 }

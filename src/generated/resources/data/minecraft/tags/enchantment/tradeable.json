@@ -35,6 +35,50 @@
     {
       "id": "mo_enchants:fire_coating",
       "required": false
+    },
+    {
+      "id": "mo_enchants:frost",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:freezing_aspect",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:careful",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:levitating",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:life_steal",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:magma_walker",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:night_vision",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:reach",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:growth",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:weightless",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:swiftness",
+      "required": false
     }
   ]
 }

@@ -9,6 +9,26 @@
       "required": false
     },
     {
+      "id": "mo_enchants:night_vision",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:reach",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:growth",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:weightless",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:swiftness",
+      "required": false
+    },
+    {
       "id": "mo_enchants:aquaphobia_curse",
       "required": false
     },

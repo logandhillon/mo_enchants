@@ -1,0 +1,13 @@
+{
+  "values": [
+    "minecraft:soul_speed",
+    {
+      "id": "mo_enchants:swiftness",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:panic",
+      "required": false
+    }
+  ]
+}

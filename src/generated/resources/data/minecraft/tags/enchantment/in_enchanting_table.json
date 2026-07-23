@@ -31,6 +31,30 @@
     {
       "id": "mo_enchants:ultimate_finish",
       "required": false
+    },
+    {
+      "id": "mo_enchants:frost",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:freezing_aspect",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:careful",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:levitating",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:life_steal",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:magma_walker",
+      "required": false
     }
   ]
 }
