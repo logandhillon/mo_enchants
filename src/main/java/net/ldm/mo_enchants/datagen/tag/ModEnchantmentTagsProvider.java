@@ -43,7 +43,8 @@ public class ModEnchantmentTagsProvider extends EnchantmentTagsProvider {
         tag(ModTags.OP_WEAPON_ENCHANTMENTS)
                 .addOptional(ModEnchantments.ULTIMATE_FINISH.location())
                 .addOptional(ModEnchantments.REVENANT.location())
-                .addOptional(ModEnchantments.BLOODTHIRST.location());
+                .addOptional(ModEnchantments.BLOODTHIRST.location())
+                .addOptional(ModEnchantments.LIFESTEAL.location());
 
         tag(ModTags.WEAPON_POST_ATTACK_ENCHANTMENTS)
                 .addOptional(ModEnchantments.LIFESTEAL.location())

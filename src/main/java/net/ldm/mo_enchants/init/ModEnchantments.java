@@ -528,6 +528,24 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                            )
         );
 
+        register(
+                ctx, new Tags(LIFESTEAL, true, false, false),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                                   Rarity.VERY_RARE,
+                                   3,
+                                   EquipmentSlotGroup.MAINHAND
+                           ))
+                           .exclusiveWith(enchantments.getOrThrow(ModTags.OP_WEAPON_ENCHANTMENTS))
+                           .withEffect(
+                                   EnchantmentEffectComponents.POST_ATTACK,
+                                   EnchantmentTarget.ATTACKER,
+                                   EnchantmentTarget.ATTACKER,
+                                   new HealEntity(LevelBasedValue.perLevel(1)),
+                                   RandomChanceCondition.of(LevelBasedValue.perLevel(0.1f))
+                           )
+        );
+
         // ======== CURSES ========
         register(
                 ctx, new Tags(AQUAPHOBIA_CURSE, false, true, true),
