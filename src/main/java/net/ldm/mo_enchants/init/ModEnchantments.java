@@ -5,6 +5,7 @@ import net.ldm.mo_enchants.datagen.datapack.DatapackEntryProvider;
 import net.ldm.mo_enchants.enchantment.effect.CriticallyDamageEntity;
 import net.ldm.mo_enchants.enchantment.effect.HealEntity;
 import net.ldm.mo_enchants.loot.condition.EntityIsAnimalCondition;
+import net.ldm.mo_enchants.loot.condition.EntityIsUnharmedCondition;
 import net.ldm.mo_enchants.loot.condition.RandomChanceCondition;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.LocationPredicate;
@@ -390,7 +391,23 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                                    EnchantmentTarget.VICTIM,
                                    new CriticallyDamageEntity(LevelBasedValue.constant(0.5f)), // additional 50%
                                    RandomChanceCondition.of(LevelBasedValue.perLevel(0.1f)))
+
         );
+
+        register(
+                ctx, new Tags(FIRST_STRIKE, true, false, false),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                                   Rarity.UNCOMMON,
+                                   1,
+                                   EquipmentSlotGroup.MAINHAND
+                           ))
+                           .exclusiveWith(enchantments.getOrThrow(ModTags.CRITICAL_HIT_ENCHANTMENTS))
+                           .withEffect(
+                                   EnchantmentEffectComponents.DAMAGE,
+                                   new AddValue(LevelBasedValue.constant(0.25f)), // additional 25%
+                                   EntityIsUnharmedCondition::new
+                           );
 
         register(
                 ctx, new Tags(DETONATION, true, false, false),

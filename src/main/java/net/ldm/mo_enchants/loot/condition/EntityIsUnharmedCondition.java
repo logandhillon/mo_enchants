@@ -1,7 +1,7 @@
 package net.ldm.mo_enchants.loot.condition;
 
 import com.mojang.serialization.*;
-import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
@@ -12,15 +12,16 @@ import java.util.stream.Stream;
 /**
  * @author Logan Dhillon
  */
-public class EntityIsAnimalCondition implements LootItemCondition {
-    public static final MapCodec<EntityIsAnimalCondition> CODEC = new MapCodec<>() {
+public class EntityIsUnharmedCondition implements LootItemCondition {
+    public static final MapCodec<EntityIsUnharmedCondition> CODEC = new MapCodec<>() {
         @Override
-        public <T> DataResult<EntityIsAnimalCondition> decode(DynamicOps<T> ops, MapLike<T> input) {
-            return DataResult.success(new EntityIsAnimalCondition());
+        public <T> DataResult<EntityIsUnharmedCondition> decode(DynamicOps<T> ops, MapLike<T> input) {
+            return DataResult.success(new EntityIsUnharmedCondition());
         }
 
         @Override
-        public <T> RecordBuilder<T> encode(EntityIsAnimalCondition value, DynamicOps<T> ops, RecordBuilder<T> prefix) {
+        public <T> RecordBuilder<T> encode(EntityIsUnharmedCondition value, DynamicOps<T> ops,
+                                           RecordBuilder<T> prefix) {
             return prefix;
         }
 
@@ -32,11 +33,12 @@ public class EntityIsAnimalCondition implements LootItemCondition {
 
     @Override
     public LootItemConditionType getType() {
-        return ModLootItemConditions.ENTITY_IS_ANIMAL.get();
+        return ModLootItemConditions.ENTITY_IS_UNHARMED.get();
     }
 
     @Override
     public boolean test(LootContext lootContext) {
-        return lootContext.getParamOrNull(LootContextParams.THIS_ENTITY) instanceof Animal;
+        if (!(lootContext.getParamOrNull(LootContextParams.THIS_ENTITY) instanceof LivingEntity entity)) return false;
+        return entity.getHealth() >= entity.getMaxHealth();
     }
 }
