@@ -1,0 +1,35 @@
+{
+  "anvil_cost": 4,
+  "description": {
+    "translate": "enchantment.mo_enchants.weightless"
+  },
+  "effects": {
+    "minecraft:attributes": [
+      {
+        "amount": {
+          "type": "minecraft:linear",
+          "base": -0.01,
+          "per_level_above_first": -0.01
+        },
+        "attribute": "minecraft:generic.gravity",
+        "id": "mo_enchants:weightless",
+        "operation": "add_value"
+      }
+    ]
+  },
+  "exclusive_set": "minecraft:thorns",
+  "max_cost": {
+    "base": 30,
+    "per_level_above_first": 8
+  },
+  "max_level": 2,
+  "min_cost": {
+    "base": 10,
+    "per_level_above_first": 8
+  },
+  "slots": [
+    "legs"
+  ],
+  "supported_items": "#minecraft:enchantable/leg_armor",
+  "weight": 2
+}

@@ -1,0 +1,21 @@
+{
+  "values": [
+    {
+      "id": "mo_enchants:conduction",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:detonation",
+      "required": false
+    },
+    "minecraft:flame",
+    {
+      "id": "mo_enchants:frost",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:levitating",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "values": [
+    {
+      "id": "mo_enchants:aqua_slash",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:hunter",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:bloodthirst",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:conduction",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:critical_blow",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:first_strike",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:detonation",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:ultimate_finish",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:fireproofing",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:frost",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:ice_aspect",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:green_thumb",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:levitating",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:lifesteal",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:magma_walker",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:night_vision",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:reach",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:vitality",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:weightless",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:swiftness",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:saving_grace",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:panic",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:revenant",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:rock_mending",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:smelting_touch",
+      "required": false
+    }
+  ]
+}

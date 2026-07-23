@@ -1,18 +1,13 @@
 package net.ldm.mo_enchants.init;
 
 import net.ldm.mo_enchants.MoEnchants;
-import net.minecraft.world.item.BlockItem;
+import net.minecraft.core.Holder;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModItems {
-	public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, MoEnchants.MOD_ID);
-	public static final RegistryObject<Item> LIQUEFYING_MAGMA_BLOCK = block(ModBlocks.LIQUEFYING_MAGMA_BLOCK);
+    public static final DeferredRegister.Items REGISTRY = DeferredRegister.createItems(MoEnchants.MOD_ID);
 
-	private static RegistryObject<Item> block(RegistryObject<Block> block) {
-		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
-	}
+    public static final Holder<Item> LIQUEFYING_MAGMA_BLOCK = REGISTRY.registerSimpleBlockItem(
+            ModBlocks.LIQUEFYING_MAGMA_BLOCK);
 }

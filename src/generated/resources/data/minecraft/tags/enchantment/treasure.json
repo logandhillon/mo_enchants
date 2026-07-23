@@ -1,0 +1,84 @@
+{
+  "values": [
+    {
+      "id": "mo_enchants:angels_blessing",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:fireproofing",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:night_vision",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:reach",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:vitality",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:weightless",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:swiftness",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:saving_grace",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:panic",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:revenant",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:rock_mending",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:smelting_touch",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:aquaphobia_curse",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:boiling_curse",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:density_curse",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:frostbite_curse",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:harming_curse",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:insomnia_curse",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:sacrifice_curse",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:scorching_curse",
+      "required": false
+    }
+  ]
+}

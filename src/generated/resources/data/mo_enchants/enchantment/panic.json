@@ -1,0 +1,77 @@
+{
+  "anvil_cost": 8,
+  "description": {
+    "translate": "enchantment.mo_enchants.panic"
+  },
+  "effects": {
+    "minecraft:post_attack": [
+      {
+        "affected": "victim",
+        "effect": {
+          "type": "minecraft:all_of",
+          "effects": [
+            {
+              "type": "minecraft:apply_mob_effect",
+              "max_amplifier": {
+                "type": "minecraft:linear",
+                "base": 1.0,
+                "per_level_above_first": 1.0
+              },
+              "max_duration": {
+                "type": "minecraft:linear",
+                "base": 2.0,
+                "per_level_above_first": 2.0
+              },
+              "min_amplifier": {
+                "type": "minecraft:linear",
+                "base": 1.0,
+                "per_level_above_first": 1.0
+              },
+              "min_duration": {
+                "type": "minecraft:linear",
+                "base": 2.0,
+                "per_level_above_first": 2.0
+              },
+              "to_apply": [
+                "minecraft:regeneration",
+                "minecraft:speed"
+              ]
+            },
+            {
+              "type": "minecraft:play_sound",
+              "pitch": 1.0,
+              "sound": {
+                "sound_id": "minecraft:item.totem.use"
+              },
+              "volume": 1.0
+            }
+          ]
+        },
+        "enchanted": "victim",
+        "requirements": {
+          "condition": "mo_enchants:health_below_threshold",
+          "threshold": {
+            "type": "minecraft:linear",
+            "base": 4.0,
+            "per_level_above_first": 4.0
+          }
+        }
+      }
+    ]
+  },
+  "exclusive_set": "#mo_enchants:foot_armor_exclusive",
+  "max_cost": {
+    "base": 50,
+    "per_level_above_first": 8
+  },
+  "max_level": 2,
+  "min_cost": {
+    "base": 20,
+    "per_level_above_first": 8
+  },
+  "slots": [
+    "feet"
+  ],
+  "supported_items": "#minecraft:enchantable/foot_armor",
+  "weight": 1
+}
