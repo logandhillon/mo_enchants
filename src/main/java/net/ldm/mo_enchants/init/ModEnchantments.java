@@ -23,11 +23,8 @@ import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.item.enchantment.Enchantment.EnchantmentDefinition;
-import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
-import net.minecraft.world.item.enchantment.EnchantmentTarget;
-import net.minecraft.world.item.enchantment.LevelBasedValue;
 import net.minecraft.world.item.enchantment.effects.*;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -286,7 +283,6 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
         HolderGetter<DamageType> damageTypes = ctx.lookup(Registries.DAMAGE_TYPE);
         HolderGetter<Item> items = ctx.lookup(Registries.ITEM);
         HolderGetter<Biome> biomes = ctx.lookup(Registries.BIOME);
-        HolderGetter<EntityType<?>> entityTypes = ctx.lookup(Registries.ENTITY_TYPE);
 
         register(
                 ctx, new Tags(ANGELS_BLESSING, false, false, true),
@@ -407,7 +403,8 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                                    EnchantmentEffectComponents.DAMAGE,
                                    new AddValue(LevelBasedValue.constant(0.25f)), // additional 25%
                                    EntityIsUnharmedCondition::new
-                           );
+                           )
+        );
 
         register(
                 ctx, new Tags(DETONATION, true, false, false),
@@ -431,6 +428,25 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                            ))
                            .exclusiveWith(enchantments.getOrThrow(ModTags.OP_WEAPON_ENCHANTMENTS))
                 // effect done code
+        );
+
+        register(
+                ctx, new Tags(FIREPROOFING, true, false, true),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.CHEST_ARMOR_ENCHANTABLE),
+                                   Rarity.VERY_RARE,
+                                   1,
+                                   EquipmentSlotGroup.CHEST
+                           ))
+                           .exclusiveWith(HolderSet.direct(
+                                   enchantments.getOrThrow(Enchantments.FIRE_PROTECTION),
+                                   enchantments.getOrThrow(Enchantments.THORNS)))
+                           .withEffect(
+                                   EnchantmentEffectComponents.TICK,
+                                   new ApplyMobEffect(
+                                           HolderSet.direct(MobEffects.FIRE_RESISTANCE),
+                                           LevelBasedValue.constant(2), LevelBasedValue.constant(2),
+                                           LevelBasedValue.constant(0), LevelBasedValue.constant(0)))
         );
 
         // ======== CURSES ========

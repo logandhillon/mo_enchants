@@ -5,6 +5,10 @@
       "required": false
     },
     {
+      "id": "mo_enchants:fire_coating",
+      "required": false
+    },
+    {
       "id": "mo_enchants:aquaphobia_curse",
       "required": false
     },

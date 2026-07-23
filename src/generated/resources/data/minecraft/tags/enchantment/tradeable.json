@@ -21,11 +21,19 @@
       "required": false
     },
     {
+      "id": "mo_enchants:first_strike",
+      "required": false
+    },
+    {
       "id": "mo_enchants:detonation",
       "required": false
     },
     {
       "id": "mo_enchants:ultimate_finish",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:fire_coating",
       "required": false
     }
   ]
