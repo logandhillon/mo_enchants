@@ -504,6 +504,30 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                 // effect done in code
         );
 
+        register(
+                ctx, new Tags(LEVITATING, true, false, false),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ModTags.RANGED_WEAPONS_ENCHANTABLE),
+                                   Rarity.RARE,
+                                   3,
+                                   EquipmentSlotGroup.MAINHAND
+                           ))
+                           .exclusiveWith(enchantments.getOrThrow(ModTags.EXCLUSIVE_BOW_MOD_ENCHANTMENTS))
+                           .withEffect(
+                                   EnchantmentEffectComponents.POST_ATTACK,
+                                   EnchantmentTarget.ATTACKER,
+                                   EnchantmentTarget.VICTIM,
+                                   new ApplyMobEffect(
+                                           HolderSet.direct(MobEffects.LEVITATION),
+                                           LevelBasedValue.perLevel(0.5f), LevelBasedValue.perLevel(0.75f),
+                                           LevelBasedValue.constant(0), LevelBasedValue.constant(0)),
+                                   LootItemEntityPropertyCondition.hasProperties(
+                                           LootContext.EntityTarget.DIRECT_ATTACKER,
+                                           EntityPredicate.Builder.entity().of(EntityType.ARROW)
+                                   )
+                           )
+        );
+
         // ======== CURSES ========
         register(
                 ctx, new Tags(AQUAPHOBIA_CURSE, false, true, true),
