@@ -691,6 +691,23 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                                    EnchantmentTarget.VICTIM,
                                    new Ignite(LevelBasedValue.constant(3)))
         );
+
+        register(
+                ctx, new Tags(NIGHT_VISION, true, false, true),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.HEAD_ARMOR_ENCHANTABLE),
+                                   Rarity.RARE,
+                                   1,
+                                   EquipmentSlotGroup.HEAD
+                           ))
+                           .exclusiveWith(HolderSet.direct(enchantments.getOrThrow(Enchantments.AQUA_AFFINITY)))
+                           .withEffect(
+                                   EnchantmentEffectComponents.TICK,
+                                   new ApplyMobEffect(
+                                           HolderSet.direct(MobEffects.NIGHT_VISION),
+                                           LevelBasedValue.constant(2), LevelBasedValue.constant(2),
+                                           LevelBasedValue.constant(0), LevelBasedValue.constant(0)))
+        );
     }
 
     private static void register(BootstrapContext<Enchantment> context, Tags tags,
