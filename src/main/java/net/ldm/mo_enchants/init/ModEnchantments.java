@@ -649,6 +649,30 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                            )
         );
 
+        register(
+                ctx, new Tags(ROCK_MENDING, true, false, true),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
+                                   Rarity.RARE,
+                                   3,
+                                   EquipmentSlotGroup.MAINHAND
+                           ))
+                           .exclusiveWith(HolderSet.direct(enchantments.getOrThrow(Enchantments.MENDING)))
+                // effect done in code
+        );
+
+        register(
+                ctx, new Tags(SMELTING_TOUCH, true, false, true),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
+                                   Rarity.RARE,
+                                   1,
+                                   EquipmentSlotGroup.MAINHAND
+                           ))
+                           .exclusiveWith(enchantments.getOrThrow(EnchantmentTags.MINING_EXCLUSIVE))
+                // effect done in code
+        );
+
         // ======================================== CURSES ========================================
         register(
                 ctx, new Tags(AQUAPHOBIA_CURSE, false, true, true),

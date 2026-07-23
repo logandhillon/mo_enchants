@@ -87,6 +87,18 @@
     {
       "id": "mo_enchants:panic",
       "required": false
+    },
+    {
+      "id": "mo_enchants:revenant",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:rock_mending",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:smelting_touch",
+      "required": false
     }
   ]
 }
