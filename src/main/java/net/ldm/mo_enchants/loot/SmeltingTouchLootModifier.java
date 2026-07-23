@@ -36,8 +36,8 @@ public class SmeltingTouchLootModifier extends LootModifier {
         Entity entity = ctx.getParamOrNull(LootContextParams.THIS_ENTITY);
 
         // if not a player or player's tool doesn't have smelting touch
-        if (!(entity instanceof Player player) || EnchantmentHelper.getTagEnchantmentLevel(
-                ModEnchantments.SMELTING_TOUCH, player.getMainHandItem()) <= 0)
+        if (!(entity instanceof Player player) || player.getMainHandItem().getEnchantmentLevel(
+                player.level().holderOrThrow(ModEnchantments.SMELTING_TOUCH)) <= 0)
             return loot;
 
         for (int i = 0; i < loot.size(); i++) {

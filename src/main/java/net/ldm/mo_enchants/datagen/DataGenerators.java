@@ -1,9 +1,9 @@
 package net.ldm.mo_enchants.datagen;
 
 import net.ldm.mo_enchants.MoEnchants;
-import net.ldm.mo_enchants.datagen.tag.ModBlockTagsProvider;
-import net.ldm.mo_enchants.datagen.tag.ModDamageTypeTagsProvider;
-import net.ldm.mo_enchants.datagen.tag.ModEntityTypeTagsProvider;
+import net.ldm.mo_enchants.datagen.datapack.ModDamageTypeProvider;
+import net.ldm.mo_enchants.datagen.tag.*;
+import net.ldm.mo_enchants.init.ModEnchantments;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
@@ -35,11 +35,14 @@ public class DataGenerators {
 
         // server side data
         gen.addProvider(event.includeServer(), new ModLootModifierProvider(pack, lookup));
+
+        // datapack
         gen.addProvider(
                 event.includeServer(), new DatapackBuiltinEntriesProvider(
                         pack, lookup,
                         new RegistrySetBuilder()
-                                .add(Registries.DAMAGE_TYPE, ModDamageTypeProvider::bootstrap),
+                                .add(Registries.DAMAGE_TYPE, new ModDamageTypeProvider()::bootstrap)
+                                .add(Registries.ENCHANTMENT, new ModEnchantments()::bootstrap),
                         Set.of(MoEnchants.MOD_ID)
                 ));
 
@@ -47,11 +50,17 @@ public class DataGenerators {
         gen.addProvider(
                 event.includeServer(),
                 new ModEntityTypeTagsProvider(pack, lookup, existingFiles));
+        var blockTags = new ModBlockTagsProvider(pack, lookup, existingFiles);
         gen.addProvider(
-                event.includeServer(),
-                new ModBlockTagsProvider(pack, lookup, existingFiles));
+                event.includeServer(), blockTags);
         gen.addProvider(
                 event.includeServer(),
                 new ModDamageTypeTagsProvider(pack, lookup, existingFiles));
+        gen.addProvider(
+                event.includeServer(),
+                new ModEnchantmentTagsProvider(pack, lookup, existingFiles));
+        gen.addProvider(
+                event.includeServer(),
+                new ModItemTagsProvider(pack, lookup, blockTags, existingFiles));
     }
 }

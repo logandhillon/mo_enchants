@@ -1,0 +1,40 @@
+{
+  "values": [
+    {
+      "id": "mo_enchants:angels_blessing",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:aquaphobia_curse",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:boiling_curse",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:density_curse",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:freezing_curse",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:harming_curse",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:bad_dreams_curse",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:lifeforce_discharge_curse",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:scorching_curse",
+      "required": false
+    }
+  ]
+}
