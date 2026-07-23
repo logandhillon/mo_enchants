@@ -12,9 +12,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
+@EventBusSubscriber
 public class AngelsBlessingHelper {
+    @SubscribeEvent
     public static void onEntityAttacked(LivingIncomingDamageEvent event) {
         LivingEntity entity = event.getEntity();
         if (event.getAmount() < entity.getHealth()) return;

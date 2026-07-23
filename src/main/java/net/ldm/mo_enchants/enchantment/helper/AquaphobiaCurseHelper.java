@@ -3,12 +3,17 @@ package net.ldm.mo_enchants.enchantment.helper;
 import net.ldm.mo_enchants.init.ModDamageSources;
 import net.ldm.mo_enchants.init.ModEnchantments;
 import net.ldm.mo_enchants.util.EnchantmentUtils;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
+@EventBusSubscriber
 public class AquaphobiaCurseHelper {
-    public static void onPlayerTickClient(PlayerTickEvent event) {
-        if (!event.getEntity().isInWater() || !EnchantmentUtils.hasArmorEnchantment(
-                event.getEntity(), ModEnchantments.AQUAPHOBIA_CURSE)) {
+    @SubscribeEvent
+    public static void onPlayerTickClient(PlayerTickEvent.Post event) {
+        if (!event.getEntity().level().isClientSide
+            || !event.getEntity().isInWater()
+            || !EnchantmentUtils.hasArmorEnchantment(event.getEntity(), ModEnchantments.AQUAPHOBIA_CURSE)) {
             return;
         }
 
