@@ -2,6 +2,7 @@ package net.ldm.mo_enchants.enchantment.effect;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -12,6 +13,7 @@ import net.minecraft.world.item.enchantment.EnchantedItemInUse;
 import net.minecraft.world.item.enchantment.LevelBasedValue;
 import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect;
 import net.minecraft.world.phys.Vec3;
+import org.joml.Vector3f;
 
 /**
  * @author Logan Dhillon
@@ -43,7 +45,17 @@ public class CriticallyDamageEntity implements EnchantmentEntityEffect {
                 SoundEvents.PLAYER_ATTACK_CRIT,
                 SoundSource.PLAYERS,
                 1.0f,
-                0.75f
+                0.5f
+        );
+
+        DustParticleOptions crit = new DustParticleOptions(
+                new Vector3f(1.0f, 0.5f, 0.0f), // yellow
+                1.0f
+        );
+
+        level.sendParticles(
+                crit,
+                victim.getX(), victim.getY(0.5), victim.getZ(), 20, 0.3, 0.5, 0.3, 0.5
         );
     }
 
