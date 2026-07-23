@@ -1,6 +1,11 @@
 package net.ldm.mo_enchants.event;
 
-//@EventBusSubscriber
+import net.ldm.mo_enchants.enchantment.helper.AquaphobiaCurseHelper;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
+
+@EventBusSubscriber
 public class EventHandler {
 //    @SubscribeEvent
 //    public static void onEntityAttacked(LivingIncomingDamageEvent event) {
@@ -19,18 +24,18 @@ public class EventHandler {
 //        PanicHelper.onEntityAttacked(event);
 //    }
 //
-//    @SubscribeEvent
-//    public static void onPlayerTick(PlayerTickEvent event) {
-//        if (event.getEntity().level().isClientSide) {
-//            AquaphobiaCurseHelper.onPlayerTickClient(event);
+    @SubscribeEvent
+    public static void onPlayerTick(PlayerTickEvent event) {
+        if (event.getEntity().level().isClientSide) {
+            AquaphobiaCurseHelper.onPlayerTickClient(event);
 //            BoilingCurseEnchantment.onPlayerTickClient(event);
 //            FireCoatingEnchantment.onPlayerTickClient(event);
 //            FreezingCurseEnchantment.onPlayerTickClient(event);
-//        }
-//
+        }
+
 //        SavingGraceHelper.onPlayerTick(event);
 //        MagmaWalkerEnchantment.onLivingTick(event);
-//    }
+    }
 //
 //    @SubscribeEvent
 //    public static void onEquipmentChange(LivingEquipmentChangeEvent event) {
