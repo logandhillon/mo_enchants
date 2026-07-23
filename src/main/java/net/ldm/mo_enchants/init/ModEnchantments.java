@@ -546,6 +546,18 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                            )
         );
 
+        register(
+                ctx, new Tags(MAGMA_WALKER, true, false, false),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.FOOT_ARMOR_ENCHANTABLE),
+                                   Rarity.VERY_RARE,
+                                   1,
+                                   EquipmentSlotGroup.FEET
+                           ))
+                           .exclusiveWith(HolderSet.direct(enchantments.getOrThrow(Enchantments.FROST_WALKER)))
+                // effect in code
+        );
+
         // ======== CURSES ========
         register(
                 ctx, new Tags(AQUAPHOBIA_CURSE, false, true, true),
