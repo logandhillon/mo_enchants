@@ -45,6 +45,12 @@ public class ModEnchantmentTagsProvider extends EnchantmentTagsProvider {
                 .addOptional(ModEnchantments.REVENANT.location())
                 .addOptional(ModEnchantments.BLOODTHIRST.location());
 
+        tag(ModTags.WEAPON_POST_ATTACK_ENCHANTMENTS)
+                .addOptional(ModEnchantments.LIFESTEAL.location())
+                .addOptional(ModEnchantments.VENOMFANG.location())
+                .addOptional(ModEnchantments.ICE_ASPECT.location())
+                .add(Enchantments.FIRE_ASPECT);
+
         tag(ModTags.CRITICAL_HIT_ENCHANTMENTS)
                 .addOptional(ModEnchantments.CRITICAL_BLOW.location())
                 .addOptional(ModEnchantments.FIRST_STRIKE.location());

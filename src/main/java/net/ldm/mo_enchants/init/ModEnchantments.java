@@ -449,6 +449,50 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                                            LevelBasedValue.constant(0), LevelBasedValue.constant(0)))
         );
 
+        register(
+                ctx, new Tags(FROST, true, false, false),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.BOW_ENCHANTABLE),
+                                   Rarity.RARE,
+                                   1,
+                                   EquipmentSlotGroup.MAINHAND
+                           ))
+                           .exclusiveWith(enchantments.getOrThrow(ModTags.EXCLUSIVE_BOW_MOD_ENCHANTMENTS))
+                           .withEffect(
+                                   EnchantmentEffectComponents.POST_ATTACK,
+                                   EnchantmentTarget.ATTACKER,
+                                   EnchantmentTarget.VICTIM,
+                                   new ApplyMobEffect(
+                                           HolderSet.direct(MobEffects.MOVEMENT_SLOWDOWN),
+                                           LevelBasedValue.perLevel(2, 1.75f), LevelBasedValue.perLevel(2, 1.75f),
+                                           LevelBasedValue.perLevel(1), LevelBasedValue.perLevel(1)),
+                                   LootItemEntityPropertyCondition.hasProperties(
+                                           LootContext.EntityTarget.DIRECT_ATTACKER,
+                                           EntityPredicate.Builder.entity().of(EntityType.ARROW)
+                                   )
+                           )
+        );
+
+        register(
+                ctx, new Tags(ICE_ASPECT, true, false, false),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                                   Rarity.RARE,
+                                   1,
+                                   EquipmentSlotGroup.MAINHAND
+                           ))
+                           .exclusiveWith(enchantments.getOrThrow(ModTags.WEAPON_POST_ATTACK_ENCHANTMENTS))
+                           .withEffect(
+                                   EnchantmentEffectComponents.POST_ATTACK,
+                                   EnchantmentTarget.ATTACKER,
+                                   EnchantmentTarget.VICTIM,
+                                   new ApplyMobEffect(
+                                           HolderSet.direct(MobEffects.MOVEMENT_SLOWDOWN),
+                                           LevelBasedValue.perLevel(2, 1.75f), LevelBasedValue.perLevel(2, 1.75f),
+                                           LevelBasedValue.perLevel(1), LevelBasedValue.perLevel(1))
+                           )
+        );
+
         // ======== CURSES ========
         register(
                 ctx, new Tags(AQUAPHOBIA_CURSE, false, true, true),

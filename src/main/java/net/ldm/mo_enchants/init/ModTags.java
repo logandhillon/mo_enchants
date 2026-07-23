@@ -18,6 +18,7 @@ public class ModTags {
 
     public static final TagKey<Enchantment> EXCLUSIVE_BOW_MOD_ENCHANTMENTS = tag(Registries.ENCHANTMENT, "exclusive_bow_mod_enchantments");
     public static final TagKey<Enchantment> OP_WEAPON_ENCHANTMENTS = tag(Registries.ENCHANTMENT, "op_weapon_enchantments");
+    public static final TagKey<Enchantment> WEAPON_POST_ATTACK_ENCHANTMENTS = tag(Registries.ENCHANTMENT, "weapon_post_attack_enchantments");
     public static final TagKey<Enchantment> CRITICAL_HIT_ENCHANTMENTS = tag(Registries.ENCHANTMENT, "critical_hit_enchantments");
 
 
