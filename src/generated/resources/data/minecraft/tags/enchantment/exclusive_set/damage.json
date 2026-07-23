@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "mo_enchants:aqua_slash",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:hunter",
+      "required": false
+    }
+  ]
+}

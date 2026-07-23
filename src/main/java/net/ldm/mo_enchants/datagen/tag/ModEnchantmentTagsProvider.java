@@ -44,5 +44,13 @@ public class ModEnchantmentTagsProvider extends EnchantmentTagsProvider {
                 .addOptional(ModEnchantments.ULTIMATE_FINISH.location())
                 .addOptional(ModEnchantments.REVENANT.location())
                 .addOptional(ModEnchantments.BLOODTHIRST.location());
+
+        tag(ModTags.CRITICAL_HIT_ENCHANTMENTS)
+                .addOptional(ModEnchantments.CRITICAL_BLOW.location())
+                .addOptional(ModEnchantments.FIRST_STRIKE.location());
+
+        tag(EnchantmentTags.DAMAGE_EXCLUSIVE)
+                .addOptional(ModEnchantments.AQUA_SLASH.location())
+                .addOptional(ModEnchantments.HUNTER.location());
     }
 }

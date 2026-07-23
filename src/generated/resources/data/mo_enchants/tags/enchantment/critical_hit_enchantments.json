@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "mo_enchants:devastation",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:first_strike",
+      "required": false
+    }
+  ]
+}

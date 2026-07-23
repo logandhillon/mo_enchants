@@ -10,8 +10,10 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.util.valueproviders.ConstantFloat;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
@@ -28,10 +30,7 @@ import net.minecraft.world.item.enchantment.effects.*;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootContext.EntityTarget;
-import net.minecraft.world.level.storage.loot.predicates.AllOfCondition;
-import net.minecraft.world.level.storage.loot.predicates.LocationCheck;
-import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.WeatherCheck;
+import net.minecraft.world.level.storage.loot.predicates.*;
 import net.neoforged.neoforge.common.Tags.Biomes;
 
 import java.util.ArrayList;
@@ -343,12 +342,32 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                                    AllOfCondition.allOf(
                                            WeatherCheck.weather().setThundering(true),
                                            LootItemEntityPropertyCondition.hasProperties(
-                                                   LootContext.EntityTarget.THIS, EntityPredicate.Builder.entity().located(LocationPredicate.Builder.location().setCanSeeSky(true))
+                                                   LootContext.EntityTarget.THIS, EntityPredicate.Builder.entity()
+                                                                                                         .located(
+                                                                                                                 LocationPredicate.Builder.location()
+                                                                                                                                          .setCanSeeSky(
+                                                                                                                                                  true))
                                            ),
                                            LootItemEntityPropertyCondition.hasProperties(
-                                                   LootContext.EntityTarget.DIRECT_ATTACKER, EntityPredicate.Builder.entity().of(EntityType.ARROW)
+                                                   LootContext.EntityTarget.DIRECT_ATTACKER,
+                                                   EntityPredicate.Builder.entity().of(EntityType.ARROW)
                                            )
                                    ))
+        );
+
+        register(
+                ctx, new Tags(CRITICAL_BLOW, true, false, false),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                                   Rarity.UNCOMMON,
+                                   2,
+                                   EquipmentSlotGroup.MAINHAND
+                           ))
+                           .exclusiveWith(enchantments.getOrThrow(ModTags.CRITICAL_HIT_ENCHANTMENTS))
+                           .withEffect(
+                                   EnchantmentEffectComponents.DAMAGE,
+                                   new AddValue(LevelBasedValue.constant(0.5f)),
+                                   LootItemRandomChanceCondition.randomChance(0.1f))
         );
 
         // ======== CURSES ========

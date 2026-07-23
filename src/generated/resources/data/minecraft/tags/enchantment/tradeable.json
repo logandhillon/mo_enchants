@@ -11,6 +11,10 @@
     {
       "id": "mo_enchants:conduction",
       "required": false
+    },
+    {
+      "id": "mo_enchants:devastation",
+      "required": false
     }
   ]
 }

@@ -11,7 +11,32 @@
           "type": "minecraft:summon_entity",
           "entity": "minecraft:lightning_bolt"
         },
-        "enchanted": "attacker"
+        "enchanted": "attacker",
+        "requirements": {
+          "condition": "minecraft:all_of",
+          "terms": [
+            {
+              "condition": "minecraft:weather_check",
+              "thundering": true
+            },
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "can_see_sky": true
+                }
+              }
+            },
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "direct_attacker",
+              "predicate": {
+                "type": "minecraft:arrow"
+              }
+            }
+          ]
+        }
       }
     ]
   },
