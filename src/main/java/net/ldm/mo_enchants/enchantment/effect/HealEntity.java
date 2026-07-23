@@ -17,8 +17,7 @@ public class HealEntity implements EnchantmentEntityEffect {
     public static final MapCodec<HealEntity> CODEC = RecordCodecBuilder.mapCodec(
             inst ->
                     inst.group(LevelBasedValue.CODEC.fieldOf("amount").forGetter(effect -> effect.amount))
-                        .apply(inst, HealEntity::new)
-    );
+                        .apply(inst, HealEntity::new));
 
     private final LevelBasedValue amount;
 

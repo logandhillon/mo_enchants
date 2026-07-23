@@ -4,15 +4,21 @@
     "translate": "enchantment.mo_enchants.devastation"
   },
   "effects": {
-    "minecraft:damage": [
+    "minecraft:post_attack": [
       {
+        "affected": "victim",
         "effect": {
-          "type": "minecraft:add",
-          "value": 0.5
+          "type": "mo_enchants:critically_damage_entity",
+          "multiplier": 0.5
         },
+        "enchanted": "attacker",
         "requirements": {
-          "chance": 0.1,
-          "condition": "minecraft:random_chance"
+          "chance": {
+            "type": "minecraft:linear",
+            "base": 0.1,
+            "per_level_above_first": 0.1
+          },
+          "condition": "mo_enchants:random_chance"
         }
       }
     ]
@@ -22,7 +28,7 @@
     "base": 25,
     "per_level_above_first": 8
   },
-  "max_level": 2,
+  "max_level": 3,
   "min_cost": {
     "base": 5,
     "per_level_above_first": 8

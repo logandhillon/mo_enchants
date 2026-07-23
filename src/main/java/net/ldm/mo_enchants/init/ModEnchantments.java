@@ -2,7 +2,9 @@ package net.ldm.mo_enchants.init;
 
 import net.ldm.mo_enchants.MoEnchants;
 import net.ldm.mo_enchants.datagen.datapack.DatapackEntryProvider;
+import net.ldm.mo_enchants.enchantment.effect.CriticallyDamageEntity;
 import net.ldm.mo_enchants.enchantment.effect.HealEntity;
+import net.ldm.mo_enchants.loot.condition.RandomChanceCondition;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.core.HolderGetter;
@@ -10,10 +12,8 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.util.valueproviders.ConstantFloat;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
@@ -342,11 +342,11 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                                    AllOfCondition.allOf(
                                            WeatherCheck.weather().setThundering(true),
                                            LootItemEntityPropertyCondition.hasProperties(
-                                                   LootContext.EntityTarget.THIS, EntityPredicate.Builder.entity()
-                                                                                                         .located(
-                                                                                                                 LocationPredicate.Builder.location()
-                                                                                                                                          .setCanSeeSky(
-                                                                                                                                                  true))
+                                                   LootContext.EntityTarget.THIS,
+                                                   EntityPredicate.Builder
+                                                           .entity()
+                                                           .located(LocationPredicate.Builder.location()
+                                                                                             .setCanSeeSky(true))
                                            ),
                                            LootItemEntityPropertyCondition.hasProperties(
                                                    LootContext.EntityTarget.DIRECT_ATTACKER,
@@ -360,14 +360,16 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                 Enchantment.enchantment(definition(
                                    items.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
                                    Rarity.UNCOMMON,
-                                   2,
+                                   3,
                                    EquipmentSlotGroup.MAINHAND
                            ))
                            .exclusiveWith(enchantments.getOrThrow(ModTags.CRITICAL_HIT_ENCHANTMENTS))
                            .withEffect(
-                                   EnchantmentEffectComponents.DAMAGE,
-                                   new AddValue(LevelBasedValue.constant(0.5f)),
-                                   LootItemRandomChanceCondition.randomChance(0.1f))
+                                   EnchantmentEffectComponents.POST_ATTACK,
+                                   EnchantmentTarget.ATTACKER,
+                                   EnchantmentTarget.VICTIM,
+                                   new CriticallyDamageEntity(LevelBasedValue.constant(0.5f)), // additional 50%
+                                   RandomChanceCondition.of(LevelBasedValue.perLevel(0.1f)))
         );
 
         // ======== CURSES ========

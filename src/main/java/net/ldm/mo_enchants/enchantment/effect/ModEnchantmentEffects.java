@@ -1,8 +1,7 @@
-package net.ldm.mo_enchants.init;
+package net.ldm.mo_enchants.enchantment.effect;
 
 import com.mojang.serialization.MapCodec;
 import net.ldm.mo_enchants.MoEnchants;
-import net.ldm.mo_enchants.enchantment.effect.HealEntity;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect;
@@ -17,4 +16,7 @@ public class ModEnchantmentEffects {
 
     public static final Holder<MapCodec<? extends EnchantmentEntityEffect>> HEAL_ENTITY =
             REGISTRY.register("heal_entity", () -> HealEntity.CODEC);
+
+    public static final Holder<MapCodec<? extends EnchantmentEntityEffect>> CRITICALLY_DAMAGE_ENTITY =
+            REGISTRY.register("critically_damage_entity", () -> CriticallyDamageEntity.CODEC);
 }
