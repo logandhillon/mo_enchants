@@ -16,5 +16,7 @@ public class ModLootItemConditions {
     public static final DeferredHolder<LootItemConditionType, LootItemConditionType> RANDOM_CHANCE =
             REGISTRY.register("random_chance", () -> new LootItemConditionType(RandomChanceCondition.CODEC));
 
+    public static final DeferredHolder<LootItemConditionType, LootItemConditionType> ENTITY_IS_ANIMAL =
+            REGISTRY.register("entity_is_animal", () -> new LootItemConditionType(EntityIsAnimalCondition.CODEC));
 
 }

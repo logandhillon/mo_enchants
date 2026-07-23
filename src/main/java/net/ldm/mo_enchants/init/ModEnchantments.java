@@ -4,7 +4,7 @@ import net.ldm.mo_enchants.MoEnchants;
 import net.ldm.mo_enchants.datagen.datapack.DatapackEntryProvider;
 import net.ldm.mo_enchants.enchantment.effect.CriticallyDamageEntity;
 import net.ldm.mo_enchants.enchantment.effect.HealEntity;
-import net.ldm.mo_enchants.enchantment.effect.SimpleExplodeEffect;
+import net.ldm.mo_enchants.loot.condition.EntityIsAnimalCondition;
 import net.ldm.mo_enchants.loot.condition.RandomChanceCondition;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.LocationPredicate;
@@ -28,7 +28,6 @@ import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.item.enchantment.EnchantmentTarget;
 import net.minecraft.world.item.enchantment.LevelBasedValue;
 import net.minecraft.world.item.enchantment.effects.*;
-import net.minecraft.world.level.Level.ExplosionInteraction;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootContext.EntityTarget;
@@ -314,6 +313,22 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                                            EntityTarget.THIS,
                                            EntityPredicate.Builder.entity().of(ModTags.WATER_WEAK_MOBS)
                                    )
+                           )
+        );
+
+        register(
+                ctx, new Tags(HUNTER, true, false, false),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                                   Rarity.UNCOMMON,
+                                   4,
+                                   EquipmentSlotGroup.MAINHAND
+                           ))
+                           .exclusiveWith(enchantments.getOrThrow(EnchantmentTags.DAMAGE_EXCLUSIVE))
+                           .withEffect(
+                                   EnchantmentEffectComponents.DAMAGE,
+                                   new AddValue(LevelBasedValue.perLevel(1.5f)),
+                                   EntityIsAnimalCondition::new
                            )
         );
 

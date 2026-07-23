@@ -5,6 +5,10 @@
       "required": false
     },
     {
+      "id": "mo_enchants:hunter",
+      "required": false
+    },
+    {
       "id": "mo_enchants:bloodthirst",
       "required": false
     },
