@@ -293,9 +293,9 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                 ctx, new Tags(AQUA_SLASH, true, false, false),
                 Enchantment.enchantment(definition(
                                    items.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
-                                   Rarity.VERY_RARE,
+                                   Rarity.UNCOMMON,
                                    4,
-                                   EquipmentSlotGroup.ARMOR
+                                   EquipmentSlotGroup.MAINHAND
                            ))
                            .exclusiveWith(enchantments.getOrThrow(EnchantmentTags.DAMAGE_EXCLUSIVE))
                            .withEffect(
@@ -308,7 +308,19 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                            )
         );
 
-        // CURSES
+        register(
+                ctx, new Tags(BLOODTHIRST, true, false, false),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                                   Rarity.VERY_RARE,
+                                   2,
+                                   EquipmentSlotGroup.MAINHAND
+                           ))
+                           .exclusiveWith(HolderSet.direct(enchantments.getOrThrow(REVENANT)))
+                // effect done in code
+        );
+
+        // ======== CURSES ========
         register(
                 ctx, new Tags(AQUAPHOBIA_CURSE, false, true, true),
                 Enchantment.enchantment(definition(
