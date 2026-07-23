@@ -1,4 +1,4 @@
-package net.ldm.mo_enchants.enchantment.helper;
+package net.ldm.mo_enchants.enchantment.event;
 
 import net.ldm.mo_enchants.init.ModEnchantments;
 import net.minecraft.tags.BlockTags;
@@ -8,7 +8,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.BlockEvent;
 
 @EventBusSubscriber
-public class CarefulEnchantmentHelper {
+public class GreenThumbEnchantmentHelper {
     @SubscribeEvent
     public static void onBlockBreak(BlockEvent.BreakEvent event) {
         if (event.getPlayer().getMainHandItem().getEnchantmentLevel(event.getPlayer().level().holderOrThrow(ModEnchantments.GREEN_THUMB)) > 0

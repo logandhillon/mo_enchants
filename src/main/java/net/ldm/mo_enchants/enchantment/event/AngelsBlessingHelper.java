@@ -1,4 +1,4 @@
-package net.ldm.mo_enchants.enchantment.helper;
+package net.ldm.mo_enchants.enchantment.event;
 
 import net.ldm.mo_enchants.init.ModEnchantments;
 import net.minecraft.advancements.CriteriaTriggers;

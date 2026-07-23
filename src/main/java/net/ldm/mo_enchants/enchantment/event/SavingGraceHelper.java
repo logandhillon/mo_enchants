@@ -1,10 +1,9 @@
-package net.ldm.mo_enchants.enchantment.helper;
+package net.ldm.mo_enchants.enchantment.event;
 
 import net.ldm.mo_enchants.init.ModEnchantments;
 import net.minecraft.client.Minecraft;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;

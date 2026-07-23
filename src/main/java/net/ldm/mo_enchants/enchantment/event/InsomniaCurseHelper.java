@@ -1,4 +1,4 @@
-package net.ldm.mo_enchants.enchantment.helper;
+package net.ldm.mo_enchants.enchantment.event;
 
 import net.ldm.mo_enchants.MoEnchants;
 import net.ldm.mo_enchants.init.ModDamageSources;
@@ -10,7 +10,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.CanPlayerSleepEvent;
 
 @EventBusSubscriber(modid = MoEnchants.MOD_ID)
-public class BadDreamsCurseHelper {
+public class InsomniaCurseHelper {
     @SubscribeEvent
     public static void onPlayerSleep(CanPlayerSleepEvent event) {
         Player player = event.getEntity();
