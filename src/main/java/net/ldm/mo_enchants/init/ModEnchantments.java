@@ -625,9 +625,27 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                                                    HolderSet.direct(MobEffects.REGENERATION, MobEffects.MOVEMENT_SPEED),
                                                    LevelBasedValue.perLevel(2), LevelBasedValue.perLevel(2),
                                                    LevelBasedValue.perLevel(1), LevelBasedValue.perLevel(1)),
-                                           new PlaySoundEffect(Holder.direct(SoundEvents.TOTEM_USE), ConstantFloat.of(1), ConstantFloat.of(1))
+                                           new PlaySoundEffect(
+                                                   Holder.direct(SoundEvents.TOTEM_USE), ConstantFloat.of(1),
+                                                   ConstantFloat.of(1))
                                    ),
                                    HealthBelowThresholdCondition.of(LevelBasedValue.perLevel(4f))
+                           )
+        );
+
+        register(
+                ctx, new Tags(REVENANT, true, false, true),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                                   Rarity.VERY_RARE,
+                                   2,
+                                   EquipmentSlotGroup.MAINHAND
+                           ))
+                           .exclusiveWith(enchantments.getOrThrow(ModTags.OP_WEAPON_ENCHANTMENTS))
+                           .withEffect(
+                                   EnchantmentEffectComponents.DAMAGE,
+                                   new AddValue(LevelBasedValue.constant(Float.MAX_VALUE)),
+                                   RandomChanceCondition.of(LevelBasedValue.perLevel(0.01f)) // 1%/lv.
                            )
         );
 
