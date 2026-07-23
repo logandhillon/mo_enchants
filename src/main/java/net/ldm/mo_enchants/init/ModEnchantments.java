@@ -33,6 +33,8 @@ import net.minecraft.world.level.storage.loot.predicates.AllOfCondition;
 import net.minecraft.world.level.storage.loot.predicates.LocationCheck;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.WeatherCheck;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.common.Tags.Biomes;
 
 import java.util.ArrayList;
@@ -113,17 +115,6 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
 
     public static final ResourceKey<Enchantment> SWIFTNESS = key(
             "swiftness",
-//            () -> new AttributeModifierEnchantment(
-//                    Rarity.RARE,
-//                    EnchantmentCategory.ARMOR_FEET,
-//                    new EquipmentSlot[]{ EquipmentSlot.FEET },
-//                    UUID.fromString("1f13db16-606d-4ae9-97e0-aa856ae1ecb1"),
-//                    Attributes.MOVEMENT_SPEED,
-//                    "swiftness",
-//                    0.01f,
-//                    3,
-//                    new Enchantment[]{ Enchantments.SOUL_SPEED, PANIC.get() },
-//                    false, false, true),
             "Swiftness",
             "Increases movement speed.");
 
@@ -174,50 +165,16 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
 
     public static final ResourceKey<Enchantment> WEIGHTLESS = key(
             "weightless",
-//            () -> new AttributeModifierEnchantment(
-//                    Rarity.RARE,
-//                    EnchantmentCategory.ARMOR_LEGS,
-//                    new EquipmentSlot[]{ EquipmentSlot.LEGS },
-//                    UUID.fromString("fe970a21-ad3e-4a00-886d-6119b8c5653a"),
-//                    ForgeMod.ENTITY_GRAVITY.get(),
-//                    "weightless",
-//                    -0.01f,
-//                    2,
-//                    new Enchantment[]{ Enchantments.THORNS },
-//                    false, false, true),
             "Weightless",
             "Decreases your gravity, allowing you to jump higher and fall slower.");
 
     public static final ResourceKey<Enchantment> DENSITY_CURSE = key(
             "density_curse",
-//            () -> new AttributeModifierEnchantment(
-//                    Rarity.VERY_RARE,
-//                    EnchantmentCategory.ARMOR,
-//                    new EquipmentSlot[]{ EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS,
-//                                         EquipmentSlot.FEET },
-//                    UUID.fromString("3d4c9250-3ffd-48d8-92e8-6589ddf69a26"),
-//                    ForgeMod.ENTITY_GRAVITY.get(),
-//                    "density_curse",
-//                    0.025f,
-//                    1,
-//                    new Enchantment[]{},
-//                    true, true, false),
             "Curse of Density",
             "Increases your gravity, causing you to jump lower and fall faster.");
 
     public static final ResourceKey<Enchantment> REACH = key(
             "reach",
-//            () -> new AttributeModifierEnchantment(
-//                    Rarity.RARE,
-//                    EnchantmentCategory.DIGGER,
-//                    new EquipmentSlot[]{ EquipmentSlot.MAINHAND },
-//                    UUID.fromString("5c4c7797-5f49-4560-9035-8a2bf8836616"),
-//                    ForgeMod.BLOCK_REACH.get(),
-//                    "reach",
-//                    1f,
-//                    3,
-//                    new Enchantment[]{ Enchantments.SILK_TOUCH, Enchantments.BLOCK_FORTUNE, SMELTING_TOUCH.get() },
-//                    false, false, true),
             "Reach",
             "Gives you +1 block of mining reach per level.");
 
@@ -243,32 +200,16 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
 
     public static final ResourceKey<Enchantment> VITALITY = key(
             "growth",
-//            () -> new AttributeModifierEnchantment(
-//                    Rarity.RARE,
-//                    EnchantmentCategory.ARMOR,
-//                    new EquipmentSlot[]{ EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS,
-//                                         EquipmentSlot.FEET },
-//                    UUID.fromString("1e2860e7-95fb-4b49-b617-ddd1da80c3d2"),
-//                    Attributes.MAX_HEALTH,
-//                    "growth",
-//                    1f,
-//                    4,
-//                    new Enchantment[]{ Enchantments.ALL_DAMAGE_PROTECTION, Enchantments.PROJECTILE_PROTECTION,
-//                                       Enchantments.BLAST_PROTECTION, Enchantments.FALL_PROTECTION,
-//                                       Enchantments.FIRE_PROTECTION },
-//                    false, false, true),
             "Vitality",
             "Adds half a heart to your max health for each level.");
 
     public static final ResourceKey<Enchantment> CRITICAL_BLOW = key(
             "devastation",
-//            () -> new CriticalHitEnchantment(3),
             "Critical Blow",
             "Allows for the chance of critical hits, which do 150% damage.");
 
     public static final ResourceKey<Enchantment> FIRST_STRIKE = key(
             "first_strike",
-//            () -> new CriticalHitEnchantment(1),
             "First Strike",
             "Does 25% more damage on first strikes.");
 
@@ -558,6 +499,99 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                 // effect in code
         );
 
+        register(
+                ctx, new Tags(NIGHT_VISION, true, false, true),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.HEAD_ARMOR_ENCHANTABLE),
+                                   Rarity.RARE,
+                                   1,
+                                   EquipmentSlotGroup.HEAD
+                           ))
+                           .exclusiveWith(HolderSet.direct(enchantments.getOrThrow(Enchantments.AQUA_AFFINITY)))
+                           .withEffect(
+                                   EnchantmentEffectComponents.TICK,
+                                   new ApplyMobEffect(
+                                           HolderSet.direct(MobEffects.NIGHT_VISION),
+                                           LevelBasedValue.constant(2), LevelBasedValue.constant(2),
+                                           LevelBasedValue.constant(0), LevelBasedValue.constant(0)))
+        );
+
+        register(
+                ctx, new Tags(REACH, true, false, true),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
+                                   Rarity.RARE,
+                                   3,
+                                   EquipmentSlotGroup.HEAD
+                           ))
+                           .exclusiveWith(enchantments.getOrThrow(EnchantmentTags.MINING_EXCLUSIVE))
+                           .withEffect(
+                                   EnchantmentEffectComponents.ATTRIBUTES,
+                                   new EnchantmentAttributeEffect(
+                                           MoEnchants.modResource("reach"),
+                                           Attributes.BLOCK_INTERACTION_RANGE,
+                                           LevelBasedValue.perLevel(1),
+                                           Operation.ADD_VALUE
+                                   ))
+        );
+
+        register(
+                ctx, new Tags(VITALITY, true, false, true),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.ARMOR_ENCHANTABLE),
+                                   Rarity.RARE,
+                                   4,
+                                   EquipmentSlotGroup.ARMOR
+                           ))
+                           .exclusiveWith(enchantments.getOrThrow(EnchantmentTags.ARMOR_EXCLUSIVE))
+                           .withEffect(
+                                   EnchantmentEffectComponents.ATTRIBUTES,
+                                   new EnchantmentAttributeEffect(
+                                           MoEnchants.modResource("vitality"),
+                                           Attributes.MAX_HEALTH,
+                                           LevelBasedValue.perLevel(1),
+                                           Operation.ADD_VALUE
+                                   ))
+        );
+
+        register(
+                ctx, new Tags(WEIGHTLESS, true, false, true),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.LEG_ARMOR_ENCHANTABLE),
+                                   Rarity.RARE,
+                                   2,
+                                   EquipmentSlotGroup.LEGS
+                           ))
+                           .exclusiveWith(HolderSet.direct(enchantments.getOrThrow(Enchantments.THORNS)))
+                           .withEffect(
+                                   EnchantmentEffectComponents.ATTRIBUTES,
+                                   new EnchantmentAttributeEffect(
+                                           MoEnchants.modResource("weightless"),
+                                           Attributes.GRAVITY,
+                                           LevelBasedValue.perLevel(-0.01f),
+                                           Operation.ADD_VALUE
+                                   ))
+        );
+
+        register(
+                ctx, new Tags(SWIFTNESS, true, false, true),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.FOOT_ARMOR_ENCHANTABLE),
+                                   Rarity.RARE,
+                                   3,
+                                   EquipmentSlotGroup.FEET
+                           ))
+                           .exclusiveWith(enchantments.getOrThrow(ModTags.FOOT_ARMOR_EXCLUSIVE))
+                           .withEffect(
+                                   EnchantmentEffectComponents.ATTRIBUTES,
+                                   new EnchantmentAttributeEffect(
+                                           MoEnchants.modResource("swiftness"),
+                                           Attributes.MOVEMENT_SPEED,
+                                           LevelBasedValue.perLevel(0.01f),
+                                           Operation.ADD_VALUE
+                                   ))
+        );
+
         // ======== CURSES ========
         register(
                 ctx, new Tags(AQUAPHOBIA_CURSE, false, true, true),
@@ -690,23 +724,6 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                                    EnchantmentTarget.VICTIM,
                                    EnchantmentTarget.VICTIM,
                                    new Ignite(LevelBasedValue.constant(3)))
-        );
-
-        register(
-                ctx, new Tags(NIGHT_VISION, true, false, true),
-                Enchantment.enchantment(definition(
-                                   items.getOrThrow(ItemTags.HEAD_ARMOR_ENCHANTABLE),
-                                   Rarity.RARE,
-                                   1,
-                                   EquipmentSlotGroup.HEAD
-                           ))
-                           .exclusiveWith(HolderSet.direct(enchantments.getOrThrow(Enchantments.AQUA_AFFINITY)))
-                           .withEffect(
-                                   EnchantmentEffectComponents.TICK,
-                                   new ApplyMobEffect(
-                                           HolderSet.direct(MobEffects.NIGHT_VISION),
-                                           LevelBasedValue.constant(2), LevelBasedValue.constant(2),
-                                           LevelBasedValue.constant(0), LevelBasedValue.constant(0)))
         );
     }
 

@@ -59,5 +59,17 @@ public class ModEnchantmentTagsProvider extends EnchantmentTagsProvider {
         tag(EnchantmentTags.DAMAGE_EXCLUSIVE)
                 .addOptional(ModEnchantments.AQUA_SLASH.location())
                 .addOptional(ModEnchantments.HUNTER.location());
+
+        tag(EnchantmentTags.MINING_EXCLUSIVE)
+                .addOptional(ModEnchantments.REACH.location())
+                .addOptional(ModEnchantments.SMELTING_TOUCH.location());
+
+        tag(EnchantmentTags.ARMOR_EXCLUSIVE)
+                .addOptional(ModEnchantments.VITALITY.location());
+
+        tag(ModTags.FOOT_ARMOR_EXCLUSIVE)
+                .add(Enchantments.SOUL_SPEED)
+                .addOptional(ModEnchantments.SWIFTNESS.location())
+                .addOptional(ModEnchantments.PANIC.location());
     }
 }
