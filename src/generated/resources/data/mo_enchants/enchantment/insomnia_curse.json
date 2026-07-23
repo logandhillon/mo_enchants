@@ -1,7 +1,7 @@
 {
   "anvil_cost": 8,
   "description": {
-    "translate": "enchantment.mo_enchants.bad_dreams_curse"
+    "translate": "enchantment.mo_enchants.insomnia_curse"
   },
   "max_cost": {
     "base": 50,

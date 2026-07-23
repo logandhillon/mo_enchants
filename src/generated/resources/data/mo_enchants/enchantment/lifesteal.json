@@ -1,15 +1,19 @@
 {
-  "anvil_cost": 2,
+  "anvil_cost": 8,
   "description": {
-    "translate": "enchantment.mo_enchants.devastation"
+    "translate": "enchantment.mo_enchants.lifesteal"
   },
   "effects": {
     "minecraft:post_attack": [
       {
-        "affected": "victim",
+        "affected": "attacker",
         "effect": {
-          "type": "mo_enchants:critically_damage_entity",
-          "multiplier": 0.5
+          "type": "mo_enchants:heal_entity",
+          "amount": {
+            "type": "minecraft:linear",
+            "base": 1.0,
+            "per_level_above_first": 1.0
+          }
         },
         "enchanted": "attacker",
         "requirements": {
@@ -23,19 +27,19 @@
       }
     ]
   },
-  "exclusive_set": "#mo_enchants:critical_hit_enchantments",
+  "exclusive_set": "#mo_enchants:op_weapon_enchantments",
   "max_cost": {
-    "base": 25,
+    "base": 50,
     "per_level_above_first": 8
   },
   "max_level": 3,
   "min_cost": {
-    "base": 5,
+    "base": 20,
     "per_level_above_first": 8
   },
   "slots": [
     "mainhand"
   ],
   "supported_items": "#minecraft:enchantable/weapon",
-  "weight": 5
+  "weight": 1
 }

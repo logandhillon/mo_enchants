@@ -5,7 +5,7 @@
       "required": false
     },
     {
-      "id": "mo_enchants:fire_coating",
+      "id": "mo_enchants:fireproofing",
       "required": false
     },
     {
@@ -17,7 +17,7 @@
       "required": false
     },
     {
-      "id": "mo_enchants:growth",
+      "id": "mo_enchants:vitality",
       "required": false
     },
     {
@@ -61,7 +61,7 @@
       "required": false
     },
     {
-      "id": "mo_enchants:freezing_curse",
+      "id": "mo_enchants:frostbite_curse",
       "required": false
     },
     {
@@ -69,11 +69,11 @@
       "required": false
     },
     {
-      "id": "mo_enchants:bad_dreams_curse",
+      "id": "mo_enchants:insomnia_curse",
       "required": false
     },
     {
-      "id": "mo_enchants:lifeforce_discharge_curse",
+      "id": "mo_enchants:sacrifice_curse",
       "required": false
     },
     {

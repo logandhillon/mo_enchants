@@ -13,7 +13,7 @@
       "required": false
     },
     {
-      "id": "mo_enchants:life_steal",
+      "id": "mo_enchants:lifesteal",
       "required": false
     }
   ]

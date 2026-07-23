@@ -17,7 +17,7 @@
       "required": false
     },
     {
-      "id": "mo_enchants:devastation",
+      "id": "mo_enchants:critical_blow",
       "required": false
     },
     {
@@ -33,7 +33,7 @@
       "required": false
     },
     {
-      "id": "mo_enchants:fire_coating",
+      "id": "mo_enchants:fireproofing",
       "required": false
     },
     {
@@ -41,11 +41,11 @@
       "required": false
     },
     {
-      "id": "mo_enchants:freezing_aspect",
+      "id": "mo_enchants:ice_aspect",
       "required": false
     },
     {
-      "id": "mo_enchants:careful",
+      "id": "mo_enchants:green_thumb",
       "required": false
     },
     {
@@ -53,7 +53,7 @@
       "required": false
     },
     {
-      "id": "mo_enchants:life_steal",
+      "id": "mo_enchants:lifesteal",
       "required": false
     },
     {
@@ -69,7 +69,7 @@
       "required": false
     },
     {
-      "id": "mo_enchants:growth",
+      "id": "mo_enchants:vitality",
       "required": false
     },
     {

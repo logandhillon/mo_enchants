@@ -1,7 +1,7 @@
 {
   "values": [
     {
-      "id": "mo_enchants:life_steal",
+      "id": "mo_enchants:lifesteal",
       "required": false
     },
     {
@@ -9,7 +9,7 @@
       "required": false
     },
     {
-      "id": "mo_enchants:freezing_aspect",
+      "id": "mo_enchants:ice_aspect",
       "required": false
     },
     "minecraft:fire_aspect"

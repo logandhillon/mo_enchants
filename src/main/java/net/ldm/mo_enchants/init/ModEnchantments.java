@@ -72,17 +72,17 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
             "Automatically smelts any block you mine.");
 
     public static final ResourceKey<Enchantment> LIFESTEAL = key(
-            "life_steal",
+            "lifesteal",
             "Lifesteal",
             "Gives you a chance to steal attacked enemies health.");
 
     public static final ResourceKey<Enchantment> ICE_ASPECT = key(
-            "freezing_aspect",
+            "ice_aspect",
             "Ice Aspect",
             "Freezes attacked enemies.");
 
     public static final ResourceKey<Enchantment> SACRIFICE_CURSE = key(
-            "lifeforce_discharge_curse",
+            "sacrifice_curse",
             "Curse of Sacrifice",
             "Heal enemies you attack with your health.");
 
@@ -127,12 +127,12 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
             "Ignites you in hot or dry biomes.");
 
     public static final ResourceKey<Enchantment> FROSTBITE_CURSE = key(
-            "freezing_curse",
+            "frostbite_curse",
             "Curse of Frostbite",
             "Freezes you in cold biomes.");
 
     public static final ResourceKey<Enchantment> INSOMNIA_CURSE = key(
-            "bad_dreams_curse",
+            "insomnia_curse",
             "Curse of Insomnia",
             "Become unable to sleep due to nightmares.");
 
@@ -197,17 +197,17 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
             "Creates a path while walking on lava.");
 
     public static final ResourceKey<Enchantment> FIREPROOFING = key(
-            "fire_coating",
+            "fireproofing",
             "Fireproofing",
             "Makes you immune to fire and lava.");
 
     public static final ResourceKey<Enchantment> VITALITY = key(
-            "growth",
+            "vitality",
             "Vitality",
             "Adds half a heart to your max health for each level.");
 
     public static final ResourceKey<Enchantment> CRITICAL_BLOW = key(
-            "devastation",
+            "critical_blow",
             "Critical Blow",
             "Allows for the chance of critical hits, which do 150% damage.");
 
@@ -217,7 +217,7 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
             "Does 25% more damage on first strikes.");
 
     public static final ResourceKey<Enchantment> GREEN_THUMB = key(
-            "careful",
+            "green_thumb",
             "Green Thumb",
             "Prevents you from mining ungrown crops & stems.");
 

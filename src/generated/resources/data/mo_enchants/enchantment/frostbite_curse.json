@@ -1,7 +1,7 @@
 {
   "anvil_cost": 8,
   "description": {
-    "translate": "enchantment.mo_enchants.freezing_curse"
+    "translate": "enchantment.mo_enchants.frostbite_curse"
   },
   "effects": {
     "minecraft:tick": [

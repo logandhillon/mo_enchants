@@ -1,7 +1,7 @@
 {
   "anvil_cost": 4,
   "description": {
-    "translate": "enchantment.mo_enchants.growth"
+    "translate": "enchantment.mo_enchants.vitality"
   },
   "effects": {
     "minecraft:attributes": [

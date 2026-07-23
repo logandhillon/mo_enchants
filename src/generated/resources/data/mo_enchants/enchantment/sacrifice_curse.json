@@ -1,7 +1,7 @@
 {
   "anvil_cost": 8,
   "description": {
-    "translate": "enchantment.mo_enchants.lifeforce_discharge_curse"
+    "translate": "enchantment.mo_enchants.sacrifice_curse"
   },
   "effects": {
     "minecraft:post_attack": [

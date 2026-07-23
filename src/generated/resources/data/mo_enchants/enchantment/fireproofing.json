@@ -1,7 +1,7 @@
 {
   "anvil_cost": 8,
   "description": {
-    "translate": "enchantment.mo_enchants.fire_coating"
+    "translate": "enchantment.mo_enchants.fireproofing"
   },
   "effects": {
     "minecraft:tick": [

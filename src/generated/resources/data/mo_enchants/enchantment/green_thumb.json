@@ -1,7 +1,7 @@
 {
   "anvil_cost": 2,
   "description": {
-    "translate": "enchantment.mo_enchants.careful"
+    "translate": "enchantment.mo_enchants.green_thumb"
   },
   "max_cost": {
     "base": 25,

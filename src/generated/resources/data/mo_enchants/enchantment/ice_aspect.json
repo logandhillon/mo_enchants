@@ -1,7 +1,7 @@
 {
   "anvil_cost": 4,
   "description": {
-    "translate": "enchantment.mo_enchants.freezing_aspect"
+    "translate": "enchantment.mo_enchants.ice_aspect"
   },
   "effects": {
     "minecraft:post_attack": [
