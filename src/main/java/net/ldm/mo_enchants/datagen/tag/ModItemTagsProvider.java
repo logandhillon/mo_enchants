@@ -5,8 +5,8 @@ import net.ldm.mo_enchants.init.ModTags;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -26,5 +26,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     @Override
     protected void addTags(Provider provider) {
         tag(ModTags.TOTEM_OF_UNDYING).add(Items.TOTEM_OF_UNDYING);
+
+        //noinspection unchecked
+        tag(ModTags.RANGED_WEAPONS_ENCHANTABLE).addTags(ItemTags.BOW_ENCHANTABLE, ItemTags.CROSSBOW_ENCHANTABLE);
     }
 }

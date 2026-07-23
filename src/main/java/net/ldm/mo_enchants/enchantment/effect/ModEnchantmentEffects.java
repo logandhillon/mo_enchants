@@ -19,4 +19,7 @@ public class ModEnchantmentEffects {
 
     public static final Holder<MapCodec<? extends EnchantmentEntityEffect>> CRITICALLY_DAMAGE_ENTITY =
             REGISTRY.register("critically_damage_entity", () -> CriticallyDamageEntity.CODEC);
+
+    public static final Holder<MapCodec<? extends EnchantmentEntityEffect>> SIMPLE_EXPLODE_EFFECT =
+            REGISTRY.register("simple_explode_effect", () -> SimpleExplodeEffect.CODEC);
 }

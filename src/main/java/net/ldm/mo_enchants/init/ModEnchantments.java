@@ -4,6 +4,7 @@ import net.ldm.mo_enchants.MoEnchants;
 import net.ldm.mo_enchants.datagen.datapack.DatapackEntryProvider;
 import net.ldm.mo_enchants.enchantment.effect.CriticallyDamageEntity;
 import net.ldm.mo_enchants.enchantment.effect.HealEntity;
+import net.ldm.mo_enchants.enchantment.effect.SimpleExplodeEffect;
 import net.ldm.mo_enchants.loot.condition.RandomChanceCondition;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.LocationPredicate;
@@ -27,10 +28,14 @@ import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.item.enchantment.EnchantmentTarget;
 import net.minecraft.world.item.enchantment.LevelBasedValue;
 import net.minecraft.world.item.enchantment.effects.*;
+import net.minecraft.world.level.Level.ExplosionInteraction;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootContext.EntityTarget;
-import net.minecraft.world.level.storage.loot.predicates.*;
+import net.minecraft.world.level.storage.loot.predicates.AllOfCondition;
+import net.minecraft.world.level.storage.loot.predicates.LocationCheck;
+import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.WeatherCheck;
 import net.neoforged.neoforge.common.Tags.Biomes;
 
 import java.util.ArrayList;
@@ -370,6 +375,30 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                                    EnchantmentTarget.VICTIM,
                                    new CriticallyDamageEntity(LevelBasedValue.constant(0.5f)), // additional 50%
                                    RandomChanceCondition.of(LevelBasedValue.perLevel(0.1f)))
+        );
+
+        register(
+                ctx, new Tags(DETONATION, true, false, false),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ModTags.RANGED_WEAPONS_ENCHANTABLE),
+                                   Rarity.VERY_RARE,
+                                   1,
+                                   EquipmentSlotGroup.MAINHAND
+                           ))
+                           .exclusiveWith(enchantments.getOrThrow(ModTags.EXCLUSIVE_BOW_MOD_ENCHANTMENTS))
+                // effect done in code
+        );
+
+        register(
+                ctx, new Tags(ULTIMATE_FINISH, true, false, false),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                                   Rarity.VERY_RARE,
+                                   1,
+                                   EquipmentSlotGroup.MAINHAND
+                           ))
+                           .exclusiveWith(enchantments.getOrThrow(ModTags.OP_WEAPON_ENCHANTMENTS))
+                // effect done code
         );
 
         // ======== CURSES ========

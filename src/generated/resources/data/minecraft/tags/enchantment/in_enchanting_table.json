@@ -15,6 +15,14 @@
     {
       "id": "mo_enchants:devastation",
       "required": false
+    },
+    {
+      "id": "mo_enchants:detonation",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:ultimate_finish",
+      "required": false
     }
   ]
 }

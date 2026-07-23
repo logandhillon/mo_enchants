@@ -1,0 +1,21 @@
+{
+  "anvil_cost": 8,
+  "description": {
+    "translate": "enchantment.mo_enchants.detonation"
+  },
+  "exclusive_set": "#mo_enchants:exclusive_bow_mod_enchantments",
+  "max_cost": {
+    "base": 50,
+    "per_level_above_first": 8
+  },
+  "max_level": 1,
+  "min_cost": {
+    "base": 20,
+    "per_level_above_first": 8
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#mo_enchants:ranged_weapons_enchantable",
+  "weight": 1
+}
