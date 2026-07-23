@@ -33,8 +33,6 @@ import net.minecraft.world.level.storage.loot.predicates.AllOfCondition;
 import net.minecraft.world.level.storage.loot.predicates.LocationCheck;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.WeatherCheck;
-import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.common.Tags.Biomes;
 
 import java.util.ArrayList;
@@ -590,6 +588,17 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                                            LevelBasedValue.perLevel(0.01f),
                                            Operation.ADD_VALUE
                                    ))
+        );
+
+        register(
+                ctx, new Tags(SAVING_GRACE, true, false, true),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.FOOT_ARMOR_ENCHANTABLE),
+                                   Rarity.VERY_RARE,
+                                   1,
+                                   EquipmentSlotGroup.FEET
+                           ))
+                // effect code
         );
 
         // ======== CURSES ========
