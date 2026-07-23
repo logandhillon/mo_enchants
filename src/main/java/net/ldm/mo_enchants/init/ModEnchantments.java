@@ -14,6 +14,7 @@ import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -25,9 +26,12 @@ import net.minecraft.world.item.enchantment.EnchantmentTarget;
 import net.minecraft.world.item.enchantment.LevelBasedValue;
 import net.minecraft.world.item.enchantment.effects.*;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootContext.EntityTarget;
+import net.minecraft.world.level.storage.loot.predicates.AllOfCondition;
 import net.minecraft.world.level.storage.loot.predicates.LocationCheck;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.WeatherCheck;
 import net.neoforged.neoforge.common.Tags.Biomes;
 
 import java.util.ArrayList;
@@ -278,6 +282,7 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
         HolderGetter<DamageType> damageTypes = ctx.lookup(Registries.DAMAGE_TYPE);
         HolderGetter<Item> items = ctx.lookup(Registries.ITEM);
         HolderGetter<Biome> biomes = ctx.lookup(Registries.BIOME);
+        HolderGetter<EntityType<?>> entityTypes = ctx.lookup(Registries.ENTITY_TYPE);
 
         register(
                 ctx, new Tags(ANGELS_BLESSING, false, false, true),
@@ -316,8 +321,34 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                                    2,
                                    EquipmentSlotGroup.MAINHAND
                            ))
-                           .exclusiveWith(HolderSet.direct(enchantments.getOrThrow(REVENANT)))
+                           .exclusiveWith(enchantments.getOrThrow(ModTags.OP_WEAPON_ENCHANTMENTS))
                 // effect done in code
+        );
+
+        register(
+                ctx, new Tags(CONDUCTION, true, false, false),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.BOW_ENCHANTABLE),
+                                   Rarity.RARE,
+                                   1,
+                                   EquipmentSlotGroup.MAINHAND
+                           ))
+                           .exclusiveWith(enchantments.getOrThrow(ModTags.EXCLUSIVE_BOW_MOD_ENCHANTMENTS))
+                           .withEffect(
+                                   EnchantmentEffectComponents.POST_ATTACK,
+                                   EnchantmentTarget.ATTACKER,
+                                   EnchantmentTarget.VICTIM,
+                                   new SummonEntityEffect(
+                                           HolderSet.direct(EntityType.LIGHTNING_BOLT.builtInRegistryHolder()), false),
+                                   AllOfCondition.allOf(
+                                           WeatherCheck.weather().setThundering(true),
+                                           LootItemEntityPropertyCondition.hasProperties(
+                                                   LootContext.EntityTarget.THIS, EntityPredicate.Builder.entity().located(LocationPredicate.Builder.location().setCanSeeSky(true))
+                                           ),
+                                           LootItemEntityPropertyCondition.hasProperties(
+                                                   LootContext.EntityTarget.DIRECT_ATTACKER, EntityPredicate.Builder.entity().of(EntityType.ARROW)
+                                           )
+                                   ))
         );
 
         // ======== CURSES ========

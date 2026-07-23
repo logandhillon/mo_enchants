@@ -2,10 +2,12 @@ package net.ldm.mo_enchants.datagen.tag;
 
 import net.ldm.mo_enchants.MoEnchants;
 import net.ldm.mo_enchants.init.ModEnchantments;
+import net.ldm.mo_enchants.init.ModTags;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EnchantmentTagsProvider;
 import net.minecraft.tags.EnchantmentTags;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -31,6 +33,16 @@ public class ModEnchantmentTagsProvider extends EnchantmentTagsProvider {
             else tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(tag.key().location());
         });
 
-        tag(EnchantmentTags.ARMOR_EXCLUSIVE);
+        tag(ModTags.EXCLUSIVE_BOW_MOD_ENCHANTMENTS)
+                .addOptional(ModEnchantments.CONDUCTION.location())
+                .addOptional(ModEnchantments.DETONATION.location())
+                .add(Enchantments.FLAME)
+                .addOptional(ModEnchantments.FROST.location())
+                .addOptional(ModEnchantments.LEVITATING.location());
+
+        tag(ModTags.OP_WEAPON_ENCHANTMENTS)
+                .addOptional(ModEnchantments.ULTIMATE_FINISH.location())
+                .addOptional(ModEnchantments.REVENANT.location())
+                .addOptional(ModEnchantments.BLOODTHIRST.location());
     }
 }

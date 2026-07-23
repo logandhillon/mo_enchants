@@ -1,15 +1,15 @@
 {
   "values": [
     {
-      "id": "mo_enchants:aqua_slash",
+      "id": "mo_enchants:ultimate_finish",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:revenant",
       "required": false
     },
     {
       "id": "mo_enchants:bloodthirst",
-      "required": false
-    },
-    {
-      "id": "mo_enchants:conduction",
       "required": false
     }
   ]

@@ -3,6 +3,14 @@
     {
       "id": "mo_enchants:aqua_slash",
       "required": false
+    },
+    {
+      "id": "mo_enchants:bloodthirst",
+      "required": false
+    },
+    {
+      "id": "mo_enchants:conduction",
+      "required": false
     }
   ]
 }

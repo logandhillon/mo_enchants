@@ -28,7 +28,7 @@ public class EventHandler {
     }
 
     @SubscribeEvent
-    public static void onPlayerTick(PlayerTickEvent event) {
+    public static void onPlayerTick(PlayerTickEvent.Post event) {
         if (event.getEntity().level().isClientSide) {
             AquaphobiaCurseHelper.onPlayerTickClient(event);
 //            BoilingCurseEnchantment.onPlayerTickClient(event);
