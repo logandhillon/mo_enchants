@@ -1,5 +1,9 @@
 # Changelog
 
+> [!NOTE]
+> This changelog is only for UNTAGGED versions (earlier than v1.6). For versions later, please refer to the GitHub
+> releases tab.
+
 ### Mo’ Enchants v1.4.2 (1.18.x)
 
 *The first 1.18 release is here! Get ready to play Mo’ Enchants with the new cave generation!*
