@@ -439,6 +439,26 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
         );
 
         register(
+                ctx, new Tags(VENOMFANG, true, false, false),
+                Enchantment.enchantment(definition(
+                                   items.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                                   Rarity.RARE,
+                                   2,
+                                   EquipmentSlotGroup.MAINHAND
+                           ))
+                           .exclusiveWith(enchantments.getOrThrow(ModTags.WEAPON_POST_ATTACK_ENCHANTMENTS))
+                           .withEffect(
+                                   EnchantmentEffectComponents.POST_ATTACK,
+                                   EnchantmentTarget.ATTACKER,
+                                   EnchantmentTarget.VICTIM,
+                                   new ApplyMobEffect(
+                                           HolderSet.direct(MobEffects.POISON),
+                                           LevelBasedValue.perLevel(3), LevelBasedValue.perLevel(3),
+                                           LevelBasedValue.perLevel(1), LevelBasedValue.perLevel(1))
+                           )
+        );
+
+        register(
                 ctx, new Tags(GREEN_THUMB, true, false, false),
                 Enchantment.enchantment(definition(
                         items.getOrThrow(ItemTags.HOES),

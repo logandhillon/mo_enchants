@@ -41,6 +41,10 @@
       "required": false
     },
     {
+      "id": "mo_enchants:venomfang",
+      "required": false
+    },
+    {
       "id": "mo_enchants:green_thumb",
       "required": false
     },
