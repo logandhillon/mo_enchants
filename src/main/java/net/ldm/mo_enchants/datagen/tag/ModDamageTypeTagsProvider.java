@@ -31,6 +31,14 @@ public class ModDamageTypeTagsProvider extends DamageTypeTagsProvider {
                 .addOptional(ModDamageSources.HARMING_CURSE.location())
                 .addOptional(ModDamageSources.LIFEFORCE_DISCHARGE.location());
 
+        tag(DamageTypeTags.NO_KNOCKBACK)
+                .addOptional(ModDamageSources.AQUAPHOBIA.location())
+                .addOptional(ModDamageSources.BLOODTHIRST.location())
+                .addOptional(ModDamageSources.FREEZING.location())
+                .addOptional(ModDamageSources.GENERIC_CURSE.location())
+                .addOptional(ModDamageSources.HARMING_CURSE.location())
+                .addOptional(ModDamageSources.LIFEFORCE_DISCHARGE.location());
+
         tag(DamageTypeTags.IS_FREEZING)
                 .addOptional(ModDamageSources.FREEZING.location());
     }
