@@ -24,4 +24,10 @@ public class ModLootItemConditions {
 
     public static final DeferredHolder<LootItemConditionType, LootItemConditionType> HEALTH_BELOW_THRESHOLD =
             REGISTRY.register("health_below_threshold", () -> new LootItemConditionType(HealthBelowThresholdCondition.CODEC));
+
+    public static final DeferredHolder<LootItemConditionType, LootItemConditionType> ENTITY_IS_IN_WATER =
+            REGISTRY.register("entity_is_in_water", () -> new LootItemConditionType(EntityIsInWaterCondition.CODEC));
+
+    public static final DeferredHolder<LootItemConditionType, LootItemConditionType> RUN_EVERY_X_TICKS =
+            REGISTRY.register("run_every_x_ticks", () -> new LootItemConditionType(RunEveryXTicksCondition.CODEC));
 }

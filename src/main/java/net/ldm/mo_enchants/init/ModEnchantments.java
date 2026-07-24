@@ -4,10 +4,7 @@ import net.ldm.mo_enchants.MoEnchants;
 import net.ldm.mo_enchants.datagen.datapack.DatapackEntryProvider;
 import net.ldm.mo_enchants.enchantment.effect.CriticallyDamageEntity;
 import net.ldm.mo_enchants.enchantment.effect.HealEntity;
-import net.ldm.mo_enchants.loot.condition.EntityIsAnimalCondition;
-import net.ldm.mo_enchants.loot.condition.EntityIsUnharmedCondition;
-import net.ldm.mo_enchants.loot.condition.HealthBelowThresholdCondition;
-import net.ldm.mo_enchants.loot.condition.RandomChanceCondition;
+import net.ldm.mo_enchants.loot.condition.*;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.core.Holder;
@@ -697,12 +694,20 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
         register(
                 ctx, new Tags(AQUAPHOBIA_CURSE, false, true, true),
                 Enchantment.enchantment(definition(
-                        items.getOrThrow(ItemTags.ARMOR_ENCHANTABLE),
-                        Rarity.VERY_RARE,
-                        1,
-                        EquipmentSlotGroup.ARMOR
-                ))
-                // effect done in code
+                                   items.getOrThrow(ItemTags.ARMOR_ENCHANTABLE),
+                                   Rarity.VERY_RARE,
+                                   1,
+                                   EquipmentSlotGroup.ARMOR
+                           ))
+                           .withEffect(
+                                   EnchantmentEffectComponents.TICK,
+                                   new DamageEntity(
+                                           LevelBasedValue.constant(1), LevelBasedValue.constant(2),
+                                           damageTypes.getOrThrow(ModDamageSources.AQUAPHOBIA)),
+                                   AllOfCondition.allOf(
+                                           EntityIsInWaterCondition::new,
+                                           RunEveryXTicksCondition.of(LevelBasedValue.constant(10f))
+                                   ))
         );
 
         register(

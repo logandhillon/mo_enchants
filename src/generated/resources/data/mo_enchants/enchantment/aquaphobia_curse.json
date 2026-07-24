@@ -3,6 +3,30 @@
   "description": {
     "translate": "enchantment.mo_enchants.aquaphobia_curse"
   },
+  "effects": {
+    "minecraft:tick": [
+      {
+        "effect": {
+          "type": "minecraft:damage_entity",
+          "damage_type": "mo_enchants:aquaphobia",
+          "max_damage": 2.0,
+          "min_damage": 1.0
+        },
+        "requirements": {
+          "condition": "minecraft:all_of",
+          "terms": [
+            {
+              "condition": "mo_enchants:entity_is_in_water"
+            },
+            {
+              "condition": "mo_enchants:run_every_x_ticks",
+              "tickRate": 10.0
+            }
+          ]
+        }
+      }
+    ]
+  },
   "max_cost": {
     "base": 50,
     "per_level_above_first": 8
