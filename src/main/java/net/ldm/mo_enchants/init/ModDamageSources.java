@@ -20,10 +20,6 @@ public class ModDamageSources {
             "aquaphobia",
             "%1$s forgot they were aquaphobic",
             "%1$s forgot they were aquaphobic and tried to escape %2$s");
-    public static final ResourceKey<DamageType> BAD_DREAMS          = create(
-            "bad_dreams",
-            "%s had a bad dream",
-            "%1$s had a bad dream whilst trying to escape %2$s");
     public static final ResourceKey<DamageType> FREEZING            = create(
             "freezing",
             "%1$s froze to death",

@@ -1,10 +1,11 @@
 package net.ldm.mo_enchants.enchantment.event;
 
 import net.ldm.mo_enchants.MoEnchants;
-import net.ldm.mo_enchants.init.ModDamageSources;
 import net.ldm.mo_enchants.init.ModEnchantments;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.Player.BedSleepingProblem;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.CanPlayerSleepEvent;
@@ -17,7 +18,8 @@ public class InsomniaCurseHelper {
 
         if (player.getItemBySlot(EquipmentSlot.HEAD).getEnchantmentLevel(
                 player.level().holderOrThrow(ModEnchantments.INSOMNIA_CURSE)) != 0) {
-            player.hurt(ModDamageSources.of(ModDamageSources.BAD_DREAMS, player), Float.MAX_VALUE);
+            event.setProblem(BedSleepingProblem.OTHER_PROBLEM);
+            player.displayClientMessage(Component.translatable("message.mo_enchants.insomnia_curse"), true);
         }
     }
 }

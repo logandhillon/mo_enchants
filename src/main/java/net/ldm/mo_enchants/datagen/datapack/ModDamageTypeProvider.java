@@ -13,7 +13,6 @@ public class ModDamageTypeProvider implements DatapackEntryProvider<DamageType> 
     @Override
     public void bootstrap(BootstrapContext<DamageType> ctx) {
         create(ctx, ModDamageSources.AQUAPHOBIA, DamageScaling.NEVER, 0.1f);
-        create(ctx, ModDamageSources.BAD_DREAMS, DamageScaling.NEVER, 0f);
         create(ctx, ModDamageSources.BLOODTHIRST, DamageScaling.NEVER, 0.1f);
         create(ctx, ModDamageSources.FREEZING, DamageScaling.NEVER, 0.1f);
         create(ctx, ModDamageSources.GENERIC_CURSE, DamageScaling.NEVER, 0f);

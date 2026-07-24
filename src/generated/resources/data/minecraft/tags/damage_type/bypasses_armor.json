@@ -5,10 +5,6 @@
       "required": false
     },
     {
-      "id": "mo_enchants:bad_dreams",
-      "required": false
-    },
-    {
       "id": "mo_enchants:bloodthirst",
       "required": false
     },

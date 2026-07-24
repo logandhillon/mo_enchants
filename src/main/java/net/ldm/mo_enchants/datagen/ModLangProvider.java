@@ -24,6 +24,7 @@ public class ModLangProvider extends LanguageProvider {
         add("key.category.enchantments", "Enchantments");
         add("cooldown.generic", "§cThis ability is on cooldown!");
         add("cooldown.input", "§c%1$s is on cooldown!");
+        add("message.mo_enchants.insomnia_curse", "You cannot sleep due to insomnia.");
 
         for (var translation: ModEnchantments.TRANSLATIONS) {
             add("enchantment.mo_enchants." + translation.id(), translation.name());

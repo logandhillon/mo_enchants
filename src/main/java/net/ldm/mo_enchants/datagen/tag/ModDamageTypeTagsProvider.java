@@ -25,7 +25,6 @@ public class ModDamageTypeTagsProvider extends DamageTypeTagsProvider {
         // optional as datapacks don't register lookups
         tag(DamageTypeTags.BYPASSES_ARMOR)
                 .addOptional(ModDamageSources.AQUAPHOBIA.location())
-                .addOptional(ModDamageSources.BAD_DREAMS.location())
                 .addOptional(ModDamageSources.BLOODTHIRST.location())
                 .addOptional(ModDamageSources.FREEZING.location())
                 .addOptional(ModDamageSources.GENERIC_CURSE.location())
