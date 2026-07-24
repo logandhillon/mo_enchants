@@ -234,7 +234,7 @@ public class ModEnchantments implements DatapackEntryProvider<Enchantment> {
                 Enchantment.enchantment(definition(
                         items.getOrThrow(ModTags.TOTEM_OF_UNDYING),
                         Rarity.VERY_RARE,
-                        1,
+                        3,
                         EquipmentSlotGroup.MAINHAND, EquipmentSlotGroup.OFFHAND
                 ))
         );
