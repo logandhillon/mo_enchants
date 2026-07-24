@@ -77,7 +77,7 @@ public class LiquefyingMagmaBlock extends Block {
             }
 
             @SubscribeEvent
-            public void tick(ServerTickEvent event) {
+            public void tick(ServerTickEvent.Post event) {
                 this.ticks += 1;
                 if (this.ticks >= this.waitTicks) run();
             }
